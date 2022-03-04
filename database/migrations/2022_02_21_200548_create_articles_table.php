@@ -13,21 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('category_translations', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('category_id');
-            $table->string('locale')->index();
-            $table->string('title');
-            $table->string('slug')->index();
-
             $table->foreignId('category_id')
                 ->references('id')
                 ->on('categories')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
-            $table->unique(['category_id','locale', 'slug']);
-
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->boolean('is_flash')->default(false);
+            $table->boolean('is_alert')->default(false);
+            $table->boolean('is_breaking')->default(false);
+            $table->enum('status',['N','S','P'])->default('N');
+            $table->timestamp('publish_at')->nullable(true);
+            $table->timestamps();
         });
     }
 
@@ -38,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_translations');
+        Schema::dropIfExists('articles');
     }
 };

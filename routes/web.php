@@ -20,6 +20,11 @@ Route::get('/', function () {
 Route::group(['prefix'=>'admin', 'as'=>'admin.'], function(){
     Route::get('getLoggedUser',[\App\Http\Controllers\UserController::class,'getLoggedUser']);
     Route::apiResource('categories',\App\Http\Controllers\CategoryController::class);
+    Route::post('categories/{category}/publish',[\App\Http\Controllers\CategoryController::class,'publishCategory']);
+    Route::get('categories/{category}/articles',[\App\Http\Controllers\CategoryController::class,'getArticles']);
+    Route::post('categories/{category}/new-article',[\App\Http\Controllers\CategoryController::class,'addArticle']);
+    Route::post('categories/{category}/translate',[\App\Http\Controllers\CategoryController::class,'translateCategory']);
+    Route::apiResource('articles',\App\Http\Controllers\ArticleController::class);
 
 });
 

@@ -13,21 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('category_translations', function (Blueprint $table) {
+        Schema::create('article_translations', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('category_id');
-            $table->string('locale')->index();
-            $table->string('title');
-            $table->string('slug')->index();
 
             $table->foreignId('category_id')
                 ->references('id')
                 ->on('categories')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-
-            $table->unique(['category_id','locale', 'slug']);
-
+            $table->string('locale')->index();
+            $table->string('title');
+            $table->string('slug')->index();
+            $table->text('lead')->nullable(true);
+            $table->text('body');
+            $table->unique(['locale','slug']);
+            $table->timestamps();
         });
     }
 
@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_translations');
+        Schema::dropIfExists('article_translations');
     }
 };
