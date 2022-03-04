@@ -12,6 +12,13 @@ class Category extends Model implements TranslatableContract
     use HasFactory;
     use Translatable;
 
-    public $translatedAttributes = ['title'];
+    public $translatedAttributes = ['title','slug'];
     protected $fillable = ['in_menu'];
+    protected $casts = [
+        'in_menu' => 'boolean'
+    ];
+
+    public function articles(){
+        return $this->hasMany(Article::class);
+    }
 }
