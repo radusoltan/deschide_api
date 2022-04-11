@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -129,7 +130,20 @@ class CategoryController extends Controller
      * 
      */
     public function addArticle(Request $request, Category $category){
+        $request->validate([
+            'title' => 'required|string',
+            'lng' => 'required|string'
+        ]);
+        app()->setLocale($request->get('lng'));
+        $article = Article::create([
+            'category_id' => $category->id,
+            'title' => $request->get('title'),
+            'slug' => Str::slug($request->get('title'))
+        ]);
 
+        return response()->json([
+            'article' => $article
+        ]);
     }
 
     public function translateCategory(Request $request, Category $category){

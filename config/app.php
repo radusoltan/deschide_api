@@ -86,7 +86,7 @@ return [
 
     'locale' => 'en',
     'locales' => [
-        'ro', 'ru','en'
+        'ro', 'ru', 'en'
     ],
 
     /*
@@ -173,6 +173,8 @@ return [
          * Package Service Providers...
          */
         Spatie\Permission\PermissionServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -196,7 +198,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // ...
+        'Image' => Intervention\Image\Facades\Image::class
     ])->toArray(),
 
 ];
