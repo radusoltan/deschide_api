@@ -16,16 +16,16 @@ return new class extends Migration
         Schema::create('article_translations', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('category_id')
+            $table->foreignId('article_id')
                 ->references('id')
-                ->on('categories')
+                ->on('articles')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('locale')->index();
             $table->string('title');
             $table->string('slug')->index();
             $table->text('lead')->nullable(true);
-            $table->text('body');
+            $table->text('body')->nullable(true);
             $table->unique(['locale','slug']);
             $table->timestamps();
         });

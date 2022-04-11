@@ -12,16 +12,23 @@ class Article extends Model implements TranslatableContract
     use HasFactory;
     use Translatable;
 
-    public $translatedAttributes = ['title','slug','lead','body'];
-    protected $fillable = ['category_id','is_flash','is_alert','is_breaking','status','published_at'];
+    public $translatedAttributes = ['title', 'slug', 'lead', 'body'];
+    protected $fillable = ['category_id', 'is_flash', 'is_alert', 'is_breaking', 'status', 'published_at'];
     protected $casts = [
         'is_flash' => 'boolean',
         'is_alert' => 'boolean',
         'is_breaking' => 'boolean'
     ];
 
+    protected $with = ['images'];
+
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function images()
+    {
+        return $this->belongsToMany(Image::class, 'article_image');
     }
 }
