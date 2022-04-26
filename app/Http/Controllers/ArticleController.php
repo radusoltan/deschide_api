@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\ArticleImages;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use App\Services\ImageService;
 
 class ArticleController extends Controller
 {
@@ -128,17 +130,16 @@ class ArticleController extends Controller
      */
     public function addArticleImages(Request $request, Article $article){
 
+        
+
         foreach ($request->images as $file) {
+
             $name = $file->getClientOriginalName();
             $image = Image::where('name', $name)->first();
             $file->storeAs('public/images', $name);
             $path = 'storage/images/' . $name;
 
-
-
             list($width, $height) = getimagesize(public_path($path));
-
-            // Log::info($width . '=//=' . $height);
 
             if (!$image) {
                 $image = Image::create([
@@ -147,7 +148,8 @@ class ArticleController extends Controller
                     'width' => $width,
                     'height' => $height
                 ]);
-            }
+                $image->setThumbnails();
+            }            
 
             if (!$article->images->contains($image)) {
                 $article->images()->attach($image);
@@ -165,6 +167,35 @@ class ArticleController extends Controller
     }
 
     public function getArticleImages(Article $article){
-        return $article->images()->get();
+
+        $resp = [];
+        
+        foreach ($article->images()->get() as $image){
+
+            $resp[]= [
+                'id'=> $image->getId(),
+                'name' => $image->getName(),
+                'path' => $image->getPath(),
+                'width' => $image->getWidth(),
+                'height' => $image->getHeight(),
+                'isMain' => $image->getArticleMainImage($article)===$image->getId() ?? null,
+                'thumbs' => $image->getThumbnails(),
+            ];            
+        }
+
+        return $resp;
+    }
+
+    public function getArticleMainImage(Article $article){
+        $mainImage = ArticleImages::where('article_id',$article->id)
+            ->where('is_main',true)
+            ->first()
+        ;
+
+        if(!$mainImage){
+            return ArticleImages::where('article_id',$article->id)->first()->getImageId();
+        }
+
+        return $mainImage->getImageId();
     }
 }

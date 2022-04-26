@@ -46,7 +46,15 @@ Route::group(['middleware' => 'CORS'], function ($router) {
     Route::get('/article/{article}/images',[ArticleController::class,'getArticleImages']);
     Route::post('/article/{article}/upload-images',[ArticleController::class,'addArticleImages']);
     Route::post('/article/{article}/detach-images',[ArticleController::class,'detachArticleImages']);
+    Route::get('/article/{article}/main-image',[ArticleController::class,'getArticleMainImage']);
+
+
+    Route::get('/image/{image}/renditions',[ImageController::class,'getRenditions']);
 
     Route::get('/import/categories',[ImportController::class,'importCategories']);
+
+    Route::post('/image/set-main',[ImageController::class,'setMainImage']);
+
+    Route::get('/image-test',[ImageController::class,'getImageThumbs']);
 
 });
