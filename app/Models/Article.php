@@ -10,7 +10,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Article extends Model implements TranslatableContract
 {
-    use HasFactory, Translatable;
+    use HasFactory;
+    use Translatable;
 
     public array $translatedAttributes = ['title', 'slug', 'lead', 'body', 'status', 'published_at','publish_at'];
 
@@ -26,6 +27,10 @@ class Article extends Model implements TranslatableContract
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function authors() {
+        return $this->belongsToMany(Author::class, 'article_authors', 'article_id', 'article_id');
     }
 
 

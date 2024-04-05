@@ -17,11 +17,18 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return new ArticleCollection(Article::paginate(10));
+        $locale = app()->getLocale();
+        return new ArticleCollection(Article::translatedIn($locale)->paginate(10));
     }
 
     public function getArticlesByCategory(Category $category) {
-        return new ArticleCollection($category->articles()->paginate(10));
+        $locale = app()->getLocale();
+        return new ArticleCollection(
+            $category
+                ->articles()
+                ->translatedIn($locale)
+                ->paginate(10)
+        );
     }
 
     public function addCategoryArticle(Request $request, Category $category) {
@@ -61,7 +68,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return new ArticleResource($article);
     }
 
     /**
@@ -77,7 +84,17 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $article->update([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'lead' => $request->lead,
+            'body' => $request->body,
+            'status' => $request->status,
+            'is_flash' => $request->is_flash,
+            'is_alert' => $request->is_alert,
+            'is_breaking' => $request->is_breaking,
+        ]);
+        return new ArticleResource($article);
     }
 
     /**

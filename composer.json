@@ -7,8 +7,10 @@
     "require": {
         "php": "^8.2",
         "astrotomic/laravel-translatable": "^11.13",
+        "elasticsearch/elasticsearch": "^8.13",
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
+        "laravel/scout": "^10.8",
         "laravel/tinker": "^2.9",
         "spatie/laravel-permission": "^6.4"
     },
