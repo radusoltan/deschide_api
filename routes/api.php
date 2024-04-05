@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -13,7 +15,15 @@ Route::get('/user', function (Request $request) {
 
 Route::post('login',[AuthController::class, 'login']);
 
-Route::group(['middleware' => 'auth:sanctum'], function (){
+Route::group(['middleware' => ['auth:sanctum', 'set_locale']], function (){
+
+    //Article routes
+    Route::apiResource('articles', ArticleController::class);
+    Route::get('/category/{category}/articles', [ArticleController::class,'getArticlesByCategory']);
+    Route::post('/category/{category}/article', [ArticleController::class,'addCategoryArticle']);
+
+    //Category routes
+    Route::apiResource('categories', CategoryController::class);
 
     Route::post('logout',[AuthController::class, 'logout']);
 
