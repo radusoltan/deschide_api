@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CategoryCollection;
+use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -12,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return new CategoryCollection(Category::paginate(10));
     }
 
     /**
@@ -20,7 +23,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|string',
+            'in_menu' => 'boolean',
+        ]);
+
+        $category = Category::create([
+            'title' => $data['title'],
+            'slug' => Str::slug($data['title']),
+            'in_menu' => $data['in_menu'],
+        ]);
+
+        return new CategoryResource($category);
+
     }
 
     /**
@@ -28,7 +43,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return new CategoryResource($category);
     }
 
     /**
@@ -36,7 +51,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->update([
+            'title' => $request->get('title'),
+            'slug' => Str::slug($request->get('title')),
+            'in_menu' => $request->get('in_menu') ?? false
+        ]);
+
+        return new CategoryResource($category);
     }
 
     /**
@@ -44,6 +65,6 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        return $category->delete();
     }
 }

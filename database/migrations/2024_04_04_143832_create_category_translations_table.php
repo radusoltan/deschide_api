@@ -20,7 +20,7 @@ return new class extends Migration
 
             $table->foreignId('category_id')
                 ->references('id')
-                ->on('category')
+                ->on('categories')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->unique(['category_id', 'locale', 'slug']);
