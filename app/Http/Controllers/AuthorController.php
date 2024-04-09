@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\AuthorCollection;
+use App\Http\Resources\AuthorResource;
 use App\Models\Author;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Str;
 
 class AuthorController extends Controller
 {
@@ -12,15 +16,8 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $locale = App::getLocale();
+        return new AuthorCollection(Author::translatedIn($locale)->paginate(10));
     }
 
     /**
@@ -28,7 +25,22 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|string|email|unique:authors,email',
+//            'locale' => 'required'
+        ]);
+
+        $author = Author::create([
+            'email' => $request->get('email'),
+            'first_name' => $request->get('first_name'),
+            'last_name' => $request->get('last_name'),
+            'full_name' => $request->get('first_name').' '.$request->get('last_name'),
+            'slug' => Str::slug($request->get('first_name').' '.$request->get('last_name'))
+        ]);
+
+        return new AuthorResource($author);
     }
 
     /**
@@ -36,23 +48,25 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
-        //
+        return new AuthorResource($author);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Author $author)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Author $author)
     {
-        //
+        $author->update([
+            'first_name' => $request->get('first_name'),
+            'last_name' => $request->get('last_name'),
+            "full_name" => $request->get('first_name').' '.$request->get('last_name'),
+            'slug' => Str::slug($request->get('first_name').' '.$request->get('last_name')),
+            'email' => $request->get('email')
+        ]);
+
+        return new AuthorResource($author);
     }
 
     /**
@@ -60,6 +74,6 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
-        //
+        return $author->delete();
     }
 }

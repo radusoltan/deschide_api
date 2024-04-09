@@ -13,4 +13,9 @@ class CategoryTranslation extends Model
     protected $casts = [
         'in_menu' => 'boolean'
     ];
+
+    public function vzt()
+    {
+        return visits($this);
+    }
 }

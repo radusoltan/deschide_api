@@ -18,7 +18,9 @@ class ArticleTranslation extends Model
         'keywords',
         'status',
         'published_at',
-        'publish_at'
+        'publish_at',
+        'is_locked',
+        'locked_by_user'
     ];
 
     public function article(){
@@ -26,7 +28,12 @@ class ArticleTranslation extends Model
     }
 
     protected $casts = [
+        'is_locked' => 'boolean',
         'publish_at' => 'datetime',
-//        'keywords' => 'json'
     ];
+
+    public function vzt()
+    {
+        return visits($this);
+    }
 }

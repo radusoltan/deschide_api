@@ -11,6 +11,7 @@ class Category extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
     public $translatedAttributes = ['in_menu','title','slug'];
+    public $fillable = ['old_number'];
 
     public function articles() {
         return $this->hasMany(Article::class);

@@ -25,8 +25,13 @@ return new class extends Migration
             $table->text('body')->nullable(true);
             $table->unique(['locale','slug']);
             $table->enum('status',['N','S','P'])->default('N');
+            $table->boolean('is_flash')->default(false);
+            $table->boolean('is_alert')->default(false);
+            $table->boolean('is_breaking')->default(false);
             $table->timestamp('publish_at')->nullable(true);
             $table->timestamp('published_at')->nullable(true);
+            $table->boolean('is_locked')->default(false);
+            $table->integer('locked_by_user')->nullable()->default(null);
         });
     }
 
