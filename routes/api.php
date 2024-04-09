@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
@@ -21,6 +22,12 @@ Route::group(['middleware' => ['auth:sanctum', 'set_locale']], function (){
     Route::apiResource('articles', ArticleController::class);
     Route::get('/category/{category}/articles', [ArticleController::class,'getArticlesByCategory']);
     Route::post('/category/{category}/article', [ArticleController::class,'addCategoryArticle']);
+
+    Route::get('/article/{article}/images',[ArticleController::class,'getArticleImages']);
+    Route::post('/article/{article}/images',[ArticleController::class,'addArticleImages']);
+
+    //Author routes
+    Route::apiResource('authors', AuthorController::class);
 
     //Category routes
     Route::apiResource('categories', CategoryController::class);

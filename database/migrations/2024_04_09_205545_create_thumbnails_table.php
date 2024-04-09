@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('thumbnails', function (Blueprint $table) {
             $table->id();
-            $table->string('old_number')
-                ->nullable()
-                ->default(null);
-            $table->timestamps();
+            $table->integer('width')->nullable(true);
+            $table->integer('height')->nullable(true);
+            $table->string('path');
+            $table->json('coords')->nullable(true);
+            $table->foreignIdFor(\App\Models\Rendition::class);
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('thumbnails');
     }
 };

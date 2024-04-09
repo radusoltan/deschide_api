@@ -7,10 +7,12 @@
     "require": {
         "php": "^8.2",
         "astrotomic/laravel-translatable": "^11.13",
+        "awssat/laravel-visits": "dev-l11-compatibility",
         "elasticsearch/elasticsearch": "^8.13",
+        "intervention/image": "^3.5",
+        "intervention/image-laravel": "^1.2",
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
-        "laravel/scout": "^10.8",
         "laravel/tinker": "^2.9",
         "spatie/laravel-permission": "^6.4"
     },
@@ -67,10 +69,15 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true,"repositories": [
+    "prefer-stable": true,
+    "repositories": [
     {
         "type": "vcs",
         "url": "https://github.com/Oleksandr-Moik/laravel-translatable.git"
-    }
+    },
+        {
+            "type": "vcs",
+            "url": "https://github.com/laravel-shift/laravel-visits.git"
+        }
 ]
 }

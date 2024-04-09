@@ -18,12 +18,11 @@ return new class extends Migration
                 ->on('categories')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->boolean('is_flash')->default(false);
-            $table->boolean('is_alert')->default(false);
-            $table->boolean('is_breaking')->default(false);
+
             $table->softDeletes();
-            $table->string('share_id')->nullable(true);
-            $table->integer('old_number')->nullable(true);
+            $table->string('share_id')->nullable();
+            $table->integer('old_number')->nullable();
+
             $table->timestamps();
         });
     }

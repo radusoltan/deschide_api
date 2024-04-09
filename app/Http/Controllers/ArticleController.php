@@ -4,14 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ArticleCollection;
 use App\Http\Resources\ArticleResource;
+use App\Http\Resources\ImageCollection;
+use App\Http\Resources\ImageResource;
 use App\Models\Article;
+use App\Models\ArticleImage;
 use App\Models\Category;
+use App\Services\ArticleService;
+use App\Services\ImageService;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
+    private $articleService;
+    private $imageService;
+
+    public function __construct(ArticleService $articleService, ImageService $imageService) {
+        $this->articleService = $articleService;
+        $this->imageService = $imageService;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -32,12 +45,14 @@ class ArticleController extends Controller
     }
 
     public function addCategoryArticle(Request $request, Category $category) {
+//        dd(Auth::user()->id);
         try {
             $article = $category->articles()->create([
                 'title' => $request->title,
                 'slug' => Str::slug($request->title),
                 'category_id' => $category->id,
-                'status' => 'N'
+                'status' => 'N',
+
             ]);
 
             return new ArticleResource($article);
@@ -66,8 +81,11 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Article $article)
+    public function show(Article $article, ArticleService $service)
     {
+
+        $this->articleService->lockArticle($article);
+
         return new ArticleResource($article);
     }
 
@@ -94,6 +112,9 @@ class ArticleController extends Controller
             'is_alert' => $request->is_alert,
             'is_breaking' => $request->is_breaking,
         ]);
+        if ($request->has('saveType') && $request->saveType == 'close') {
+            $this->articleService->unlockArticle($article);
+        }
         return new ArticleResource($article);
     }
 
@@ -103,5 +124,28 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         //
+    }
+
+    public function getArticleImages(Article $article) {
+        return new ImageCollection($article->images);
+    }
+
+    public function addArticleImages(Request $request, Article $article) {
+        foreach ($request->images as $image) {
+            $image = $this->imageService->uploadImage($image);
+            if (!$article->images->contains($image)) {
+                $article->images()->attach($image);
+            }
+        }
+
+        if ($article->images()->count() === 1) {
+            $image = $article->images()->first();
+            $mainImage = ArticleImage::where('article_id',$article->id)
+                ->where('image_id',$image->id)->first();
+            $mainImage->setMain();
+//            $this->imageService->saveImageThumbnails($image);
+        }
+
+        return new ArticleResource($article);
     }
 }

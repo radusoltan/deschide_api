@@ -15,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return new CategoryCollection(Category::paginate(10));
+        $locale = app()->getLocale();
+        return new CategoryCollection(Category::translatedIn($locale)->paginate(10));
     }
 
     /**
@@ -26,12 +27,14 @@ class CategoryController extends Controller
         $data = $request->validate([
             'title' => 'required|string',
             'in_menu' => 'boolean',
+            'old_number' => 'integer'
         ]);
 
         $category = Category::create([
             'title' => $data['title'],
             'slug' => Str::slug($data['title']),
             'in_menu' => $data['in_menu'],
+            'old_number' => $data['old_number'] ?? null
         ]);
 
         return new CategoryResource($category);

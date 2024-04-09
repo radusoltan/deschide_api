@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Article;
+use App\Models\Image;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,12 +13,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('article_images', function (Blueprint $table) {
             $table->id();
-            $table->string('old_number')
-                ->nullable()
-                ->default(null);
-            $table->timestamps();
+            $table->foreignIdFor(Article::class);
+            $table->foreignIdFor(Image::class);
+            $table->boolean('is_main')->default(false);
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('article_images');
     }
 };
