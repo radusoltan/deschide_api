@@ -12,6 +12,10 @@ class ArticleImage extends Model
     protected $table = 'article_images';
     protected $fillable = ['is_main'];
 
+    protected $casts = [
+        'is_main' => 'boolean'
+    ];
+
     public function setMain(){
         $this->is_main = true;
         $this->save();

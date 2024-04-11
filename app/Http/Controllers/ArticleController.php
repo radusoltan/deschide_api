@@ -4,17 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ArticleCollection;
 use App\Http\Resources\ArticleResource;
+use App\Http\Resources\AuthorResource;
 use App\Http\Resources\ImageCollection;
 use App\Http\Resources\ImageResource;
 use App\Models\Article;
 use App\Models\ArticleImage;
+use App\Models\Author;
 use App\Models\Category;
+use App\Models\Image;
 use App\Services\ArticleService;
 use App\Services\ImageService;
+use Carbon\Carbon;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use PharIo\Manifest\AuthorCollection;
 
 class ArticleController extends Controller
 {
@@ -63,14 +68,6 @@ class ArticleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
@@ -89,13 +86,6 @@ class ArticleController extends Controller
         return new ArticleResource($article);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Article $article)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -123,11 +113,12 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        return $article->delete();
     }
 
     public function getArticleImages(Article $article) {
-        return new ImageCollection($article->images);
+        $article->refresh();
+        return ImageResource::collection($article->images);
     }
 
     public function addArticleImages(Request $request, Article $article) {
@@ -138,14 +129,86 @@ class ArticleController extends Controller
             }
         }
 
-        if ($article->images()->count() === 1) {
+        if ($article->images()->count() >= 1) {
             $image = $article->images()->first();
             $mainImage = ArticleImage::where('article_id',$article->id)
                 ->where('image_id',$image->id)->first();
             $mainImage->setMain();
-//            $this->imageService->saveImageThumbnails($image);
+            $this->imageService->saveImageThumbnails($image);
+        }
+        $article->refresh();
+
+        return ImageResource::collection($article->images);
+    }
+
+    public function detachArticleImage(Request $request, Article $article) {
+        $article->images()->detach($request->get('id'));
+        $article->refresh();
+        return ImageResource::collection($article->images);
+    }
+
+    public function setMainArticleImage(Request $request, Article $article) {
+
+        $articleImages = ArticleImage::where('article_id', $article->id)->get();
+        foreach ($articleImages as $articleImage) {
+            $articleImage->update([
+                'is_main' => false,
+            ]);
+        }
+        $mainImage = ArticleImage::where('article_id',$article->id)
+            ->where('image_id',$request->get('image'))
+            ->first();
+        $mainImage->update(['is_main'=>true]);
+        $image = Image::find($request->get('image'));
+        return new ImageResource($image);
+    }
+
+    public function setPublishTime(Request $request, Article $article) {
+
+        $dt = Carbon::parse($request->get('time'));
+        $article->update([
+            'publish_at' => $dt,
+        ]);
+        return new ArticleResource($article);
+    }
+
+    public function deleteEvent(Article $article) {
+        $article->update([
+            'publish_at' => null,
+            'published_at' => null,
+        ]);
+        return new ArticleResource($article);
+    }
+
+    public function getArticleAuthors(Article $article) {
+        return AuthorResource::collection($article->authors);
+    }
+
+    public function addArticleAuthor(Request $request, Article $article) {
+
+        $request->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'email' => 'required|email|unique:authors,email',
+        ]);
+
+        try {
+            $author = Author::create([
+                'email' => $request->get('email'),
+                'first_name' => $request->get('first_name'),
+                'last_name' => $request->get('last_name'),
+                'full_name' => $request->get('first_name').' '.$request->get('last_name'),
+                'slug' => Str::slug($request->get('first_name').' '.$request->get('last_name'))
+            ]);
+
+            if (!$article->authors->contains($author)) {
+                $article->authors()->attach($author);
+            }
+
+            return new AuthorResource($author);
+        } catch (UniqueConstraintViolationException $exception){
+            throw $exception;
         }
 
-        return new ArticleResource($article);
     }
 }

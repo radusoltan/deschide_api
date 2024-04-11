@@ -23,4 +23,6 @@ class Author extends Model implements TranslatableContract
         'old_number'
     ];
 
+
+
 }

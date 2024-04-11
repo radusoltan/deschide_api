@@ -11,7 +11,7 @@ class Image extends Model
     protected $fillable = ['name', 'path', 'width', 'height', 'old_number'];
 
     public function articles() {
-        return $this->belongsToMany(Article::class, 'article_images', 'image_id',"article_id");
+        return $this->belongsToMany(Article::class, 'article_images', 'image_id',"article_id")->withPivot('is_main');
     }
 
     public function thumbnails(){

@@ -45,7 +45,7 @@ class Article extends Model implements TranslatableContract
     }
 
     public function authors() {
-        return $this->belongsToMany(Author::class, 'article_authors', 'article_id', 'article_id');
+        return $this->belongsToMany(Author::class, 'article_authors');
     }
 
     public function images(){

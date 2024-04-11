@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Http\Resources\ThumbnailResource;
 use App\Models\Thumbnail;
 use App\Models\Rendition;
 use Illuminate\Http\UploadedFile;
@@ -42,6 +43,7 @@ class ImageService {
                 ->save($destinationPath.$rendition->name.'_'.$image->name, 100,'jpg');
             if (!$thumb){
                 Thumbnail::create([
+                    'image_id' => $image->id,
                     'rendition_id' => $rendition->id,
                     'width' => $cropped->width(),
                     'height' => $cropped->height(),
@@ -53,4 +55,50 @@ class ImageService {
             }
         }
     }
+
+    public function crop(Image $image, Rendition $rendition, array $crop){
+        $name = $image->name;
+        $destinationPath = storage_path('app/public/images/thumbnails/');
+
+        $img = ImageManager::read(public_path('storage/images/'.$name));
+
+        $width = round($image->width / 100 * $crop['p']['width']);
+        $height = round($image->height / 100 * $crop['p']['height']);
+        $x = round($image->width / 100 * $crop['p']['x']);
+        $y = round($image->height / 100 * $crop['p']['y']);
+
+        $cropped = $img->crop($width, $height, $x, $y)
+            ->resize($rendition->width, $rendition->height)
+            ->save($destinationPath.$rendition->name.'_'.$name, 100,'jpg');
+        $thumb = Thumbnail::where('rendition_id', $rendition->id)
+            ->where('image_id', $image->id)
+            ->first();
+
+        if (!$thumb){
+            Thumbnail::create([
+                'image_id' => $image->id,
+                'rendition_id' => $rendition->id,
+                'width' => $cropped->width(),
+                'height' => $cropped->height(),
+                'path' => 'storage/images/thumbnails/'.$rendition->name.'_'.$name,
+                'coords' => json_encode($crop)
+            ]);
+        } else {
+            $thumb->update([
+                'image_id' => $image->id,
+                'rendition_id' => $rendition->id,
+                'width' => $cropped->width(),
+                'height' => $cropped->height(),
+                'path' => 'storage/images/thumbnails/'.$rendition->name.'_'.$name,
+                'coords' => json_encode($crop)
+            ]);
+        }
+        if (!$image->thumbnails->contains($thumb)){
+            $image->thumbnails()->attach($thumb);
+        }
+        $image->refresh();
+        return new ThumbnailResource($thumb);
+    }
+
+
 }
