@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -25,6 +26,14 @@ Route::group(['middleware' => ['auth:sanctum', 'set_locale']], function (){
 
     Route::get('/article/{article}/images',[ArticleController::class,'getArticleImages']);
     Route::post('/article/{article}/images',[ArticleController::class,'addArticleImages']);
+    Route::patch('/article/{article}/images',[ArticleController::class,'detachArticleImage']);
+    Route::post('/article/{article}/image-set-main',[ArticleController::class,'setMainArticleImage']);
+
+    Route::get('renditions', function(){
+        return \App\Models\Rendition::all();
+    });
+    Route::post('/image/{image}/crop',[ImageController::class,'crop']);
+    Route::get('/image/{image}/thumbnails', [ImageController::class, 'getImageThumbnails']);
 
     //Author routes
     Route::apiResource('authors', AuthorController::class);

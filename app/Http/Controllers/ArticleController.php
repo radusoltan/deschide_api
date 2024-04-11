@@ -9,6 +9,7 @@ use App\Http\Resources\ImageResource;
 use App\Models\Article;
 use App\Models\ArticleImage;
 use App\Models\Category;
+use App\Models\Image;
 use App\Services\ArticleService;
 use App\Services\ImageService;
 use Illuminate\Database\UniqueConstraintViolationException;
@@ -127,7 +128,8 @@ class ArticleController extends Controller
     }
 
     public function getArticleImages(Article $article) {
-        return new ImageCollection($article->images);
+        $article->refresh();
+        return ImageResource::collection($article->images);
     }
 
     public function addArticleImages(Request $request, Article $article) {
@@ -138,14 +140,37 @@ class ArticleController extends Controller
             }
         }
 
-        if ($article->images()->count() === 1) {
+        if ($article->images()->count() >= 1) {
             $image = $article->images()->first();
             $mainImage = ArticleImage::where('article_id',$article->id)
                 ->where('image_id',$image->id)->first();
             $mainImage->setMain();
-//            $this->imageService->saveImageThumbnails($image);
+            $this->imageService->saveImageThumbnails($image);
         }
+        $article->refresh();
 
-        return new ArticleResource($article);
+        return ImageResource::collection($article->images);
+    }
+
+    public function detachArticleImage(Request $request, Article $article) {
+        $article->images()->detach($request->get('id'));
+        $article->refresh();
+        return ImageResource::collection($article->images);
+    }
+
+    public function setMainArticleImage(Request $request, Article $article) {
+
+        $articleImages = ArticleImage::where('article_id', $article->id)->get();
+        foreach ($articleImages as $articleImage) {
+            $articleImage->update([
+                'is_main' => false,
+            ]);
+        }
+        $mainImage = ArticleImage::where('article_id',$article->id)
+            ->where('image_id',$request->get('image'))
+            ->first();
+        $mainImage->update(['is_main'=>true]);
+        $image = Image::find($request->get('image'));
+        return new ImageResource($image);
     }
 }

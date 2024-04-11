@@ -20,6 +20,9 @@ class ImageResource extends JsonResource
             'path' => $this->path,
             'width' => $this->width,
             'height' => $this->height,
+            'is_main' => (bool) $this->whenPivotLoaded('article_images', function () {
+                return $this->pivot->is_main;
+            }),
             'thumbnails' => ThumbnailResource::collection($this->thumbnails),
         ];
     }

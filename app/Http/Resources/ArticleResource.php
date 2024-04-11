@@ -28,7 +28,7 @@ class ArticleResource extends JsonResource
             'created_at' => $this->created_at,
             'published_at' => $this->publish_at,
             'authors' => AuthorResource::collection($this->authors),
-            'images' => ImageResource::collection($this->images)
+            'images' => ImageResource::collection($this->whenLoaded('images')),
         ];
     }
 }
