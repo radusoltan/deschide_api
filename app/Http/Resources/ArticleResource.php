@@ -26,7 +26,7 @@ class ArticleResource extends JsonResource
             'is_alert' => $this->is_alert,
             'is_breaking' => $this->is_breaking,
             'created_at' => $this->created_at,
-            'published_at' => $this->publish_at,
+            'publish_at' => $this->publish_at,
             'authors' => AuthorResource::collection($this->authors),
             'images' => ImageResource::collection($this->whenLoaded('images')),
         ];

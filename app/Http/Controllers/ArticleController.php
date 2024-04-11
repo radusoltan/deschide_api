@@ -4,18 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ArticleCollection;
 use App\Http\Resources\ArticleResource;
+use App\Http\Resources\AuthorResource;
 use App\Http\Resources\ImageCollection;
 use App\Http\Resources\ImageResource;
 use App\Models\Article;
 use App\Models\ArticleImage;
+use App\Models\Author;
 use App\Models\Category;
 use App\Models\Image;
 use App\Services\ArticleService;
 use App\Services\ImageService;
+use Carbon\Carbon;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use PharIo\Manifest\AuthorCollection;
 
 class ArticleController extends Controller
 {
@@ -64,14 +68,6 @@ class ArticleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
@@ -90,13 +86,6 @@ class ArticleController extends Controller
         return new ArticleResource($article);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Article $article)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -124,7 +113,7 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        return $article->delete();
     }
 
     public function getArticleImages(Article $article) {
@@ -172,5 +161,54 @@ class ArticleController extends Controller
         $mainImage->update(['is_main'=>true]);
         $image = Image::find($request->get('image'));
         return new ImageResource($image);
+    }
+
+    public function setPublishTime(Request $request, Article $article) {
+
+        $dt = Carbon::parse($request->get('time'));
+        $article->update([
+            'publish_at' => $dt,
+        ]);
+        return new ArticleResource($article);
+    }
+
+    public function deleteEvent(Article $article) {
+        $article->update([
+            'publish_at' => null,
+            'published_at' => null,
+        ]);
+        return new ArticleResource($article);
+    }
+
+    public function getArticleAuthors(Article $article) {
+        return AuthorResource::collection($article->authors);
+    }
+
+    public function addArticleAuthor(Request $request, Article $article) {
+
+        $request->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'email' => 'required|email|unique:authors,email',
+        ]);
+
+        try {
+            $author = Author::create([
+                'email' => $request->get('email'),
+                'first_name' => $request->get('first_name'),
+                'last_name' => $request->get('last_name'),
+                'full_name' => $request->get('first_name').' '.$request->get('last_name'),
+                'slug' => Str::slug($request->get('first_name').' '.$request->get('last_name'))
+            ]);
+
+            if (!$article->authors->contains($author)) {
+                $article->authors()->attach($author);
+            }
+
+            return new AuthorResource($author);
+        } catch (UniqueConstraintViolationException $exception){
+            throw $exception;
+        }
+
     }
 }

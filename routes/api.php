@@ -28,6 +28,10 @@ Route::group(['middleware' => ['auth:sanctum', 'set_locale']], function (){
     Route::post('/article/{article}/images',[ArticleController::class,'addArticleImages']);
     Route::patch('/article/{article}/images',[ArticleController::class,'detachArticleImage']);
     Route::post('/article/{article}/image-set-main',[ArticleController::class,'setMainArticleImage']);
+    Route::post('/article/{article}/publish-time',[ArticleController::class,'setPublishTime']);
+    Route::delete('/article/{article}/delete-event',[ArticleController::class,'deleteEvent']);
+    Route::get('/article/{article}/authors', [ArticleController::class,'getArticleAuthors']);
+    Route::post('/article/{article}/add-author', [ArticleController::class,'addArticleAuthor']);
 
     Route::get('renditions', function(){
         return \App\Models\Rendition::all();
