@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FeaturedArticlesListController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
@@ -60,6 +61,12 @@ Route::group(['middleware' => ['auth:sanctum', 'set_locale']], function (){
 
     //Permission routes
     Route::apiResource('permissions', PermissionController::class);
+
+    //Lists routes
+    Route::apiResource('lists', FeaturedArticlesListController::class);
+    Route::post('/lists/{list}/add-articles',[FeaturedArticlesListController::class,'addArticles']);
+    Route::post('/lists/{list}/add-article',[FeaturedArticlesListController::class,'addArticle']);
+    Route::post('/lists/{list}/delete-article',[FeaturedArticlesListController::class,'deleteArticle']);
 
 
 });
