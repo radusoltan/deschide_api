@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ArticleCollection;
 use App\Http\Resources\ArticleResource;
 use App\Http\Resources\AuthorResource;
-use App\Http\Resources\ImageCollection;
 use App\Http\Resources\ImageResource;
 use App\Models\Article;
 use App\Models\ArticleImage;
@@ -17,9 +16,7 @@ use App\Services\ImageService;
 use Carbon\Carbon;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-use PharIo\Manifest\AuthorCollection;
 
 class ArticleController extends Controller
 {
@@ -192,23 +189,34 @@ class ArticleController extends Controller
             'email' => 'required|email|unique:authors,email',
         ]);
 
-        try {
-            $author = Author::create([
-                'email' => $request->get('email'),
-                'first_name' => $request->get('first_name'),
-                'last_name' => $request->get('last_name'),
-                'full_name' => $request->get('first_name').' '.$request->get('last_name'),
-                'slug' => Str::slug($request->get('first_name').' '.$request->get('last_name'))
-            ]);
+        $author = Author::create([
+            'email' => $request->get('email'),
+            'first_name' => $request->get('first_name'),
+            'last_name' => $request->get('last_name'),
+            'full_name' => $request->get('first_name').' '.$request->get('last_name'),
+            'slug' => Str::slug($request->get('first_name').' '.$request->get('last_name'))
+        ]);
 
-            if (!$article->authors->contains($author)) {
-                $article->authors()->attach($author);
-            }
-
-            return new AuthorResource($author);
-        } catch (UniqueConstraintViolationException $exception){
-            throw $exception;
+        if (!$article->authors->contains($author)) {
+            $article->authors()->attach($author);
         }
 
+        return new AuthorResource($author);
+
+    }
+
+    public function deleteArticleAuthor(Article $article, Author $author) {
+        $article->authors()->detach($author);
+
+        return AuthorResource::collection($article->authors);
+    }
+
+    public function selectArticleAuthor(Request $request, Article $article) {
+        $author = Author::find($request->author);
+        if (!$article->authors->contains($author)) {
+            $article->authors()->attach($author);
+        }
+        $article->refresh();
+        return AuthorResource::collection($article->authors);
     }
 }

@@ -17,7 +17,20 @@ class AuthorController extends Controller
     public function index()
     {
         $locale = App::getLocale();
-        return new AuthorCollection(Author::translatedIn($locale)->paginate(10));
+        if (!request()->has('page')){
+            return new AuthorCollection(Author::translatedIn($locale)->get());
+        } else {
+            return new AuthorCollection(Author::translatedIn($locale)->paginate(10));
+        }
+    }
+
+    public function search(Request $request) {
+
+        $authors = Author::whereTranslationLike('first_name', $request->get('query'))
+            ->orWhereTranslationLike('last_name', $request->get('query'))
+            ->orWhereTranslationLike('full_name', $request->get('query'))
+            ->get();
+        return new AuthorCollection($authors);
     }
 
     /**

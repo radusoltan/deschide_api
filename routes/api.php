@@ -32,6 +32,10 @@ Route::group(['middleware' => ['auth:sanctum', 'set_locale']], function (){
     Route::delete('/article/{article}/delete-event',[ArticleController::class,'deleteEvent']);
     Route::get('/article/{article}/authors', [ArticleController::class,'getArticleAuthors']);
     Route::post('/article/{article}/add-author', [ArticleController::class,'addArticleAuthor']);
+    Route::delete('/article/{article}/delete-author/{author}',[ArticleController::class,'deleteArticleAuthor']);
+    Route::post('/article/{article}/select-author',[ArticleController::class,'selectArticleAuthor']);
+
+
 
     Route::get('renditions', function(){
         return \App\Models\Rendition::all();
@@ -41,6 +45,7 @@ Route::group(['middleware' => ['auth:sanctum', 'set_locale']], function (){
 
     //Author routes
     Route::apiResource('authors', AuthorController::class);
+    Route::post('/authors/search',[AuthorController::class,'search']);
 
     //Category routes
     Route::apiResource('categories', CategoryController::class);
