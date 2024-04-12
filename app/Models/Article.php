@@ -52,6 +52,10 @@ class Article extends Model implements TranslatableContract
         return $this->belongsToMany(Image::class, 'article_images')->withPivot('is_main');
     }
 
+    public function featuredArticlesLists()
+    {
+        return $this->belongsToMany(FeaturedArticlesList::class, 'article_featured_articles_list');
+    }
 
     public function toSearchArray() {
         return new ArticleResource($this);

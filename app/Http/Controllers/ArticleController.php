@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ArticleCollection;
 use App\Http\Resources\ArticleResource;
+use App\Http\Resources\AuthorCollection;
 use App\Http\Resources\AuthorResource;
 use App\Http\Resources\ImageResource;
 use App\Models\Article;
@@ -217,6 +218,6 @@ class ArticleController extends Controller
             $article->authors()->attach($author);
         }
         $article->refresh();
-        return AuthorResource::collection($article->authors);
+        return new AuthorCollection($article->authors);
     }
 }
