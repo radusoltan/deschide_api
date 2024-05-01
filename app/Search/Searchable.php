@@ -33,6 +33,19 @@ trait Searchable {
         ]);
     }
 
+    public function elasticsearchMget(Client $elasticsearchClient, $ids) {
+        $elasticsearchClient->mget([
+            'body' => ['ids' => $ids]
+        ]);
+    }
+
+    public function elasticsearchGet(Client $elasticsearchClient) {
+        $elasticsearchClient->get([
+            "index" => $this->getTable,
+            "id" => $this->index_id
+        ]);
+    }
+
     abstract public function toSearchArray();
 
 }

@@ -3,8 +3,10 @@
 namespace App\Console\Commands;
 
 use App\Models\Article;
+use App\Models\Category;
 use Elastic\Elasticsearch\Client;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class ReindexCommand extends Command
 {
@@ -36,18 +38,20 @@ class ReindexCommand extends Command
     {
         $this->info('Indexing all articles. This might take a while...');
 
-        foreach (Article::cursor() as $article)
-        {
-            $this->elasticsearch->index([
-                'index' => $article->getSearchIndex(),
-                'type' => $article->getSearchType(),
-                'id' => $article->getKey(),
-                'body' => $article->toSearchArray(),
-            ]);
 
-            // PHPUnit-style feedback
-            $this->output->write('.');
-        }
+
+            foreach (Article::cursor() as $article)
+            {
+                $elasticArticle = $this->elasticsearch->index([
+                    'index' => $article->getSearchIndex(),
+                    'type' => $article->getSearchType(),
+                    'body' => $article->toSearchArray(),
+                ]);
+                $article->index_id = $elasticArticle->asObject()->_id;
+                $article->save();
+                $this->output->write('.');
+            }
+
 
         $this->info("\nDone!");
     }

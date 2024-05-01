@@ -36,9 +36,10 @@ class ImageService {
             $img = ImageManager::read($file);
             $destinationPath = storage_path('app/public/images/thumbnails/');
 
-            $thumb = Thumbnail::where('rendition_id', $rendition->id)
-                ->where('image_id', $image->id)
-                ->first();
+            $thumb = Thumbnail::where([
+                ['rendition_id', $rendition->id],
+                ['image_id', $image->id]
+            ])->first();
             $cropped = $img->crop($img->width(), $img->height())
                 ->save($destinationPath.$rendition->name.'_'.$image->name, 100,'jpg');
             if (!$thumb){
@@ -56,11 +57,17 @@ class ImageService {
         }
     }
 
-    public function crop(Image $image, Rendition $rendition, array $crop){
+    public function crop(
+        Image $image,
+        Rendition $rendition,
+
+        array $crop,
+        Thumbnail $thumbnail,
+    ){
         $name = $image->name;
         $destinationPath = storage_path('app/public/images/thumbnails/');
 
-        $img = ImageManager::read(public_path('storage/images/'.$name));
+        $img = ImageManager::read(public_path('/storage/images/'.$name));
 
         $width = round($image->width / 100 * $crop['p']['width']);
         $height = round($image->height / 100 * $crop['p']['height']);
@@ -70,11 +77,9 @@ class ImageService {
         $cropped = $img->crop($width, $height, $x, $y)
             ->resize($rendition->width, $rendition->height)
             ->save($destinationPath.$rendition->name.'_'.$name, 100,'jpg');
-        $thumb = Thumbnail::where('rendition_id', $rendition->id)
-            ->where('image_id', $image->id)
-            ->first();
 
-        if (!$thumb){
+
+        if (!$thumbnail){
             Thumbnail::create([
                 'image_id' => $image->id,
                 'rendition_id' => $rendition->id,
@@ -84,7 +89,7 @@ class ImageService {
                 'coords' => json_encode($crop)
             ]);
         } else {
-            $thumb->update([
+            $thumbnail->update([
                 'image_id' => $image->id,
                 'rendition_id' => $rendition->id,
                 'width' => $cropped->width(),
@@ -93,11 +98,11 @@ class ImageService {
                 'coords' => json_encode($crop)
             ]);
         }
-        if (!$image->thumbnails->contains($thumb)){
-            $image->thumbnails()->attach($thumb);
+        if (!$image->thumbnails->contains($thumbnail)){
+            $image->thumbnails()->attach($thumbnail);
         }
         $image->refresh();
-        return new ThumbnailResource($thumb);
+        return new ThumbnailResource($thumbnail);
     }
 
 

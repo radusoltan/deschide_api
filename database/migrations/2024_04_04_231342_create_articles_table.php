@@ -18,11 +18,10 @@ return new class extends Migration
                 ->on('categories')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-
-            $table->softDeletes();
             $table->string('share_id')->nullable();
             $table->integer('old_number')->nullable();
-
+            $table->string('index_id')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
