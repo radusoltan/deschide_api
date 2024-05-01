@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Rendition extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+    protected $fillable = ['name', 'width', 'height', 'aspect'];
 }

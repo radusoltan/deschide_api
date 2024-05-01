@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Observers\ArticleTranslationObserver;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+
+#[ObservedBy([ArticleTranslationObserver::class])]
 
 class ArticleTranslation extends Model
 {
@@ -20,7 +24,11 @@ class ArticleTranslation extends Model
         'published_at',
         'publish_at',
         'is_locked',
-        'locked_by_user'
+        'locked_by_user',
+        'is_flash',
+        'is_alert',
+        'is_breaking'
+
     ];
 
     public function article(){
@@ -30,6 +38,10 @@ class ArticleTranslation extends Model
     protected $casts = [
         'is_locked' => 'boolean',
         'publish_at' => 'datetime',
+        'is_flash' => 'boolean',
+        'is_alert' => 'boolean',
+        'is_breaking' => 'boolean',
+        'published_at' => 'datetime',
     ];
 
     public function vzt()

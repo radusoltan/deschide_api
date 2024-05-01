@@ -2,6 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\Article;
+use App\Models\Category;
+use App\Models\CategoryTranslation;
+use App\Observers\ArticleObserver;
+use App\Observers\CategoryObserver;
+use App\Observers\CategoryTranslationObserver;
 use App\Search\ElasticSearchRepository;
 use App\Search\EloquentRepository;
 use App\Services\ArticleService;
@@ -31,8 +37,11 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->bindSearchClient();
-        $this->app->bind(ArticleService::class, function (){
-            return new ArticleService();
+        $this->app->bind(ArticleService::class, function ($app){
+
+            return new ArticleService(
+                $app->make(Client::class)
+            );
         });
         $this->app->bind(ImageService::class, function (){
             return new ImageService();
@@ -55,5 +64,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
     }
 }

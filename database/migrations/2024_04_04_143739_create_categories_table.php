@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('old_number')
                 ->nullable()
                 ->default(null);
+            $table->string('index_id')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

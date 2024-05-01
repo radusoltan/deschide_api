@@ -3,17 +3,23 @@
 namespace App\Models;
 
 use App\Http\Resources\ArticleResource;
+use App\Http\Resources\Public\ArticleResource as ElasticResource;
+use App\Models\Traits\Searchable;
+use App\Observers\ArticleObserver;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
+#[ObservedBy([ArticleObserver::class])]
 class Article extends Model implements TranslatableContract
 {
     use HasFactory;
     use Translatable;
-//    use Searchable;
+    use SoftDeletes;
+    use Searchable;
 
     public array $translatedAttributes = [
         'title',
@@ -58,19 +64,12 @@ class Article extends Model implements TranslatableContract
     }
 
     public function toSearchArray() {
-        return new ArticleResource($this);
+        return new ElasticResource($this);
     }
 
-    public function getSearchIndex() {
-        return $this->getTable();
-    }
-
-    public function getSearchType() {
-        return '_doc';
-    }
-
-    public function getId() {
-        return $this->id;
+    public function vzt()
+    {
+        return visits($this);
     }
 
 }

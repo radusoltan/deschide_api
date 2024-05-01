@@ -7,8 +7,13 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FeaturedArticlesListController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\Public\HomePageController;
+use App\Http\Controllers\RenditionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Resources\Public\CategoryCollection;
+use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +22,19 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::post('login',[AuthController::class, 'login']);
+
+Route::group(['middleware' => ['set_locale']], function(){
+
+
+    Route::group(['prefix'=>'homepage'], function (){
+        Route::get('featuredListArticle', [HomePageController::class, 'featuredListArticles']);
+        Route::get('categories', function (Request $request){
+            return new CategoryCollection(Category::all());
+        });
+        Route::get('articles/{article}', [\App\Http\Controllers\Public\ArticleController::class,'showArticle']);
+    });
+
+});
 
 Route::group(['middleware' => ['auth:sanctum', 'set_locale']], function (){
 
@@ -35,12 +53,14 @@ Route::group(['middleware' => ['auth:sanctum', 'set_locale']], function (){
     Route::post('/article/{article}/add-author', [ArticleController::class,'addArticleAuthor']);
     Route::delete('/article/{article}/delete-author/{author}',[ArticleController::class,'deleteArticleAuthor']);
     Route::post('/article/{article}/select-author',[ArticleController::class,'selectArticleAuthor']);
+    Route::get('/articles/{article}/lock', [ArticleController::class,'lockArticle']);
+    Route::get('/articles/{article}/unlock', [ArticleController::class,'unlockArticle']);
+
+    Route::post('/articles/search', [ArticleController::class,'searchArticle']);
+
+    Route::apiResource('renditions', RenditionController::class);
 
 
-
-    Route::get('renditions', function(){
-        return \App\Models\Rendition::all();
-    });
     Route::post('/image/{image}/crop',[ImageController::class,'crop']);
     Route::get('/image/{image}/thumbnails', [ImageController::class, 'getImageThumbnails']);
 

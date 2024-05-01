@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ThumbnailResource;
 use App\Models\Image;
 use App\Models\Rendition;
+use App\Models\Thumbnail;
 use App\Services\ImageService;
 use Illuminate\Http\Request;
 
@@ -17,9 +18,11 @@ class ImageController extends Controller
     }
 
     public function crop(Request $request, Image $image) {
+
         $rendition = Rendition::find($request->get('rendition'));
+        $thumbnail = Thumbnail::find($request->get('thumbnail'));
         $crop = $request->get('crop');
-        return $this->imageService->crop($image, $rendition, $crop);
+        return $this->imageService->crop($image, $rendition, $crop, $thumbnail);
     }
     /**
      * Display a listing of the resource.

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('thumbnails', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('image_id');
             $table->integer('width')->nullable(true);
             $table->integer('height')->nullable(true);
             $table->string('path');

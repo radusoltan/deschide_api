@@ -17,6 +17,7 @@ use App\Services\ImageService;
 use Carbon\Carbon;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class ArticleController extends Controller
@@ -41,10 +42,20 @@ class ArticleController extends Controller
         $locale = app()->getLocale();
         return new ArticleCollection(
             $category
-                ->articles()
+                ->articles()->orderBy('created_at', 'desc')
                 ->translatedIn($locale)
                 ->paginate(10)
         );
+    }
+
+    public function searchArticle(Request $request) {
+
+        $query = $request->has('query') ?
+            $request->get('query') :
+            '';
+        $articles =  $this->articleService->search($query);
+
+        return $articles;
     }
 
     public function addCategoryArticle(Request $request, Category $category) {
@@ -57,6 +68,8 @@ class ArticleController extends Controller
                 'status' => 'N',
 
             ]);
+
+            $this->articleService->indexArticle($article);
 
             return new ArticleResource($article);
         } catch (UniqueConstraintViolationException $e){
@@ -76,12 +89,14 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Article $article, ArticleService $service)
+    public function show(Article $article)
     {
-
         $this->articleService->lockArticle($article);
-
         return new ArticleResource($article);
+    }
+
+    public function unlockArticle(Article $article) {
+        $this->articleService->unlockArticle($article);
     }
 
 
@@ -100,9 +115,15 @@ class ArticleController extends Controller
             'is_alert' => $request->is_alert,
             'is_breaking' => $request->is_breaking,
         ]);
-        if ($request->has('saveType') && $request->saveType == 'close') {
-            $this->articleService->unlockArticle($article);
+
+        if ($article->status === "P"){
+            $article->update([
+                'published_at' => Carbon::now(),
+            ]);
+
+
         }
+
         return new ArticleResource($article);
     }
 
@@ -111,6 +132,7 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        $this->articleService->deleteArticleDoc($article);
         return $article->delete();
     }
 

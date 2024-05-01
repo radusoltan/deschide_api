@@ -20,8 +20,12 @@ class Thumbnail extends Model
         'coords'
     ];
 
+    protected $casts = [
+        'coords' => 'array',
+    ];
+
     public function image() {
-        return $this->belongsTo(Image::class);
+        return $this->belongsTo(Image::class,);
     }
 
     public function rendition() {

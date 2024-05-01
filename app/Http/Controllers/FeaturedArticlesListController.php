@@ -75,10 +75,11 @@ class FeaturedArticlesListController extends Controller
         if (!$list->articles->contains($article)) {
             $list->articles()->attach($article);
         }
+        $list->refresh();
         $list->update([
             "count" => $list->articles->count()
         ]);
-        $list->refresh();
+
 
         return new FeaturedArticlesListResource($list);
     }

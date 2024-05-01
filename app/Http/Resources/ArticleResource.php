@@ -27,8 +27,10 @@ class ArticleResource extends JsonResource
             'is_breaking' => $this->is_breaking,
             'created_at' => $this->created_at,
             'publish_at' => $this->publish_at,
+            'is_locked' => $this->is_locked,
             'authors' => AuthorResource::collection($this->authors),
-            'images' => ImageResource::collection($this->whenLoaded('images')),
+            'images' => ImageResource::collection($this->images),
+            'translations' => $this->translations()->get()
         ];
     }
 }
