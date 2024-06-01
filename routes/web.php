@@ -10,11 +10,12 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
+use Intervention\Image\Laravel\Facades\Image as ImageManager;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+Route::get('/', [HomePageController::class,'getArticlesFromAPI']);
 
 
 // Public Routes
@@ -40,33 +41,28 @@ Route::group(['middleware' => 'set_locale'],function (){
 
     Route::group(['prefix'=>'homepage'], function (){
         Route::get('featuredListArticle', [HomePageController::class, 'featuredListArticles']);
+        Route::get('lastPublishedArticles',[HomePageController::class, 'getLastPublishedArticles']);
     });
 });
+
+Route::get('/import',[\App\Http\Controllers\ImportController::class,'index']);
 
 Route::get('radu', function (){
 
 
+    $category = Category::find(1);
+    $articles = Article::where('category_id',$category->id)
+        ->whereTranslation('status', "P")
+        ->get()
+        ->load('vzt')
+        ->sortByDesc(function ($article){
+            return visits($article)->count();
+        })
+        ->take(10)
+        ->pluck('index_id');
+    ;
 
-    $categories = json_decode(file_get_contents(__DIR__.'/categories.json'));
+    return $articles;
 
-    foreach($categories->items as $item) {
-        $category = Category::where('old_number', $item->number)->first();
-        if($item->language === app()->getLocale()) {
-
-            if(!$category) {
-                Category::create([
-                    'title' => $item->title,
-                    'old_number' => $item->number,
-                    'slug' => \Illuminate\Support\Str::slug($item->title),
-                ]);
-            }
-        } else if($item->language === 'en') {
-            app()->setLocale('ru');
-            $category->update([
-                'title' => $item->title,
-                'slug' => \Illuminate\Support\Str::slug($item->title),
-            ]);
-        }
-    }
 
 });

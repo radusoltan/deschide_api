@@ -23,6 +23,9 @@ class ImageResource extends JsonResource
             'is_main' => (bool) $this->whenPivotLoaded('article_images', function () {
                 return $this->pivot->is_main;
             }),
+            'source' => $this->source,
+            'author' => $this->author,
+            'description' => $this->description,
             'thumbnails' => ThumbnailResource::collection($this->thumbnails),
         ];
     }

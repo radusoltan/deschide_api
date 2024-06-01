@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->index();
             $table->text('lead')->nullable(true);
-            $table->text('body')->nullable(true);
+            $table->longText('body')->nullable(true);
             $table->unique(['locale','slug']);
             $table->enum('status',['N','S','P'])->default('N');
             $table->boolean('is_flash')->default(false);

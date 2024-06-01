@@ -16,7 +16,7 @@ class CategoryResource extends JsonResource
                 'title' => $this->title,
                 'slug' => $this->slug,
                 'in_menu' => $this->in_menu,
-                'translations' => $this->translations
+//                'translations' => $this->translations
             ];
 //        }
 

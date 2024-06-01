@@ -69,7 +69,11 @@ class ImageController extends Controller
      */
     public function update(Request $request, Image $image)
     {
-        //
+        return $image->update([
+            'source' => $request->get('source'),
+            'author' => $request->get('author'),
+            'description' => $request->get('description'),
+        ]);
     }
 
     /**

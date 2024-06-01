@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
             CreateAdminUserSeeder::class,
             RenditionsTableSeeder::class,
             CategoriesTableSeeder::class,
-//            ArticlessTableSeeder::class
         ]);
     }
 }

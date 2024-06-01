@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('height');
             $table->string('source')->nullable(true)->default((null));
             $table->string('author')->nullable(true)->default(null);
+            $table->text('description')->nullable(true)->default(null);
             $table->unique(['name']);
             $table->integer('old_number')->nullable(true);
             $table->timestamps();

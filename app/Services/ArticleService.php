@@ -44,7 +44,7 @@ class ArticleService {
     public function updateDoc(Article $article) {
         $this->elasticsearch->update([
             'index' => 'articles',
-            'id' => $article->id,
+            'id' => $article->index_id,
             'body' => [
                 'doc' => $article->toSearchArray()
             ]

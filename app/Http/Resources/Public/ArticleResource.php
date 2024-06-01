@@ -11,7 +11,6 @@ class ArticleResource extends JsonResource {
     public function toArray(Request $request) {
         return [
             'article_id' => $this->id,
-//            'index_id' => $this->index_id,
             'category' => [
                 'id' => $this->category->getId(),
                 'title' => $this->category->title,
@@ -20,7 +19,7 @@ class ArticleResource extends JsonResource {
                 'translations' => $this->category->translations,
             ],
             'translations' => ArticleTranslationResource::collection($this->translations),
-//            'visits' => $this->vzt()->count(),
+            'visits' => $this->vzt()->count(),
             'images' => ImageResource::collection($this->images),
             'authors' => $this->authors()->get(),
         ];

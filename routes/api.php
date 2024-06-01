@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Public\CategoryController as CategoryPublicController;
 use App\Http\Controllers\FeaturedArticlesListController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PermissionController;
@@ -23,15 +24,29 @@ Route::get('/user', function (Request $request) {
 
 Route::post('login',[AuthController::class, 'login']);
 
-Route::group(['middleware' => ['set_locale']], function(){
+Route::group([
+    'middleware' => ['set_locale'],
+    'prefix'     => 'public',
+
+], function(){
+
+    Route::group(['prefix' => 'categories'], function (){
+        Route::get('/{category}/popular', [CategoryPublicController::class, 'getMostPopular']);
+        Route::get('/{category}', [CategoryPublicController::class, 'getCategory']);
+    });
 
 
     Route::group(['prefix'=>'homepage'], function (){
         Route::get('featuredListArticle', [HomePageController::class, 'featuredListArticles']);
         Route::get('categories', function (Request $request){
-            return new CategoryCollection(Category::all());
+            return new CategoryCollection(
+                Category::whereTranslation('in_menu', true)
+                    ->translatedIn(app()->getLocale())
+                    ->get()
+            );
         });
         Route::get('articles/{article}', [\App\Http\Controllers\Public\ArticleController::class,'showArticle']);
+        Route::get('lastPublishedArticles',[HomePageController::class, 'getLastPublishedArticles']);
     });
 
 });
@@ -60,6 +75,7 @@ Route::group(['middleware' => ['auth:sanctum', 'set_locale']], function (){
 
     Route::apiResource('renditions', RenditionController::class);
 
+    Route::apiResource('images', ImageController::class);
 
     Route::post('/image/{image}/crop',[ImageController::class,'crop']);
     Route::get('/image/{image}/thumbnails', [ImageController::class, 'getImageThumbnails']);
