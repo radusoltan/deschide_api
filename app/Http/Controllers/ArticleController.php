@@ -69,8 +69,6 @@ class ArticleController extends Controller
 
             ]);
 
-            $this->articleService->indexArticle($article);
-
             return new ArticleResource($article);
         } catch (UniqueConstraintViolationException $e){
 
@@ -157,13 +155,18 @@ class ArticleController extends Controller
             $this->imageService->saveImageThumbnails($image);
         }
         $article->refresh();
+        $this->articleService->updateDoc($article);
 
         return ImageResource::collection($article->images);
     }
 
     public function detachArticleImage(Request $request, Article $article) {
         $article->images()->detach($request->get('id'));
+
         $article->refresh();
+
+        $this->articleService->updateDoc($article);
+
         return ImageResource::collection($article->images);
     }
 
@@ -223,6 +226,8 @@ class ArticleController extends Controller
         if (!$article->authors->contains($author)) {
             $article->authors()->attach($author);
         }
+
+        $this->articleService->updateDoc($article);
 
         return new AuthorResource($author);
 

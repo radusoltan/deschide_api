@@ -1,0 +1,223 @@
+{
+    "ro": [
+        {
+            "language": "ro",
+            "number": 1,
+            "title": "Politic"
+        },
+        {
+            "language": "ro",
+            "number": 2,
+            "title": "Social"
+        },
+        {
+            "language": "ro",
+            "number": 3,
+            "title": "Economic"
+        },
+        {
+            "language": "ro",
+            "number": 4,
+            "title": "Externe"
+        },
+        {
+            "language": "ro",
+            "number": 5,
+            "title": "Editorial"
+        },
+        {
+            "language": "ro",
+            "number": 6,
+            "title": "Investigații"
+        },
+        {
+            "language": "ro",
+            "number": 7,
+            "title": "Cultura"
+        },
+        {
+            "language": "ro",
+            "number": 8,
+            "title": "Sport"
+        },
+        {
+            "language": "ro",
+            "number": 10,
+            "title": "Opinii"
+        },
+        {
+            "language": "ro",
+            "number": 15,
+            "title": "Special"
+        },
+        {
+            "language": "ro",
+            "number": 17,
+            "title": "Video"
+        },
+        {
+            "language": "ro",
+            "number": 20,
+            "title": "Interviu"
+        },
+        {
+            "language": "ro",
+            "number": 22,
+            "title": "Alegeri"
+        },
+        {
+            "language": "ro",
+            "number": 23,
+            "title": "TRANSNISTRIA"
+        },
+        {
+            "language": "ro",
+            "number": 24,
+            "title": "Romania2019.eu"
+        },
+        {
+            "language": "ro",
+            "number": 25,
+            "title": "Advretorial"
+        },
+        {
+            "language": "ro",
+            "number": 26,
+            "title": "Anti-Fake"
+        }
+    ],
+    "ru": [
+        {
+            "language": "ru",
+            "number": 6,
+            "title": "Расследования"
+        },
+        {
+            "language": "ru",
+            "number": 3,
+            "title": "Экономика"
+        },
+        {
+            "language": "ru",
+            "number": 8,
+            "title": "Спорт"
+        },
+        {
+            "language": "ru",
+            "number": 4,
+            "title": "В мире"
+        },
+        {
+            "language": "ru",
+            "number": 7,
+            "title": "Культура"
+        },
+        {
+            "language": "ru",
+            "number": 1,
+            "title": "Политика"
+        },
+        {
+            "language": "ru",
+            "number": 2,
+            "title": "Общество"
+        },
+        {
+            "language": "ru",
+            "number": 5,
+            "title": "Мнения"
+        },
+        {
+            "language": "ru",
+            "number": 10,
+            "title": "Видео"
+        },
+        {
+            "language": "ru",
+            "number": 15,
+            "title": "Special"
+        },
+        {
+            "language": "ru",
+            "number": 21,
+            "title": "Интервью"
+        },
+        {
+            "language": "ru",
+            "number": 22,
+            "title": "Выборы"
+        },
+        {
+            "language": "ru",
+            "number": 20,
+            "title": "Interviu"
+        },
+        {
+            "language": "ru",
+            "number": 23,
+            "title": "Приднестровье"
+        },
+        {
+            "language": "ru",
+            "number": 25,
+            "title": "Advretorial"
+        },
+        {
+            "language": "ru",
+            "number": 26,
+            "title": "Anti-Fake"
+        }
+    ],
+    "en": [
+        {
+            "language": "en",
+            "number": 6,
+            "title": "Investigations"
+        },
+        {
+            "language": "en",
+            "number": 3,
+            "title": "Business"
+        },
+        {
+            "language": "en",
+            "number": 8,
+            "title": "Sport"
+        },
+        {
+            "language": "en",
+            "number": 4,
+            "title": "International"
+        },
+        {
+            "language": "en",
+            "number": 7,
+            "title": "Culture"
+        },
+        {
+            "language": "en",
+            "number": 1,
+            "title": "Political"
+        },
+        {
+            "language": "en",
+            "number": 2,
+            "title": "Social"
+        },
+        {
+            "language": "en",
+            "number": 5,
+            "title": "Editorials"
+        },
+        {
+            "language": "en",
+            "number": 10,
+            "title": "Video"
+        },
+        {
+            "language": "en",
+            "number": 15,
+            "title": "Special"
+        }
+    ]
+}

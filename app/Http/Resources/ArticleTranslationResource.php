@@ -23,7 +23,8 @@ class ArticleTranslationResource extends JsonResource
             'title' => $this->title,
             'body' => $this->body,
             'lead' => $this->lead,
-            'published_at' => $this->published_at
+            'published_at' => $this->published_at,
+            'status' => $this->status
         ];
     }
 }

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
 use App\Models\FeaturedArticlesList;
 use App\Services\ArticleService;
+use App\Services\CloudFlareService;
+use Illuminate\Support\Facades\Http;
 
 class HomePageController extends Controller
 {
@@ -13,11 +16,33 @@ class HomePageController extends Controller
         $this->service = $service;
     }
 
+    public function getArticlesFromAPI() {
+
+
+
+    }
+
     public function featuredListArticles() {
 
-        $elasticArticles = $this->service->getByIds(FeaturedArticlesList::find(1)->articles()->pluck('index_id'));
+        return FeaturedArticlesList::find(1)
+            ->articles()
+            ->translatedIn(app()->getLocale())
+            ->whereTranslation('status',"P")
+            ->pluck('index_id');
 
 
-        return $elasticArticles->docs;
+    }
+
+    public function getLastPublishedArticles() {
+//        $articles = Article::whereTranslation('status', "P")
+//            ->orderByTranslation('published_at', 'desc')
+//            ->limit(9)
+//            ->pluck("index_id");
+//
+//        return $this->service->getByIds($articles)->docs;
+        return Article::whereTranslation('status', "P")
+            ->orderByTranslation('published_at', 'desc')
+            ->limit(9)
+            ->pluck("index_id");
     }
 }

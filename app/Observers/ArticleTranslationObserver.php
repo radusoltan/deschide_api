@@ -17,7 +17,7 @@ class ArticleTranslationObserver
      */
     public function created(ArticleTranslation $articleTranslation): void
     {
-        $this->elasticsearch->update([
+        $elasticArticle = $this->elasticsearch->update([
             'index' => $articleTranslation->article->getSearchIndex(),
             'id' => $articleTranslation->article->index_id,
             'body' => [

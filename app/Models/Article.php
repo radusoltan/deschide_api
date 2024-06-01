@@ -69,7 +69,7 @@ class Article extends Model implements TranslatableContract
 
     public function vzt()
     {
-        return visits($this);
+        return visits($this)->relation();
     }
 
 }
