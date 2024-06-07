@@ -112,9 +112,11 @@ class ArticleController extends Controller
             'is_flash' => $request->is_flash,
             'is_alert' => $request->is_alert,
             'is_breaking' => $request->is_breaking,
+            'is_live' => $request->is_live,
+            'embed' => $request->embed,
         ]);
 
-        if ($article->status === "P"){
+        if ($article->status === "P" && !$article->published_at){
             $article->update([
                 'published_at' => Carbon::now(),
             ]);

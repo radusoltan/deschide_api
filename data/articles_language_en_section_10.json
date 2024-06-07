@@ -1,0 +1,181 @@
+{
+    "items": [
+        {
+            "url": "http://deschide.md/en/news/video_en/1853/doru-petruti-surveys-without-sociologists-are-like-politics-without-citizens.htm",
+            "languageData": {
+                "id": 1,
+                "name": "English",
+                "code": "en",
+                "RFC3066bis": "en-US"
+            },
+            "status": "Y",
+            "isLocked": false,
+            "language": "en",
+            "publication": {
+                "id": 1,
+                "name": "Deschide Știrea"
+            },
+            "issue": {
+                "number": 1,
+                "language": "en",
+                "title": "news",
+                "workflowStatus": "Y",
+                "shortName": "news"
+            },
+            "section": {
+                "language": "en",
+                "number": 10,
+                "title": "video"
+            },
+            "fields": {
+                "Titlu": null,
+                "social_Titlu": "Doru Petruti // Surveys without sociologists are like politics without citizens",
+                "subtitlu": "",
+                "lead": "The tragic-comedy \"single candidate\" has made this week to be released 4 polls: IRI (by Magenta), Intellect Group, CMHC and the Konrad Adenauer Foundation one (could not find anywhere who has realized it in the field).",
+                "Continut": "<p>The tragic-comedy has provided a great final: the politician (Andrei Nastase) that for almost 2 years speaks constantly on behalf of the people just received from \"all the people\" a PAS(s) response and was forced to withdraw from the presidential race. As I wrote in a post on Facebook, more and more politicians will love polls.<br />  <br />I can not remember any other time in the history of Moldova when the polls were taken so seriously into account by politicians. It is a first. Somehow welcomed.<br />  <br />Another thing that I have noticed: the surveys are presented by all kinds of (semi) ghostly companies and sociologists are missing both from presentations and from all media materials that refer to those polls. I'm wondering why!?<br />  <br />Surveys without sociologists are like politics without citizens. Effects? I hope that you see them in the last 25 years. In Moldova, sociologists could be endangered. Moreover, as well as citizens.</p>",
+                "BREAKING_NEWS": "0",
+                "NEWS_ALERT": "0",
+                "FLASH": "0",
+                "FOTO": "0",
+                "VIDEO": "0",
+                "DOC": "0",
+                "live_text": "",
+                "alegeri": "0",
+                "video_embed": null,
+                "show_on_front_page": 0,
+                "show_on_section_page": 0
+            },
+            "authors": [
+                {
+                    "name": "Dumitru Romanescu",
+                    "link": "https://deschide.md/api/author/31"
+                },
+                {
+                    "name": "Doru Petruți",
+                    "link": "https://deschide.md/api/author/55"
+                }
+            ],
+            "number": "1853",
+            "title": "Doru Petruti // Surveys without sociologists are like politics without citizens",
+            "updated": "2017-03-07T09:31:28+0200",
+            "comments_enabled": "1",
+            "comments_count": 0,
+            "recommended_comments_count": 0,
+            "comments": "https://deschide.md/api/articles/1853/en/comments",
+            "type": "stiri",
+            "published": "2016-10-14T17:51:56+0300",
+            "created": "2016-10-14T17:32:20+0300",
+            "comments_locked": 0,
+            "renditions": [
+                {
+                    "caption": "articlebig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/758x426%2Fcrop_0_0_958_540%2Fimages%257Ccms-image-000002754.jpg",
+                    "details": {
+                        "width": 758,
+                        "height": 426,
+                        "caption": "",
+                        "photographer": null,
+                        "photographer_url": null,
+                        "original": {
+                            "width": 960,
+                            "height": 540,
+                            "src": "deschide.md/images/cache/960x540%2Ffit%2Fimages%257Ccms-image-000002754.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionbig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/847x476%2Fcrop%2Fimages%257Ccms-image-000002754.jpg",
+                    "details": {
+                        "width": 847,
+                        "height": 476,
+                        "caption": "",
+                        "photographer": null,
+                        "photographer_url": null,
+                        "original": {
+                            "width": 960,
+                            "height": 540,
+                            "src": "deschide.md/images/cache/960x540%2Ffit%2Fimages%257Ccms-image-000002754.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionsthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/160x90%2Fcrop%2Fimages%257Ccms-image-000002754.jpg",
+                    "details": {
+                        "width": 160,
+                        "height": 90,
+                        "caption": "",
+                        "photographer": null,
+                        "photographer_url": null,
+                        "original": {
+                            "width": 960,
+                            "height": 540,
+                            "src": "deschide.md/images/cache/960x540%2Ffit%2Fimages%257Ccms-image-000002754.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/320x180%2Fcrop%2Fimages%257Ccms-image-000002754.jpg",
+                    "details": {
+                        "width": 320,
+                        "height": 180,
+                        "caption": "",
+                        "photographer": null,
+                        "photographer_url": null,
+                        "original": {
+                            "width": 960,
+                            "height": 540,
+                            "src": "deschide.md/images/cache/960x540%2Ffit%2Fimages%257Ccms-image-000002754.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "square",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/150x150%2Fcrop%2Fimages%257Ccms-image-000002754.jpg",
+                    "details": {
+                        "width": 150,
+                        "height": 150,
+                        "caption": "",
+                        "photographer": null,
+                        "photographer_url": null,
+                        "original": {
+                            "width": 960,
+                            "height": 540,
+                            "src": "deschide.md/images/cache/960x540%2Ffit%2Fimages%257Ccms-image-000002754.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "squaremenu",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/200x113%2Fcrop%2Fimages%257Ccms-image-000002754.jpg",
+                    "details": {
+                        "width": 200,
+                        "height": 113,
+                        "caption": "",
+                        "photographer": null,
+                        "photographer_url": null,
+                        "original": {
+                            "width": 960,
+                            "height": 540,
+                            "src": "deschide.md/images/cache/960x540%2Ffit%2Fimages%257Ccms-image-000002754.jpg"
+                        }
+                    }
+                }
+            ],
+            "translations": {
+                "ro": "https://deschide.md/api/articles/1853",
+                "ru": "https://deschide.md/api/articles/1853"
+            },
+            "webcode": "2zhdg",
+            "reads": "55"
+        }
+    ]
+}

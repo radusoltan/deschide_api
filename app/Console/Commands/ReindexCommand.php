@@ -37,21 +37,21 @@ class ReindexCommand extends Command
      */
     public function handle()
     {
-//        $this->info('Indexing all articles. This might take a while...');
-//
-//
-//
-//            foreach (Article::cursor() as $article)
-//            {
-//                $elasticArticle = $this->elasticsearch->index([
-//                    'index' => $article->getSearchIndex(),
-//                    'type' => $article->getSearchType(),
-//                    'body' => $article->toSearchArray(),
-//                ]);
-//                $article->index_id = $elasticArticle->asObject()->_id;
-//                $article->save();
-//                $this->output->write('.');
-//            }
+        $this->info('Indexing all articles. This might take a while...');
+
+
+
+            foreach (Article::cursor() as $article)
+            {
+                $elasticArticle = $this->elasticsearch->index([
+                    'index' => $article->getSearchIndex(),
+                    'type' => $article->getSearchType(),
+                    'body' => $article->toSearchArray(),
+                ]);
+                $article->index_id = $elasticArticle->asObject()->_id;
+                $article->save();
+                $this->output->write('.');
+            }
 
         $this->info('Indexing all articles. This might take a while...');
 

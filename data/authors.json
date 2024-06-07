@@ -1,0 +1,886 @@
+{
+    "id": 1,
+    "type": "Author",
+    "authors": [
+        {
+            "name": "Svetlana Maftei",
+            "link": "https://deschide.md/api/author/2"
+        },
+        {
+            "name": "Iulian Chifu",
+            "link": "https://deschide.md/api/author/3"
+        },
+        {
+            "name": "Dumitru Crudu",
+            "link": "https://deschide.md/api/author/4"
+        },
+        {
+            "name": "Alexandru Vakulovski",
+            "link": "https://deschide.md/api/author/5"
+        },
+        {
+            "name": "Alexandru Solcan",
+            "link": "https://deschide.md/api/author/6"
+        },
+        {
+            "name": "Pavel Maftei",
+            "link": "https://deschide.md/api/author/7"
+        },
+        {
+            "name": "Vadim Vasiliu",
+            "link": "https://deschide.md/api/author/8"
+        },
+        {
+            "name": "Ghenadie Nicu",
+            "link": "https://deschide.md/api/author/9"
+        },
+        {
+            "name": "Igor Liubec",
+            "link": "https://deschide.md/api/author/10"
+        },
+        {
+            "name": "Александру Солкан",
+            "link": "https://deschide.md/api/author/13"
+        },
+        {
+            "name": "Юлиан Кифу",
+            "link": "https://deschide.md/api/author/14"
+        },
+        {
+            "name": "Александру Вакуловски",
+            "link": "https://deschide.md/api/author/15"
+        },
+        {
+            "name": "Vitalie Vovc",
+            "link": "https://deschide.md/api/author/16"
+        },
+        {
+            "name": "Deschide Știrea",
+            "link": "https://deschide.md/api/author/19"
+        },
+        {
+            "name": "Violeta Mihailova",
+            "link": "https://deschide.md/api/author/21"
+        },
+        {
+            "name": "Anna Ceșirskaia",
+            "link": "https://deschide.md/api/author/22"
+        },
+        {
+            "name": "Alexandru Vatcarau",
+            "link": "https://deschide.md/api/author/23"
+        },
+        {
+            "name": "Moise Guran",
+            "link": "https://deschide.md/api/author/24"
+        },
+        {
+            "name": "Roma Baghici",
+            "link": "https://deschide.md/api/author/26"
+        },
+        {
+            "name": "Виталие Вовк",
+            "link": "https://deschide.md/api/author/29"
+        },
+        {
+            "name": "Андрей Девятков",
+            "link": "https://deschide.md/api/author/30"
+        },
+        {
+            "name": "Dumitru Romanescu",
+            "link": "https://deschide.md/api/author/31"
+        },
+        {
+            "name": "Radu Soltan",
+            "link": "https://deschide.md/api/author/32"
+        },
+        {
+            "name": "Veaceslav Balacci",
+            "link": "https://deschide.md/api/author/34"
+        },
+        {
+            "name": "Redacția Deschide",
+            "link": "https://deschide.md/api/author/36"
+        },
+        {
+            "name": "Mihai Bologan",
+            "link": "https://deschide.md/api/author/37"
+        },
+        {
+            "name": "Михай Бологан",
+            "link": "https://deschide.md/api/author/38"
+        },
+        {
+            "name": "Pavel Păduraru",
+            "link": "https://deschide.md/api/author/40"
+        },
+        {
+            "name": "Rustam Orugealiev",
+            "link": "https://deschide.md/api/author/42"
+        },
+        {
+            "name": "Рустам Оруджалиев",
+            "link": "https://deschide.md/api/author/43"
+        },
+        {
+            "name": "Alexandru Grumaz",
+            "link": "https://deschide.md/api/author/46"
+        },
+        {
+            "name": "Александру Ваткарау",
+            "link": "https://deschide.md/api/author/52"
+        },
+        {
+            "name": "Constantin Grigoriță",
+            "link": "https://deschide.md/api/author/54"
+        },
+        {
+            "name": "Doru Petruți",
+            "link": "https://deschide.md/api/author/55"
+        },
+        {
+            "name": "Дору Петруци",
+            "link": "https://deschide.md/api/author/56"
+        },
+        {
+            "name": "Ghenadie Nucă",
+            "link": "https://deschide.md/api/author/59"
+        },
+        {
+            "name": "Natalia Guzun",
+            "link": "https://deschide.md/api/author/61"
+        },
+        {
+            "name": "Виталий ПОРТНИКОВ",
+            "link": "https://deschide.md/api/author/65"
+        },
+        {
+            "name": "Матвей Яндовский",
+            "link": "https://deschide.md/api/author/68"
+        },
+        {
+            "name": "Lilian Negură",
+            "link": "https://deschide.md/api/author/74"
+        },
+        {
+            "name": "Lucian Mandruta",
+            "link": "https://deschide.md/api/author/76"
+        },
+        {
+            "name": "Ionel Cheptea",
+            "link": "https://deschide.md/api/author/79"
+        },
+        {
+            "name": "Виктор Воскобойник",
+            "link": "https://deschide.md/api/author/80"
+        },
+        {
+            "name": "Mariana Colun",
+            "link": "https://deschide.md/api/author/84"
+        },
+        {
+            "name": "Victor Nichituș",
+            "link": "https://deschide.md/api/author/85"
+        },
+        {
+            "name": "Марианна Колун",
+            "link": "https://deschide.md/api/author/86"
+        },
+        {
+            "name": "Radu Popescu",
+            "link": "https://deschide.md/api/author/89"
+        },
+        {
+            "name": "Andrei Chilat",
+            "link": "https://deschide.md/api/author/90"
+        },
+        {
+            "name": "Роман Гнатюк",
+            "link": "https://deschide.md/api/author/91"
+        },
+        {
+            "name": "Алексей Горбачев",
+            "link": "https://deschide.md/api/author/93"
+        },
+        {
+            "name": "Андрей Пионтковский",
+            "link": "https://deschide.md/api/author/95"
+        },
+        {
+            "name": "Alexandru Tănase",
+            "link": "https://deschide.md/api/author/99"
+        },
+        {
+            "name": "Леонид Броневой",
+            "link": "https://deschide.md/api/author/102"
+        },
+        {
+            "name": "Владимир Шатров",
+            "link": "https://deschide.md/api/author/103"
+        },
+        {
+            "name": "Ирина Халип",
+            "link": "https://deschide.md/api/author/104"
+        },
+        {
+            "name": "Cristian Unteanu",
+            "link": "https://deschide.md/api/author/105"
+        },
+        {
+            "name": "Виолетта Михайлов",
+            "link": "https://deschide.md/api/author/107"
+        },
+        {
+            "name": "Павел Пэдурару",
+            "link": "https://deschide.md/api/author/108"
+        },
+        {
+            "name": "Dan Turturică",
+            "link": "https://deschide.md/api/author/109"
+        },
+        {
+            "name": "Mia Bucătaru",
+            "link": "https://deschide.md/api/author/110"
+        },
+        {
+            "name": "Vladimir Chițac",
+            "link": "https://deschide.md/api/author/111"
+        },
+        {
+            "name": "Мия Букэтару",
+            "link": "https://deschide.md/api/author/112"
+        },
+        {
+            "name": "Ionela Costiș",
+            "link": "https://deschide.md/api/author/113"
+        },
+        {
+            "name": "Ионела Костиш",
+            "link": "https://deschide.md/api/author/116"
+        },
+        {
+            "name": "Mihai Carabet",
+            "link": "https://deschide.md/api/author/117"
+        },
+        {
+            "name": "Михай Карабет",
+            "link": "https://deschide.md/api/author/118"
+        },
+        {
+            "name": "Vasile Cojocari",
+            "link": "https://deschide.md/api/author/122"
+        },
+        {
+            "name": "Василе Кожокарь",
+            "link": "https://deschide.md/api/author/124"
+        },
+        {
+            "name": "Andrei Pleșu",
+            "link": "https://deschide.md/api/author/125"
+        },
+        {
+            "name": "Виолетта Михайлова",
+            "link": "https://deschide.md/api/author/127"
+        },
+        {
+            "name": "ROSIAN VASILOI",
+            "link": "https://deschide.md/api/author/130"
+        },
+        {
+            "name": "Romeo Crîşmaru",
+            "link": "https://deschide.md/api/author/131"
+        },
+        {
+            "name": "Dionis Cenușa",
+            "link": "https://deschide.md/api/author/132"
+        },
+        {
+            "name": "Сергей ИЛЬЧЕНКО",
+            "link": "https://deschide.md/api/author/135"
+        },
+        {
+            "name": "Diana Ignatiuc",
+            "link": "https://deschide.md/api/author/136"
+        },
+        {
+            "name": "Вячеслав Балакчи",
+            "link": "https://deschide.md/api/author/139"
+        },
+        {
+            "name": "Valeriu Ghilețchi",
+            "link": "https://deschide.md/api/author/140"
+        },
+        {
+            "name": "Вадим Василу",
+            "link": "https://deschide.md/api/author/142"
+        },
+        {
+            "name": "Stanislav Bîrcă",
+            "link": "https://deschide.md/api/author/143"
+        },
+        {
+            "name": "Andrei Vlasceanu",
+            "link": "https://deschide.md/api/author/148"
+        },
+        {
+            "name": "Руслан Шевченко",
+            "link": "https://deschide.md/api/author/149"
+        },
+        {
+            "name": "Andrian Candu",
+            "link": "https://deschide.md/api/author/150"
+        },
+        {
+            "name": "Petru Bogatu",
+            "link": "https://deschide.md/api/author/153"
+        },
+        {
+            "name": "Veaceslav Ioniță",
+            "link": "https://deschide.md/api/author/154"
+        },
+        {
+            "name": "Dragoș Galbur",
+            "link": "https://deschide.md/api/author/162"
+        },
+        {
+            "name": "Иванка ПЛАТ",
+            "link": "https://deschide.md/api/author/170"
+        },
+        {
+            "name": "Marcela Țușcă",
+            "link": "https://deschide.md/api/author/172"
+        },
+        {
+            "name": "Артем ФИЛИПЕНКО",
+            "link": "https://deschide.md/api/author/175"
+        },
+        {
+            "name": "Алексей Кафтан",
+            "link": "https://deschide.md/api/author/177"
+        },
+        {
+            "name": "Nicolae Țîbrigan",
+            "link": "https://deschide.md/api/author/178"
+        },
+        {
+            "name": "Veaceslav Şaramet",
+            "link": "https://deschide.md/api/author/179"
+        },
+        {
+            "name": "Dumitru Țîra",
+            "link": "https://deschide.md/api/author/180"
+        },
+        {
+            "name": "Кристиан Сава",
+            "link": "https://deschide.md/api/author/182"
+        },
+        {
+            "name": "РЕДАКЦИЯ DESCHIDE.MD",
+            "link": "https://deschide.md/api/author/183"
+        },
+        {
+            "name": "Elena Nistor",
+            "link": "https://deschide.md/api/author/184"
+        },
+        {
+            "name": "Matvei Iandovschi",
+            "link": "https://deschide.md/api/author/186"
+        },
+        {
+            "name": "Andrei Bukov",
+            "link": "https://deschide.md/api/author/189"
+        },
+        {
+            "name": "Eugen Muravschi",
+            "link": "https://deschide.md/api/author/199"
+        },
+        {
+            "name": "Максим Миронов",
+            "link": "https://deschide.md/api/author/200"
+        },
+        {
+            "name": "Nicolae NEGRU",
+            "link": "https://deschide.md/api/author/201"
+        },
+        {
+            "name": "Mihai Vîrlan",
+            "link": "https://deschide.md/api/author/202"
+        },
+        {
+            "name": "Corina Moisei",
+            "link": "https://deschide.md/api/author/203"
+        },
+        {
+            "name": "Dragoș Sasu",
+            "link": "https://deschide.md/api/author/205"
+        },
+        {
+            "name": "Marina Chiru",
+            "link": "https://deschide.md/api/author/207"
+        },
+        {
+            "name": "Марина Киру",
+            "link": "https://deschide.md/api/author/209"
+        },
+        {
+            "name": "Евгений Магда",
+            "link": "https://deschide.md/api/author/211"
+        },
+        {
+            "name": "Victor Barbu",
+            "link": "https://deschide.md/api/author/212"
+        },
+        {
+            "name": "Victoria Colesnic",
+            "link": "https://deschide.md/api/author/215"
+        },
+        {
+            "name": "Iurie Reniță",
+            "link": "https://deschide.md/api/author/217"
+        },
+        {
+            "name": "Violeta Cincu",
+            "link": "https://deschide.md/api/author/220"
+        },
+        {
+            "name": "Антон Михненко",
+            "link": "https://deschide.md/api/author/224"
+        },
+        {
+            "name": "Svetoslav Mihalache",
+            "link": "https://deschide.md/api/author/227"
+        },
+        {
+            "name": "Sveatoslav Mihalache",
+            "link": "https://deschide.md/api/author/228"
+        },
+        {
+            "name": "Lucia Vieru",
+            "link": "https://deschide.md/api/author/229"
+        },
+        {
+            "name": "Лучия Виеру",
+            "link": "https://deschide.md/api/author/230"
+        },
+        {
+            "name": "Юрий Федоров",
+            "link": "https://deschide.md/api/author/232"
+        },
+        {
+            "name": "Iuri Feodorov",
+            "link": "https://deschide.md/api/author/234"
+        },
+        {
+            "name": "Ionela Gribincea",
+            "link": "https://deschide.md/api/author/235"
+        },
+        {
+            "name": "Ионела Грибинча",
+            "link": "https://deschide.md/api/author/236"
+        },
+        {
+            "name": "Ion Mischevca",
+            "link": "https://deschide.md/api/author/237"
+        },
+        {
+            "name": "Николае Негру",
+            "link": "https://deschide.md/api/author/241"
+        },
+        {
+            "name": "Игорь Тимофти",
+            "link": "https://deschide.md/api/author/242"
+        },
+        {
+            "name": "Adrian Dupu",
+            "link": "https://deschide.md/api/author/243"
+        },
+        {
+            "name": "Florian Bichir",
+            "link": "https://deschide.md/api/author/244"
+        },
+        {
+            "name": "Evgheni Magda",
+            "link": "https://deschide.md/api/author/249"
+        },
+        {
+            "name": "Victor Chirila",
+            "link": "https://deschide.md/api/author/257"
+        },
+        {
+            "name": "Ștefan Bejan",
+            "link": "https://deschide.md/api/author/261"
+        },
+        {
+            "name": "Petrișor Gabriel Peiu",
+            "link": "https://deschide.md/api/author/263"
+        },
+        {
+            "name": "Sergiu Malairau",
+            "link": "https://deschide.md/api/author/264"
+        },
+        {
+            "name": "Valentin Naumescu",
+            "link": "https://deschide.md/api/author/268"
+        },
+        {
+            "name": "Rodica Secrieru",
+            "link": "https://deschide.md/api/author/269"
+        },
+        {
+            "name": "Evhen Magda",
+            "link": "https://deschide.md/api/author/273"
+        },
+        {
+            "name": "Евген МАГДА",
+            "link": "https://deschide.md/api/author/274"
+        },
+        {
+            "name": "Marianna Prysiazhniuk",
+            "link": "https://deschide.md/api/author/275"
+        },
+        {
+            "name": "Dumitru Mînzărari",
+            "link": "https://deschide.md/api/author/276"
+        },
+        {
+            "name": "Dorin Dusciac",
+            "link": "https://deschide.md/api/author/277"
+        },
+        {
+            "name": "Open Moldova",
+            "link": "https://deschide.md/api/author/278"
+        },
+        {
+            "name": "Марианна Присяжнюк",
+            "link": "https://deschide.md/api/author/280"
+        },
+        {
+            "name": "Silviu Tănase",
+            "link": "https://deschide.md/api/author/283"
+        },
+        {
+            "name": "Nicu Popescu",
+            "link": "https://deschide.md/api/author/285"
+        },
+        {
+            "name": "Serghei Ilcenko",
+            "link": "https://deschide.md/api/author/286"
+        },
+        {
+            "name": "Robert Lupitu",
+            "link": "https://deschide.md/api/author/287"
+        },
+        {
+            "name": "Ion Chislea",
+            "link": "https://deschide.md/api/author/288"
+        },
+        {
+            "name": "Eliza Botnari",
+            "link": "https://deschide.md/api/author/289"
+        },
+        {
+            "name": "Ovidiu Raetchi",
+            "link": "https://deschide.md/api/author/293"
+        },
+        {
+            "name": "Vadim Ungureanu",
+            "link": "https://deschide.md/api/author/294"
+        },
+        {
+            "name": "Petru Cosoi",
+            "link": "https://deschide.md/api/author/296"
+        },
+        {
+            "name": "Элиза Ботнарь",
+            "link": "https://deschide.md/api/author/299"
+        },
+        {
+            "name": "Veaceslav Negruță",
+            "link": "https://deschide.md/api/author/300"
+        },
+        {
+            "name": "Valeriu NICOLAE",
+            "link": "https://deschide.md/api/author/302"
+        },
+        {
+            "name": "Cristian Bogatu",
+            "link": "https://deschide.md/api/author/303"
+        },
+        {
+            "name": "Alina Zbancă",
+            "link": "https://deschide.md/api/author/305"
+        },
+        {
+            "name": "Дмитрий Евстратов",
+            "link": "https://deschide.md/api/author/306"
+        },
+        {
+            "name": "Octavian Țîcu",
+            "link": "https://deschide.md/api/author/308"
+        },
+        {
+            "name": "Юрий Пивоваров",
+            "link": "https://deschide.md/api/author/310"
+        },
+        {
+            "name": "Anatol Moraru",
+            "link": "https://deschide.md/api/author/311"
+        },
+        {
+            "name": "Петр Кравцов",
+            "link": "https://deschide.md/api/author/313"
+        },
+        {
+            "name": "Igor Munteanu",
+            "link": "https://deschide.md/api/author/318"
+        },
+        {
+            "name": "Artiom Filipenko",
+            "link": "https://deschide.md/api/author/320"
+        },
+        {
+            "name": "George Damian",
+            "link": "https://deschide.md/api/author/325"
+        },
+        {
+            "name": "Tudor Chirilă",
+            "link": "https://deschide.md/api/author/327"
+        },
+        {
+            "name": "Mihai Gribincea",
+            "link": "https://deschide.md/api/author/328"
+        },
+        {
+            "name": "Adrian Tănase",
+            "link": "https://deschide.md/api/author/330"
+        },
+        {
+            "name": "Axenia Manoli",
+            "link": "https://deschide.md/api/author/331"
+        },
+        {
+            "name": "Александру Тэнасе",
+            "link": "https://deschide.md/api/author/332"
+        },
+        {
+            "name": "Alexandru Arseni",
+            "link": "https://deschide.md/api/author/333"
+        },
+        {
+            "name": "Josep Borrell",
+            "link": "https://deschide.md/api/author/336"
+        },
+        {
+            "name": "Gabriela Crasnițchi",
+            "link": "https://deschide.md/api/author/337"
+        },
+        {
+            "name": "Iulian Mareș",
+            "link": "https://deschide.md/api/author/341"
+        },
+        {
+            "name": "Вячеслав Ионицэ",
+            "link": "https://deschide.md/api/author/343"
+        },
+        {
+            "name": "Stanislav Secrieru",
+            "link": "https://deschide.md/api/author/345"
+        },
+        {
+            "name": "Anatol Țăranu",
+            "link": "https://deschide.md/api/author/346"
+        },
+        {
+            "name": "Adrian Ermurachi",
+            "link": "https://deschide.md/api/author/348"
+        },
+        {
+            "name": "Cristian Slobozean",
+            "link": "https://deschide.md/api/author/349"
+        },
+        {
+            "name": "Dina Munteanu",
+            "link": "https://deschide.md/api/author/350"
+        },
+        {
+            "name": "Constantin Uzdriș",
+            "link": "https://deschide.md/api/author/353"
+        },
+        {
+            "name": "Ala Tocarciuc",
+            "link": "https://deschide.md/api/author/357"
+        },
+        {
+            "name": "Eugen PATRAȘ",
+            "link": "https://deschide.md/api/author/358"
+        },
+        {
+            "name": "Libertatea -Vasile Ernu",
+            "link": "https://deschide.md/api/author/362"
+        },
+        {
+            "name": "Думитру КРУДУ",
+            "link": "https://deschide.md/api/author/363"
+        },
+        {
+            "name": "Yevhen MAHDA",
+            "link": "https://deschide.md/api/author/364"
+        },
+        {
+            "name": "Tudor Ioniță",
+            "link": "https://deschide.md/api/author/365"
+        },
+        {
+            "name": "Тудор Ионицэ",
+            "link": "https://deschide.md/api/author/366"
+        },
+        {
+            "name": "Dan Limbas",
+            "link": "https://deschide.md/api/author/367"
+        },
+        {
+            "name": "Александр Тэнасе",
+            "link": "https://deschide.md/api/author/370"
+        },
+        {
+            "name": "Кристиан Слобозян",
+            "link": "https://deschide.md/api/author/372"
+        },
+        {
+            "name": "Adina Vălean",
+            "link": "https://deschide.md/api/author/373"
+        },
+        {
+            "name": "Адина Вэлян",
+            "link": "https://deschide.md/api/author/374"
+        },
+        {
+            "name": "Игорь Мунтяну",
+            "link": "https://deschide.md/api/author/375"
+        },
+        {
+            "name": "Mariana Durleșteanu",
+            "link": "https://deschide.md/api/author/376"
+        },
+        {
+            "name": "Анатол Цэрану",
+            "link": "https://deschide.md/api/author/378"
+        },
+        {
+            "name": "Cristian Hrițuc",
+            "link": "https://deschide.md/api/author/380"
+        },
+        {
+            "name": "Тудор Ионица",
+            "link": "https://deschide.md/api/author/381"
+        },
+        {
+            "name": "Victor Guzun",
+            "link": "https://deschide.md/api/author/382"
+        },
+        {
+            "name": "George Friedman",
+            "link": "https://deschide.md/api/author/384"
+        },
+        {
+            "name": "Cristina Vlah",
+            "link": "https://deschide.md/api/author/388"
+        },
+        {
+            "name": "Monica Scutaru",
+            "link": "https://deschide.md/api/author/389"
+        },
+        {
+            "name": "Кристина Влах",
+            "link": "https://deschide.md/api/author/390"
+        },
+        {
+            "name": "Моника Скутару",
+            "link": "https://deschide.md/api/author/391"
+        },
+        {
+            "name": "Cazimir Țino",
+            "link": "https://deschide.md/api/author/395"
+        },
+        {
+            "name": "Ana Bolgari",
+            "link": "https://deschide.md/api/author/396"
+        },
+        {
+            "name": "Mihai Mogîldea",
+            "link": "https://deschide.md/api/author/398"
+        },
+        {
+            "name": "Vitalie Ciobanu",
+            "link": "https://deschide.md/api/author/400"
+        },
+        {
+            "name": "Жозеп Боррель",
+            "link": "https://deschide.md/api/author/401"
+        },
+        {
+            "name": "Aura Revenco",
+            "link": "https://deschide.md/api/author/406"
+        },
+        {
+            "name": "Paul Popescu",
+            "link": "https://deschide.md/api/author/408"
+        },
+        {
+            "name": "Кристиан Хрицук",
+            "link": "https://deschide.md/api/author/409"
+        },
+        {
+            "name": "Mihai Isac",
+            "link": "https://deschide.md/api/author/411"
+        },
+        {
+            "name": "Vadim Brînzaniuc",
+            "link": "https://deschide.md/api/author/412"
+        },
+        {
+            "name": "Eliza Mihalache",
+            "link": "https://deschide.md/api/author/414"
+        },
+        {
+            "name": "Элиза Михалаке",
+            "link": "https://deschide.md/api/author/415"
+        },
+        {
+            "name": "Евген Цыбуленко",
+            "link": "https://deschide.md/api/author/416"
+        },
+        {
+            "name": "Владимир Ростоцкий",
+            "link": "https://deschide.md/api/author/418"
+        },
+        {
+            "name": "Автор: Deschide.MD",
+            "link": "https://deschide.md/api/author/420"
+        },
+        {
+            "name": "Анатола Цэрану",
+            "link": "https://deschide.md/api/author/421"
+        },
+        {
+            "name": "Robert Manea",
+            "link": "https://deschide.md/api/author/422"
+        },
+        {
+            "name": "Mihai-D. Grigore",
+            "link": "https://deschide.md/api/author/423"
+        },
+        {
+            "name": "Nicolae Federiuc",
+            "link": "https://deschide.md/api/author/424"
+        },
+        {
+            "name": "Natalia Hadârcă",
+            "link": "https://deschide.md/api/author/425"
+        },
+        {
+            "name": "Angelina Olaru",
+            "link": "https://deschide.md/api/author/426"
+        }
+    ]
+}

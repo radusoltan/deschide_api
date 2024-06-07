@@ -27,7 +27,9 @@ class ArticleTranslation extends Model
         'locked_by_user',
         'is_flash',
         'is_alert',
-        'is_breaking'
+        'is_breaking',
+        'is_live',
+        'embed'
 
     ];
 
@@ -41,6 +43,7 @@ class ArticleTranslation extends Model
         'is_flash' => 'boolean',
         'is_alert' => 'boolean',
         'is_breaking' => 'boolean',
+        'is_live' => 'boolean',
         'published_at' => 'datetime',
     ];
 

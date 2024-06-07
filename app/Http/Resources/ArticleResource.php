@@ -30,7 +30,9 @@ class ArticleResource extends JsonResource
             'is_locked' => $this->is_locked,
             'authors' => AuthorResource::collection($this->authors),
             'images' => ImageResource::collection($this->images),
-            'translations' => $this->translations()->get()
+            'translations' => $this->translations()->get(),
+            'is_live' => $this->is_live,
+            'embed' => $this->embed
         ];
     }
 }
