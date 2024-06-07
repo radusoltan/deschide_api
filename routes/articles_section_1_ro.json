@@ -1,0 +1,1940 @@
+{
+    "items": [
+        {
+            "url": "http://deschide.md/ro/stiri/politic/53/ciolo-la-ntrevederea-cu-candu-romania-va-spori-investi-iile-n-rm.htm",
+            "languageData": {
+                "id": 2,
+                "name": "Romanian",
+                "code": "ro",
+                "RFC3066bis": "ro-RO"
+            },
+            "status": "Y",
+            "isLocked": false,
+            "language": "ro",
+            "publication": {
+                "id": 1,
+                "name": "Deschide Știrea"
+            },
+            "issue": {
+                "number": 1,
+                "language": "ro",
+                "title": "Stiri",
+                "workflowStatus": "Y",
+                "shortName": "stiri"
+            },
+            "section": {
+                "language": "ro",
+                "number": 1,
+                "title": "politic"
+            },
+            "fields": {
+                "Titlu": null,
+                "social_Titlu": "Cioloș la întrevederea cu Candu: România va spori investițiile în RM",
+                "subtitlu": null,
+                "lead": null,
+                "Continut": "<p><strong>România va extinde proiectele de dezvoltare în Republica Moldova și va continua să mobilizeze capitalele europene pentru a menține proiectul – apropierea Republicii Moldova de UE – pe agenda europeană. Declarația a fost făcută de Prim-ministrul României Dacian Cioloș la întrevederea cu Președintele Parlamentului Andrian Candu.</strong></p>\r\n<p>Premierul României a anunțat că urmează a fi sporite investițiile românești în Republica Moldova. Potrivit Prim-ministrului, două dintre companiile importante din sectorul energetic românesc sunt pregătite să investească în Republica Moldova, în condiții de predictibilitate pentru mediul de afaceri și rentabilitate. De asemenea, Dacian Cioloș a menționat că o bancă importantă din România și-a anunțat intenția de a se extinde în Republica Moldova.</p>\r\n<blockquote>\r\n<p><em>„România va încuraja și alți investitori să vină în Republica Moldova, în măsura în care reformele vor continua pentru a îmbunătăți mediul de afaceri și va exista o abordare constructivă din partea autorităților\"</em>, a declarat Dacian Cioloș.</p>\r\n</blockquote>\r\n<p>Prim-ministrul României a subliniat că, pe lângă asistența financiară rambursabilă de 150 mln de euro, Republica Moldova va continua să beneficieze și de asistență financiară nerambursabilă din partea României. Este vorba despre continuarea proiectelor de renovare a grădinițelor, achiziția microbuzelor pentru transportul elevilor la școală și extinderea unui program-pilot destinat administrației publice locale.</p>\r\n<p>Speakerul Andrian Candu a apreciat proiectele implementate până în prezent cu asistența României și a salutat intenția de a le continua și extinde. Președintele Parlamentului a menționat că pentru Republica Moldova rămâne o prioritate implementarea Acordului de Asociere, semnarea unui nou acord cu FMI, reforma sectorului energetic și al celui financiar-bancar, crearea condițiilor atractive pentru mediul de afaceri și a instrumentelor de protecție pentru investitorii străini.</p>\r\n<blockquote>\r\n<p><em>„Salutăm intenția investitorilor români de a veni în Republica Moldova. Vom acorda tot suportul necesar, inclusiv prin modificarea și completarea legislației, pentru a facilita investițiile străine în Republica Moldova. Și majoritatea parlamentară, și Guvernul vor asigura continuarea politicilor de integrare europeană a țării. Angajamentul, asumat politic, este să îndeplinim precondițiile stabilite de FMI, iar acest lucru va fi un semnal pentru Comisia Europeană de a relua proiectele suspendate cu Republica Moldova\"</em>, a declarat Andrian Candu.</p>\r\n</blockquote>\r\n<p>La întrevedere au mai participat deputații Valentina Buliga, Președinta Comisiei politică externă și integrare europeană, Mihai Ghimpu, Copreședintele Comitetului Parlamentar de Asociere Uniunea Europeană – Republica Moldova și Președintele Grupului parlamentar de prietenie cu România și George Mocanu, Copreședintele Comisiei Comune pentru Integrare Europeană dintre Parlamentul României și Parlamentul Republicii Moldova.</p>",
+                "BREAKING_NEWS": "0",
+                "NEWS_ALERT": "0",
+                "FLASH": "0",
+                "FOTO": "0",
+                "VIDEO": "0",
+                "DOC": "0",
+                "live_text": null,
+                "alegeri": "0",
+                "video_embed": null,
+                "show_on_front_page": 0,
+                "show_on_section_page": 0
+            },
+            "authors": [
+                {
+                    "name": "Pavel Maftei",
+                    "link": "https://deschide.md/api/author/7"
+                }
+            ],
+            "number": "53",
+            "title": "Cioloș la întrevederea cu Candu: România va spori investițiile în RM",
+            "updated": "2017-03-07T09:31:28+0200",
+            "comments_enabled": "1",
+            "comments_count": 0,
+            "recommended_comments_count": 0,
+            "comments": "https://deschide.md/api/articles/53/ro/comments",
+            "type": "stiri",
+            "published": "2016-08-27T01:29:08+0300",
+            "created": "2016-08-27T01:28:01+0300",
+            "comments_locked": 0,
+            "renditions": [
+                {
+                    "caption": "articlebig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/758x426%2Fcrop%2Fimages%257Ccms-image-000000055.jpg",
+                    "details": {
+                        "width": 758,
+                        "height": 426,
+                        "caption": "",
+                        "photographer": "curentul.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 2000,
+                            "height": 1350,
+                            "src": "deschide.md/images/cache/2000x1350%2Ffit%2Fimages%257Ccms-image-000000055.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionbig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/847x476%2Fcrop%2Fimages%257Ccms-image-000000055.jpg",
+                    "details": {
+                        "width": 847,
+                        "height": 476,
+                        "caption": "",
+                        "photographer": "curentul.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 2000,
+                            "height": 1350,
+                            "src": "deschide.md/images/cache/2000x1350%2Ffit%2Fimages%257Ccms-image-000000055.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionsthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/160x90%2Fcrop%2Fimages%257Ccms-image-000000055.jpg",
+                    "details": {
+                        "width": 160,
+                        "height": 90,
+                        "caption": "",
+                        "photographer": "curentul.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 2000,
+                            "height": 1350,
+                            "src": "deschide.md/images/cache/2000x1350%2Ffit%2Fimages%257Ccms-image-000000055.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/320x180%2Fcrop%2Fimages%257Ccms-image-000000055.jpg",
+                    "details": {
+                        "width": 320,
+                        "height": 180,
+                        "caption": "",
+                        "photographer": "curentul.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 2000,
+                            "height": 1350,
+                            "src": "deschide.md/images/cache/2000x1350%2Ffit%2Fimages%257Ccms-image-000000055.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "square",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/150x150%2Fcrop%2Fimages%257Ccms-image-000000055.jpg",
+                    "details": {
+                        "width": 150,
+                        "height": 150,
+                        "caption": "",
+                        "photographer": "curentul.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 2000,
+                            "height": 1350,
+                            "src": "deschide.md/images/cache/2000x1350%2Ffit%2Fimages%257Ccms-image-000000055.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "squaremenu",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/200x113%2Fcrop%2Fimages%257Ccms-image-000000055.jpg",
+                    "details": {
+                        "width": 200,
+                        "height": 113,
+                        "caption": "",
+                        "photographer": "curentul.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 2000,
+                            "height": 1350,
+                            "src": "deschide.md/images/cache/2000x1350%2Ffit%2Fimages%257Ccms-image-000000055.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "topfront",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/1170x450%2Fcrop%2Fimages%257Ccms-image-000000055.jpg",
+                    "details": {
+                        "width": 1170,
+                        "height": 450,
+                        "caption": "",
+                        "photographer": "curentul.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 2000,
+                            "height": 1350,
+                            "src": "deschide.md/images/cache/2000x1350%2Ffit%2Fimages%257Ccms-image-000000055.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "fullscreen_medium",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/1024x768%2Fcrop%2Fimages%257Ccms-image-000000055.jpg",
+                    "details": {
+                        "width": 1024,
+                        "height": 768,
+                        "caption": "",
+                        "photographer": "curentul.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 2000,
+                            "height": 1350,
+                            "src": "deschide.md/images/cache/2000x1350%2Ffit%2Fimages%257Ccms-image-000000055.jpg"
+                        }
+                    }
+                }
+            ],
+            "webcode": "dlmpg",
+            "reads": "3"
+        },
+        {
+            "url": "http://deschide.md/ro/stiri/politic/54/pre-edintele-timofti-l-a-decorat-cu-meritul-civic-pe-iulian-chifu.htm",
+            "languageData": {
+                "id": 2,
+                "name": "Romanian",
+                "code": "ro",
+                "RFC3066bis": "ro-RO"
+            },
+            "status": "Y",
+            "isLocked": false,
+            "language": "ro",
+            "publication": {
+                "id": 1,
+                "name": "Deschide Știrea"
+            },
+            "issue": {
+                "number": 1,
+                "language": "ro",
+                "title": "Stiri",
+                "workflowStatus": "Y",
+                "shortName": "stiri"
+            },
+            "section": {
+                "language": "ro",
+                "number": 1,
+                "title": "politic"
+            },
+            "fields": {
+                "Titlu": null,
+                "social_Titlu": "Preşedintele Timofti l-a decorat cu „Meritul Civic” pe Iulian CHIFU",
+                "subtitlu": null,
+                "lead": null,
+                "Continut": "<p><strong>Editorialistul Deschide.MD, Iulian Chifu, fost consilier prezidenţial pe probleme de securitate, director, fondator şi preşedinte al Centrului pentru Prevenirea Conflictelor și Early Warning, a fost decorat de Preşedintele Nicolae Timofti cu medalia \"Meritul Civic\".</strong></p>\r\n<p>Secretarul General al Preşedinţiei, Ion Păduraru a declarat pentru Deschide.MD că distincţia i-a fost acordată printr-un decret prezidenţial semnat ieri de Preşedintele Timofti.</p>\r\n<p>\"<em>În decret scrie că ordinul i-a fost conferit pentru constribuţie substanţială la dezvoltarea relaţiilor de prietenie şi colaborare dintre România şi Republica Moldova şi pentru ajutorul acordat la elaborarea Strategiei securităţii naţionale a RM</em>\", ne-a declarat Ion Păduraru. </p>\r\n<p>Iulian Chifu este editorialist Deschide.MD de mai bine de un an, timp în care a publicat peste 150 de materiale de analize generând astfel atitudini faţă de mişcările politice de la Chişinău, cât şi faţă de multe evenimente de natura internaţională. </p>\r\n<p>În contextul aportului său pentru Republica Moldova, vom aminti că Iulian Chifu a lansat astăzi cartea \"Războiul informational: tipizarea agresiunii informaționale a Federației Ruse\". Scopul cel mai important al studiului a fost de a realiza tipizarea războiului informațional al Rusiei, de a crea un sistem de praguri și niveluri de influență care ar constitui referențialul evaluării gradului de impact al războiului informațional al Rusiei într-o terță țară, precum și, acela de a devoala sistemele de lucru în războiul informațional și de conștientizare a existenței acestui război și al formulelor instituționale individuale de protecție în cadrul războiului informațional.</p>\r\n<p>Detalii: <a href=\"http://deschide.md/ro/news/social/30844/Lansare--Razboiului-informa%C5%A3ional-al-Rusiei-%C3%AEn-Rom%C3%A2nia-%C8%99i-RMoldova.htm\">Lansare // Razboiului informaţional al Rusiei în România și R.Moldova</a></p>",
+                "BREAKING_NEWS": "0",
+                "NEWS_ALERT": "0",
+                "FLASH": "0",
+                "FOTO": "0",
+                "VIDEO": "0",
+                "DOC": "0",
+                "live_text": null,
+                "alegeri": "0",
+                "video_embed": null,
+                "show_on_front_page": 0,
+                "show_on_section_page": 0
+            },
+            "authors": [
+                {
+                    "name": "Svetlana Maftei",
+                    "link": "https://deschide.md/api/author/2"
+                }
+            ],
+            "number": "54",
+            "title": "Preşedintele Timofti l-a decorat cu „Meritul Civic” pe Iulian CHIFU",
+            "updated": "2017-03-07T09:31:28+0200",
+            "comments_enabled": "1",
+            "comments_count": 0,
+            "recommended_comments_count": 0,
+            "comments": "https://deschide.md/api/articles/54/ro/comments",
+            "type": "stiri",
+            "published": "2016-08-27T01:31:14+0300",
+            "created": "2016-08-27T01:30:08+0300",
+            "comments_locked": 0,
+            "renditions": [
+                {
+                    "caption": "articlebig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/758x426%2Fcrop%2Fimages%257Ccms-image-000000056.jpg",
+                    "details": {
+                        "width": 758,
+                        "height": 426,
+                        "caption": "",
+                        "photographer": "deschide.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 2048,
+                            "height": 1365,
+                            "src": "deschide.md/images/cache/2048x1365%2Ffit%2Fimages%257Ccms-image-000000056.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionbig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/847x476%2Fcrop%2Fimages%257Ccms-image-000000056.jpg",
+                    "details": {
+                        "width": 847,
+                        "height": 476,
+                        "caption": "",
+                        "photographer": "deschide.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 2048,
+                            "height": 1365,
+                            "src": "deschide.md/images/cache/2048x1365%2Ffit%2Fimages%257Ccms-image-000000056.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionsthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/160x90%2Fcrop%2Fimages%257Ccms-image-000000056.jpg",
+                    "details": {
+                        "width": 160,
+                        "height": 90,
+                        "caption": "",
+                        "photographer": "deschide.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 2048,
+                            "height": 1365,
+                            "src": "deschide.md/images/cache/2048x1365%2Ffit%2Fimages%257Ccms-image-000000056.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/320x180%2Fcrop%2Fimages%257Ccms-image-000000056.jpg",
+                    "details": {
+                        "width": 320,
+                        "height": 180,
+                        "caption": "",
+                        "photographer": "deschide.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 2048,
+                            "height": 1365,
+                            "src": "deschide.md/images/cache/2048x1365%2Ffit%2Fimages%257Ccms-image-000000056.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "square",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/150x150%2Fcrop%2Fimages%257Ccms-image-000000056.jpg",
+                    "details": {
+                        "width": 150,
+                        "height": 150,
+                        "caption": "",
+                        "photographer": "deschide.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 2048,
+                            "height": 1365,
+                            "src": "deschide.md/images/cache/2048x1365%2Ffit%2Fimages%257Ccms-image-000000056.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "squaremenu",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/200x113%2Fcrop%2Fimages%257Ccms-image-000000056.jpg",
+                    "details": {
+                        "width": 200,
+                        "height": 113,
+                        "caption": "",
+                        "photographer": "deschide.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 2048,
+                            "height": 1365,
+                            "src": "deschide.md/images/cache/2048x1365%2Ffit%2Fimages%257Ccms-image-000000056.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "topfront",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/1170x450%2Fcrop_0_141_2048_929%2Fimages%257Ccms-image-000000056.jpg",
+                    "details": {
+                        "width": 1170,
+                        "height": 450,
+                        "caption": "",
+                        "photographer": "deschide.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 2048,
+                            "height": 1365,
+                            "src": "deschide.md/images/cache/2048x1365%2Ffit%2Fimages%257Ccms-image-000000056.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "fullscreen_medium",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/1024x768%2Fcrop%2Fimages%257Ccms-image-000000056.jpg",
+                    "details": {
+                        "width": 1024,
+                        "height": 768,
+                        "caption": "",
+                        "photographer": "deschide.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 2048,
+                            "height": 1365,
+                            "src": "deschide.md/images/cache/2048x1365%2Ffit%2Fimages%257Ccms-image-000000056.jpg"
+                        }
+                    }
+                }
+            ],
+            "webcode": "3zw4a",
+            "reads": "23"
+        },
+        {
+            "url": "http://deschide.md/ro/stiri/politic/55/cca-a-decis-regulile-de-joc-n-campania-electoral.htm",
+            "languageData": {
+                "id": 2,
+                "name": "Romanian",
+                "code": "ro",
+                "RFC3066bis": "ro-RO"
+            },
+            "status": "Y",
+            "isLocked": false,
+            "language": "ro",
+            "publication": {
+                "id": 1,
+                "name": "Deschide Știrea"
+            },
+            "issue": {
+                "number": 1,
+                "language": "ro",
+                "title": "Stiri",
+                "workflowStatus": "Y",
+                "shortName": "stiri"
+            },
+            "section": {
+                "language": "ro",
+                "number": 1,
+                "title": "politic"
+            },
+            "fields": {
+                "Titlu": null,
+                "social_Titlu": "CCA a decis regulile de joc în campania electorală",
+                "subtitlu": null,
+                "lead": null,
+                "Continut": "<p class=\"rtejustify\"><strong>Consiliul Coordonator al Audiovizualului a examinat și adoptat astăzi <em>Concepția </em><em>privind reflectarea campaniei electorale la alegerile prezidențiale din 30 octombrie 2016 de către radiodifuzorii</em> <em>din Republica Moldova</em>.</strong></p>\r\n<p class=\"rtejustify\">Concepţia stabileşte modul de reflectare a campaniei electorale  la alegerile prezidențiale din 30 octombrie 2016 de către instituţiile audiovizualului (radiodifuzorii) din Republica Moldova şi are drept scop asigurarea reflectării echitabile, echilibrate şi imparţiale a campaniei electorale la alegerile prezidențiale de către radiodifuzori, promovarea libertăţii de exprimare şi pluralismului politic, stabilirea unor norme obligatorii pentru aplicarea în practică a acestor principii de către radiodifuzori, pe de o parte, şi concurenţi electorali, pe de altă parte.</p>\r\n<p class=\"rtejustify\">Conform Concepției, fiecare radiodifuzor, care va reflecta campania electorală, va depune la Consiliul Coordonator al Audiovizualului o declaraţie privind politica editorială pentru campania electorală. Declarația se va depune la CCA în primele 7 zile de la aprobarea de către CEC a Regulamentului privind reflectarea campaniei electorale în mijloacele de informare în masă. Declaraţia privind politica editorială pentru campania electorală va conţine:</p>\r\n<p class=\"rtejustify\"><strong>-numele proprietarului/proprietarilor radiodifuzorului;</strong></p>\r\n<p class=\"rtejustify\"><strong>-principiile asumate de către  radiodifuzor privind reflectarea campaniei electorale;</strong></p>\r\n<p class=\"rtejustify\"><strong>-principiul de programare şi acordare a timpilor de antenă;</strong></p>\r\n<p class=\"rtejustify\"><strong>-orarul timpilor de antenă gratuiţi şi contra plată sau condițiile de programare a timpilor de antenă gratuiți și contra plată, tarifele pentru timpii de antenă contra plată care nu pot depăși tarifele stabilite în mod obișnuit pentru publicitatea comercială;</strong></p>\r\n<p class=\"rtejustify\"><strong>-principiile de organizare a dezbaterilor electorale;</strong></p>\r\n<p class=\"rtejustify\"><strong>-ordinea în care sunt invitați participanții la dezbateri, precum și gruparea acestora, cu respectarea egalității de șanse pentru fiecare participant, inclusiv sub aspectul dimensiunii de gen și al respectării egalității pentru persoanele cu nevoi speciale după caz;</strong></p>\r\n<p class=\"rtejustify\"><strong>-modul de evidenţă a timpilor de antenă acordaţi concurenţilor electorali, în conformitate cu art. 64 din Codul Electoral;</strong></p>\r\n<p class=\"rtejustify\"><strong>-grila emisiunilor cu caracter electoral sau condițiile de programare a acestora;</strong></p>\r\n<p class=\"rtejustify\"><strong>-numele, prenumele, numerele telefoanelor de serviciu și al telefonului mobil,  faxul şi adresa electronică a persoanei responsabile de reflectarea campaniei electorale.</strong></p>\r\n<p class=\"rtejustify\">Radiodifuzorii, care nu vor reflecta campania electorală, vor înştiinţa CCA despre acest fapt în acelaşi termen.</p>\r\n<p class=\"rtejustify\">Ulterior, CCA va examina în ședință publică declarațiile privind politica editorială pentru reflectarea alegerilor prezidențiale și le va plasa pe pagina web în termen de 24 ore după aprobare. CCA are dreptul să respingă declaraţiile radiodifuzorilor care nu corespund cerinţelor în vigoare şi solicite aducerea acestora în concordanţă cu legislaţia în termen de pînă la 3 zile calendaristice. În cazul prezentării declarațiilor privind politica editorială pentru campania electorală la alegerile prezidențiale cu încălcarea termenului stabilit, CCA va aplica sancțiuni prevăzute în art. 38 din Codul audiovizualului. Radiodifuzorii, declaraţiile cărora nu vor fi aprobate de către CCA, nu vor avea dreptul să reflecte campania electorală la alegerile prezidențiale din 30 octombrie 2016.</p>\r\n<p class=\"rtejustify\">Totodată, <em>Concepția </em><em>privind reflectarea campaniei electorale la alegerile prezidențiale din 30 octombrie 2016 </em><strong><em>de către radiodifuzorii</em></strong> <em>din Republica Moldova</em> conține prevederi privind asigurarea accesului la informație pentru persoanele cu dizabilități. Astfel, radiodifuzorii vor reflecta campania electorală în aşa fel, încât să devină accesibilă persoanelor cu deficienţe de auz şi văz, prin mesaje text, interpretare, descriere audio sau alte tehnici similare.</p>\r\n<p class=\"rtejustify\">Concepția aprobată astăzi în cadrul ședinței CCA va fi remisă Comisiei Electorale Centrale în vederea adoptării<em>Regulamentului privind reflectarea campaniei electorale la alegerile prezidențiale din 30 octombrie 2016 în mijloacele de informare în masă din Republica Moldova</em>.</p>",
+                "BREAKING_NEWS": "0",
+                "NEWS_ALERT": "0",
+                "FLASH": "0",
+                "FOTO": "0",
+                "VIDEO": "0",
+                "DOC": "0",
+                "live_text": null,
+                "alegeri": "0",
+                "video_embed": null,
+                "show_on_front_page": 0,
+                "show_on_section_page": 0
+            },
+            "authors": [
+                {
+                    "name": "Igor Liubec",
+                    "link": "https://deschide.md/api/author/10"
+                }
+            ],
+            "number": "55",
+            "title": "CCA a decis regulile de joc în campania electorală",
+            "updated": "2017-03-07T09:31:28+0200",
+            "comments_enabled": "1",
+            "comments_count": 0,
+            "recommended_comments_count": 0,
+            "comments": "https://deschide.md/api/articles/55/ro/comments",
+            "type": "stiri",
+            "published": "2016-08-27T01:34:09+0300",
+            "created": "2016-08-27T01:32:13+0300",
+            "comments_locked": 0,
+            "renditions": [
+                {
+                    "caption": "articlebig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/758x426%2Fcrop%2Fimages%257Ccms-image-000000057.jpg",
+                    "details": {
+                        "width": 758,
+                        "height": 426,
+                        "caption": "",
+                        "photographer": "privesc.eu",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1280,
+                            "height": 720,
+                            "src": "deschide.md/images/cache/1280x720%2Ffit%2Fimages%257Ccms-image-000000057.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionbig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/847x476%2Fcrop%2Fimages%257Ccms-image-000000057.jpg",
+                    "details": {
+                        "width": 847,
+                        "height": 476,
+                        "caption": "",
+                        "photographer": "privesc.eu",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1280,
+                            "height": 720,
+                            "src": "deschide.md/images/cache/1280x720%2Ffit%2Fimages%257Ccms-image-000000057.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionsthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/160x90%2Fcrop%2Fimages%257Ccms-image-000000057.jpg",
+                    "details": {
+                        "width": 160,
+                        "height": 90,
+                        "caption": "",
+                        "photographer": "privesc.eu",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1280,
+                            "height": 720,
+                            "src": "deschide.md/images/cache/1280x720%2Ffit%2Fimages%257Ccms-image-000000057.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/320x180%2Fcrop%2Fimages%257Ccms-image-000000057.jpg",
+                    "details": {
+                        "width": 320,
+                        "height": 180,
+                        "caption": "",
+                        "photographer": "privesc.eu",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1280,
+                            "height": 720,
+                            "src": "deschide.md/images/cache/1280x720%2Ffit%2Fimages%257Ccms-image-000000057.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "square",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/150x150%2Fcrop%2Fimages%257Ccms-image-000000057.jpg",
+                    "details": {
+                        "width": 150,
+                        "height": 150,
+                        "caption": "",
+                        "photographer": "privesc.eu",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1280,
+                            "height": 720,
+                            "src": "deschide.md/images/cache/1280x720%2Ffit%2Fimages%257Ccms-image-000000057.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "squaremenu",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/200x113%2Fcrop%2Fimages%257Ccms-image-000000057.jpg",
+                    "details": {
+                        "width": 200,
+                        "height": 113,
+                        "caption": "",
+                        "photographer": "privesc.eu",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1280,
+                            "height": 720,
+                            "src": "deschide.md/images/cache/1280x720%2Ffit%2Fimages%257Ccms-image-000000057.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "topfront",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/1170x450%2Fcrop%2Fimages%257Ccms-image-000000057.jpg",
+                    "details": {
+                        "width": 1170,
+                        "height": 450,
+                        "caption": "",
+                        "photographer": "privesc.eu",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1280,
+                            "height": 720,
+                            "src": "deschide.md/images/cache/1280x720%2Ffit%2Fimages%257Ccms-image-000000057.jpg"
+                        }
+                    }
+                }
+            ],
+            "webcode": "jsbaw",
+            "reads": "6"
+        },
+        {
+            "url": "http://deschide.md/ro/stiri/politic/56/preziden-iale-dodon-vrea-160-sec-ii-de-votare-n-rusia.htm",
+            "languageData": {
+                "id": 2,
+                "name": "Romanian",
+                "code": "ro",
+                "RFC3066bis": "ro-RO"
+            },
+            "status": "Y",
+            "isLocked": false,
+            "language": "ro",
+            "publication": {
+                "id": 1,
+                "name": "Deschide Știrea"
+            },
+            "issue": {
+                "number": 1,
+                "language": "ro",
+                "title": "Stiri",
+                "workflowStatus": "Y",
+                "shortName": "stiri"
+            },
+            "section": {
+                "language": "ro",
+                "number": 1,
+                "title": "politic"
+            },
+            "fields": {
+                "Titlu": null,
+                "social_Titlu": "Prezidențiale // Dodon vrea 160 secții de votare în Rusia",
+                "subtitlu": null,
+                "lead": null,
+                "Continut": "<p><strong>Președintele Partidului Soсialiștilor, Igor Dodon, susține că potrivit datelor oficiale a numărului de cetățeni aflați peste hotare, prezentate de ministerul Afacerilor Externe și Integrării Europene, în Federația Rusă urmează să fie deschise 160 secții de votare pentru alegerile prezidențiale din 30 octombrie.</strong></p>\r\n<blockquote>\r\n<p>„<em>Am primit raspuns oficial de la Ministerul de Externe despre numarul cetatenilor Republicii Moldova aflati peste hotare. Atentie in Italia 140 mii, iar in Rusia 480 mii.</em></p>\r\n<p><em>Sa vedem cite sectii de votare vor fi deschise pentru alegerile din 30 octombtie 2016 ...</em><br /><em>Din aceasta informatie, conform prevederilor Codului Electoral, in Federatia Rusa urmeaza a fi deschise 160 de sectii de votare</em>”, a scris el pe Facebook.</p>\r\n</blockquote>",
+                "BREAKING_NEWS": "0",
+                "NEWS_ALERT": "0",
+                "FLASH": "0",
+                "FOTO": "0",
+                "VIDEO": "0",
+                "DOC": "0",
+                "live_text": null,
+                "alegeri": "0",
+                "video_embed": null,
+                "show_on_front_page": 0,
+                "show_on_section_page": 0
+            },
+            "authors": [
+                {
+                    "name": "Igor Liubec",
+                    "link": "https://deschide.md/api/author/10"
+                }
+            ],
+            "number": "56",
+            "title": "Prezidențiale // Dodon vrea 160 secții de votare în Rusia",
+            "updated": "2017-03-07T09:31:28+0200",
+            "comments_enabled": "1",
+            "comments_count": 0,
+            "recommended_comments_count": 0,
+            "comments": "https://deschide.md/api/articles/56/ro/comments",
+            "type": "stiri",
+            "published": "2016-08-27T01:35:50+0300",
+            "created": "2016-08-27T01:34:30+0300",
+            "comments_locked": 0,
+            "renditions": [
+                {
+                    "caption": "articlebig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/758x426%2Fcrop%2Fimages%257Ccms-image-000000058.jpg",
+                    "details": {
+                        "width": 758,
+                        "height": 426,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 676,
+                            "src": "deschide.md/images/cache/1200x676%2Ffit%2Fimages%257Ccms-image-000000058.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionbig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/847x476%2Fcrop%2Fimages%257Ccms-image-000000058.jpg",
+                    "details": {
+                        "width": 847,
+                        "height": 476,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 676,
+                            "src": "deschide.md/images/cache/1200x676%2Ffit%2Fimages%257Ccms-image-000000058.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionsthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/160x90%2Fcrop%2Fimages%257Ccms-image-000000058.jpg",
+                    "details": {
+                        "width": 160,
+                        "height": 90,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 676,
+                            "src": "deschide.md/images/cache/1200x676%2Ffit%2Fimages%257Ccms-image-000000058.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/320x180%2Fcrop%2Fimages%257Ccms-image-000000058.jpg",
+                    "details": {
+                        "width": 320,
+                        "height": 180,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 676,
+                            "src": "deschide.md/images/cache/1200x676%2Ffit%2Fimages%257Ccms-image-000000058.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "square",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/150x150%2Fcrop%2Fimages%257Ccms-image-000000058.jpg",
+                    "details": {
+                        "width": 150,
+                        "height": 150,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 676,
+                            "src": "deschide.md/images/cache/1200x676%2Ffit%2Fimages%257Ccms-image-000000058.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "squaremenu",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/200x113%2Fcrop%2Fimages%257Ccms-image-000000058.jpg",
+                    "details": {
+                        "width": 200,
+                        "height": 113,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 676,
+                            "src": "deschide.md/images/cache/1200x676%2Ffit%2Fimages%257Ccms-image-000000058.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "topfront",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/1170x450%2Fcrop%2Fimages%257Ccms-image-000000058.jpg",
+                    "details": {
+                        "width": 1170,
+                        "height": 450,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 676,
+                            "src": "deschide.md/images/cache/1200x676%2Ffit%2Fimages%257Ccms-image-000000058.jpg"
+                        }
+                    }
+                }
+            ],
+            "webcode": "2iq67",
+            "reads": "6"
+        },
+        {
+            "url": "http://deschide.md/ro/stiri/politic/58/n-stase-vrea-demisia-guvern-rii-de-ziua-independen-ei.htm",
+            "languageData": {
+                "id": 2,
+                "name": "Romanian",
+                "code": "ro",
+                "RFC3066bis": "ro-RO"
+            },
+            "status": "Y",
+            "isLocked": false,
+            "language": "ro",
+            "publication": {
+                "id": 1,
+                "name": "Deschide Știrea"
+            },
+            "issue": {
+                "number": 1,
+                "language": "ro",
+                "title": "Stiri",
+                "workflowStatus": "Y",
+                "shortName": "stiri"
+            },
+            "section": {
+                "language": "ro",
+                "number": 1,
+                "title": "politic"
+            },
+            "fields": {
+                "Titlu": null,
+                "social_Titlu": "Năstase vrea demisia guvernării de Ziua Independenței",
+                "subtitlu": null,
+                "lead": null,
+                "Continut": "<p><strong>Președintele partidului „Platforma DA”, Andrei Năstase, „îndeamnă” conducerea statului să-și dea demisia cu prilejul a celor 25 de ani de la declararea Independenței. Declarația a fost făcută astăzi în cadrul unui briefing de presă.</strong></p>\r\n<p>Potrivit lui, „<em>Republica Moldova s-a întors de unde a pornit: la un stat autoritar, în care drepturile şi libertăţile oamenilor sunt doar pe hârtie şi la televizor</em>”.</p>\r\n<p>Vedeți mai jos textul integral al Declarației.</p>\r\n<blockquote>\r\n<p><em>Ţara noastră a împlinit 25 de ani. Dar după un sfert de secol de speranţă şi tranziţie, viitorul arată şi mai sumbru decât trecutul. E timpul să tragem linia şi să facem bilanţul, de unde am pornit, unde am ajuns şi pe ce drum mergem în viitor.<br /><br />Spre marele meu regret, Republica Moldova s-a întors de unde a pornit: la un stat autoritar, în care drepturile şi libertăţile oamenilor sunt doar pe hârtie şi la televizor. Avem o ţară bolnavă de sărăcie, corupţie şi de nedreptate. Cei care, fie au luptat pentru independenţa noastră cu arma în mâini, fie au protestat în Piaţa Marii Adunări Naţionale sunt astăzi daţi uitării, şterşi din istorie, ca să încapă acolo ei şi partidele lor SRL.<br /><br />Resimt acest sentiment de mâhnire şi mai profund pentru faptul că printre semnatarii Declaraţiei de Independenţă este şi un membru al familiei mele.<br /><br />În cei 25 de ani, politicienii care s-au perindat la guvernare, au întors pe dos buzunarele oamenilor şi nu le-au furat doar banii, dar şi speranţa în ziua de mâine.<br /><br />Ne mai aparţin doar simbolurile naţionale: limba, tricolorul, imnul şi dreptul la istorie, restul, în 25 de ani, ne-au fost furate.<br /><br />Au schimbat vectorul ţării cum le-a convenit lor, ba cu Estul, ba cu Vestul.<br /><br />Pentru a se menţine la guvernare sau a ajunge acolo, au divizat oamenii şi i-au întors unul împotriva altuia, pentru că  o societate dezbinată este mai uşor de manipulat şi de jefuit.<br /><br />Economia ţării a fost pusă pe brînci. În loc să vorbim astăzi despre bunăstarea oamenilor, noi contabilizăm doar atacuri raider, miliarde furate, bănci devalizate, afaceri ruinate, familii rătăcite prin străinătăţi, copii rămaşi fără tutela părintească.<br /><br />Justiţia a devenit scutul fărădelegilor, iar slujitorii ei sunt apărătorii hoţilor şi părtaşi la schemele de sărăcire a oamenilor acestei ţări. Astăzi, dreptatea este de partea celor care au bani, iar oamenii simpli sunt persecutaţi şi batjocoriţi.<br /><br />Da, asta este ţara noastră, unde pentru 5 harbuji stai la puşcărie ani de zile, iar pentru miliarde furate eşti la libertate şi continui să furi.<br /><br />În 25 de ani, sistemul social din Moldova seamănă mai mult cu un instrument de genocid. Să fii bătrân în Moldova înseamnă să fii condamnat la o viaţă în sărăcie şi umilinţă. Să naşti şi să creşti un copil este un act de curaj, iar bănuţii, care-i dă statul sub formă de alocaţii, nu ajung nici de „pelincuţe”.<br /><br />Am ajuns în anul 2016 ca spitalele să facă schimb de medicamente, pentru că nu au bani să le procure! Piaţa de medicamente s-a transformat într-un cartel. Avem cele mai scumpe preţuri din regiune, iar medicii pleacă peste hotare să-şi câştige existenţa.<br /><br />Dar cel mai grav este că pleacă în căutarea unui trai mai bun tinerii – viitorul acestei ţări, pentru că aici, acasă, nimeni nu dă doi bani pe ei.<br /><br />Oare asta este ţara pe care ne-am închipuit-o cu 25 de ani în urmă? Oare mult o să mai trăim în această  stabilitate imaginară?<br /><br />Eu, împreună cu echipa, am cutreierat Moldova, am fost la Nord, la Sud, la Estul şi Vestul ţării noastre, în sate şi oraşe. Peste tot am auzit de la oameni un adevăr trist -  în Republica Moldova timpul s-a oprit în loc, parcă am rămas în 1991. Aceleaşi probleme şi aceeaşi stare de disperare şi deznădejde pentru ziua de mâine. Doar că, după 25 de ani de minciuni, promisiuni deşarte şi hoţii astronomice, produsul intern brut de astăzi este mai mic decât cel de atunci.<br /><br />Nu avem astăzi ce sărbători, decât un sfert de secol de eşecuri. Oamenilor nu le arde de parade şi focuri de artificii, când nu au cu ce îşi cumpăra medicamente şi cu ce plăti facturile. <br /><br />Mă adresez către guvernanţi, către cei care, pe 27 august, vor ţine la tribună discursuri elogioase, cinice şi perfide despre cât de bine trăim:<br /><br />Vă îndemn să faceţi un bine oamenilor acestei ţări şi, la 25 de ani de la independenţă, să vă daţi cu toţii demisia. O să trăim mai bine fără voi, o să răsuflăm mai uşor când o să vă luaţi mâna de la gura oamenilor şi din buzunarul lor. Ţara are nevoie de o altfel de guvernare, de un altfel de Parlament, de un preşedinte al poporului.<br /><br />Noi, oamenii acestei ţări, nu vom ceda. Sunt sigur că vom dărâma acest sistem corupt, care a pus ţara în genunchi, şi vom construi un stat liber, în care justiţia e dreaptă, economia este funcţională, iar oamenii privesc cu demnitate şi încredere în viitorul lor, aici, acasă.<br /><br />Fiecare din noi este obligat în faţa copiilor şi părinţilor săi să ridice fruntea şi să lupte pentru un viitor demn.<br /><br />Nu mai avem drum înapoi.<br /><br />Dacă nu învingem acum, Moldova va rămâne pustie.</em></p>\r\n</blockquote>",
+                "BREAKING_NEWS": "0",
+                "NEWS_ALERT": "0",
+                "FLASH": "0",
+                "FOTO": "0",
+                "VIDEO": "0",
+                "DOC": "0",
+                "live_text": null,
+                "alegeri": "0",
+                "video_embed": null,
+                "show_on_front_page": 0,
+                "show_on_section_page": 0
+            },
+            "authors": [
+                {
+                    "name": "Igor Liubec",
+                    "link": "https://deschide.md/api/author/10"
+                }
+            ],
+            "number": "58",
+            "title": "Năstase vrea demisia guvernării de Ziua Independenței",
+            "updated": "2017-03-07T09:31:28+0200",
+            "comments_enabled": "1",
+            "comments_count": 0,
+            "recommended_comments_count": 0,
+            "comments": "https://deschide.md/api/articles/58/ro/comments",
+            "type": "stiri",
+            "published": "2016-08-27T01:39:17+0300",
+            "created": "2016-08-27T01:38:19+0300",
+            "comments_locked": 0,
+            "renditions": [
+                {
+                    "caption": "articlebig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/758x426%2Fcrop%2Fimages%257Ccms-image-000000060.jpg",
+                    "details": {
+                        "width": 758,
+                        "height": 426,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 676,
+                            "src": "deschide.md/images/cache/1200x676%2Ffit%2Fimages%257Ccms-image-000000060.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionbig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/847x476%2Fcrop%2Fimages%257Ccms-image-000000060.jpg",
+                    "details": {
+                        "width": 847,
+                        "height": 476,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 676,
+                            "src": "deschide.md/images/cache/1200x676%2Ffit%2Fimages%257Ccms-image-000000060.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionsthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/160x90%2Fcrop%2Fimages%257Ccms-image-000000060.jpg",
+                    "details": {
+                        "width": 160,
+                        "height": 90,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 676,
+                            "src": "deschide.md/images/cache/1200x676%2Ffit%2Fimages%257Ccms-image-000000060.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/320x180%2Fcrop%2Fimages%257Ccms-image-000000060.jpg",
+                    "details": {
+                        "width": 320,
+                        "height": 180,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 676,
+                            "src": "deschide.md/images/cache/1200x676%2Ffit%2Fimages%257Ccms-image-000000060.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "square",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/150x150%2Fcrop%2Fimages%257Ccms-image-000000060.jpg",
+                    "details": {
+                        "width": 150,
+                        "height": 150,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 676,
+                            "src": "deschide.md/images/cache/1200x676%2Ffit%2Fimages%257Ccms-image-000000060.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "squaremenu",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/200x113%2Fcrop%2Fimages%257Ccms-image-000000060.jpg",
+                    "details": {
+                        "width": 200,
+                        "height": 113,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 676,
+                            "src": "deschide.md/images/cache/1200x676%2Ffit%2Fimages%257Ccms-image-000000060.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "topfront",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/1170x450%2Fcrop%2Fimages%257Ccms-image-000000060.jpg",
+                    "details": {
+                        "width": 1170,
+                        "height": 450,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 676,
+                            "src": "deschide.md/images/cache/1200x676%2Ffit%2Fimages%257Ccms-image-000000060.jpg"
+                        }
+                    }
+                }
+            ],
+            "webcode": "r1wne",
+            "reads": "4"
+        },
+        {
+            "url": "http://deschide.md/ro/stiri/politic/59/a-doua-organiza-ie-teritorial-a-pldm-ader-la-ppem.htm",
+            "languageData": {
+                "id": 2,
+                "name": "Romanian",
+                "code": "ro",
+                "RFC3066bis": "ro-RO"
+            },
+            "status": "Y",
+            "isLocked": false,
+            "language": "ro",
+            "publication": {
+                "id": 1,
+                "name": "Deschide Știrea"
+            },
+            "issue": {
+                "number": 1,
+                "language": "ro",
+                "title": "Stiri",
+                "workflowStatus": "Y",
+                "shortName": "stiri"
+            },
+            "section": {
+                "language": "ro",
+                "number": 1,
+                "title": "politic"
+            },
+            "fields": {
+                "Titlu": null,
+                "social_Titlu": "A doua organizaţie teritorială a PLDM aderă la PPEM",
+                "subtitlu": null,
+                "lead": null,
+                "Continut": "<p><strong>Membrii Organizaţiei Teritoriale Glodeni a PLDM, condusă de fostul deputat Lilian Zaporojan, anunţă că părăsesc partidul şi se alătură PPEM. Anunţul vine la o zi după ce un anunţ similar a făcut şi OT Străşeni, condusă de ex-deputatul Simion Grişciuc. </strong></p>\r\n<blockquote>\r\n<p><em>„Astăzi, constatăm o situație de incertitudine în Partidul Liberal Democrat din Moldova, impotență privind luarea deciziilor importante pentru soarta țării și viitorul ei. Acest lucru ne îngrijorează profund în contextul evoluției proceselor politice regionale și ne impune să căutăm soluția într-o echipă puternică cu lideri politici puternici, care pot relansa dezvoltarea Republicii Moldova, și redobândi încrederea cetățenilor într-un trai decent la ei acasă\"</em>, se arată în decalarația membrilor OT.</p>\r\n</blockquote>\r\n<p>Astfel, „<em>având ca bază poziția consolidată a organizațiilor primare, considerăm necesară, susținerea, coagularea tuturor forțelor sănătoase din partid, în jurul politicianului cu cea mai înaltă rată de încredere, Iurie Leancă, declarând următoarele: ne retragem din rândurile membrilor PLDM şi aderăm la PPEM sub conducerea lui Iurie Leancă</em>\", se mai arată în declarația celor din Glodeni. </p>\r\n<p>Decizia a fost adoptată de către conducerea OT Glodeni, membrii Biroului Politic, membrii Consiliului Politic Teritorial, fracțiunea PLDM din cadrul Consiliului Raional Glodeni, vicepreședinții raionului Glodeni, primarii PLDM, președinții OP și consilieri sătești.</p>\r\n<p>Amintim că peste 350 de membri ai Organizaţiei Teritoriale Străşeni a Partidului Liberal Democrat din Moldova, inclusiv 6 consilieri raionali și 48 consilieri locali, și-au anunțat ieri decizia de a părăsi formațiunea liberal-democrată și de a adera la Partidul Popular European din Moldova, condus de Iurie Leancă. Aceștia au emis o declarație în care și-au argumentat decizia luată.</p>\r\n<p>Detalii: <a href=\"/ro/stiri/politic/49/DOC--OT-Str%C4%83%C5%9Feni-a-PLDM-p%C4%83r%C4%83se%C5%9Fte-partidul-%C5%9Fi-ader%C4%83-la-PPEM.htm\" target=\"_self\">DOC // OT Străşeni a PLDM părăseşte partidul şi aderă la PPEM</a></p>\r\n<p> </p>\r\n<div class=\"cs_img\">\r\n<p><a class=\"photoViewer\" title=\"\" href=\"http://deschide.md/get_img?ImageId=44680\"><img src=\"http://deschide.md/get_img?ImageRatio=90&amp;ImageWidth=558&amp;ImageHeight=789&amp;ImageId=44680\" alt=\"\" border=\"0\" /></a></p>\r\n</div>",
+                "BREAKING_NEWS": "0",
+                "NEWS_ALERT": "0",
+                "FLASH": "0",
+                "FOTO": "0",
+                "VIDEO": "0",
+                "DOC": "0",
+                "live_text": null,
+                "alegeri": "0",
+                "video_embed": null,
+                "show_on_front_page": 0,
+                "show_on_section_page": 0
+            },
+            "authors": [
+                {
+                    "name": "Svetlana Maftei",
+                    "link": "https://deschide.md/api/author/2"
+                }
+            ],
+            "number": "59",
+            "title": "A doua organizaţie teritorială a PLDM aderă la PPEM",
+            "updated": "2017-03-07T09:31:28+0200",
+            "comments_enabled": "1",
+            "comments_count": 0,
+            "recommended_comments_count": 0,
+            "comments": "https://deschide.md/api/articles/59/ro/comments",
+            "type": "stiri",
+            "published": "2016-08-27T01:41:19+0300",
+            "created": "2016-08-27T01:39:53+0300",
+            "comments_locked": 0,
+            "renditions": [
+                {
+                    "caption": "articlebig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/758x426%2Fcrop%2Fimages%257Ccms-image-000000051.jpg",
+                    "details": {
+                        "width": 758,
+                        "height": 426,
+                        "caption": "",
+                        "photographer": "moldova.org",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 677,
+                            "src": "deschide.md/images/cache/1200x677%2Ffit%2Fimages%257Ccms-image-000000051.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionbig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/847x476%2Fcrop%2Fimages%257Ccms-image-000000051.jpg",
+                    "details": {
+                        "width": 847,
+                        "height": 476,
+                        "caption": "",
+                        "photographer": "moldova.org",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 677,
+                            "src": "deschide.md/images/cache/1200x677%2Ffit%2Fimages%257Ccms-image-000000051.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionsthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/160x90%2Fcrop%2Fimages%257Ccms-image-000000051.jpg",
+                    "details": {
+                        "width": 160,
+                        "height": 90,
+                        "caption": "",
+                        "photographer": "moldova.org",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 677,
+                            "src": "deschide.md/images/cache/1200x677%2Ffit%2Fimages%257Ccms-image-000000051.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/320x180%2Fcrop%2Fimages%257Ccms-image-000000051.jpg",
+                    "details": {
+                        "width": 320,
+                        "height": 180,
+                        "caption": "",
+                        "photographer": "moldova.org",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 677,
+                            "src": "deschide.md/images/cache/1200x677%2Ffit%2Fimages%257Ccms-image-000000051.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "square",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/150x150%2Fcrop%2Fimages%257Ccms-image-000000051.jpg",
+                    "details": {
+                        "width": 150,
+                        "height": 150,
+                        "caption": "",
+                        "photographer": "moldova.org",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 677,
+                            "src": "deschide.md/images/cache/1200x677%2Ffit%2Fimages%257Ccms-image-000000051.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "squaremenu",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/200x113%2Fcrop%2Fimages%257Ccms-image-000000051.jpg",
+                    "details": {
+                        "width": 200,
+                        "height": 113,
+                        "caption": "",
+                        "photographer": "moldova.org",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 677,
+                            "src": "deschide.md/images/cache/1200x677%2Ffit%2Fimages%257Ccms-image-000000051.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "topfront",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/1170x450%2Fcrop%2Fimages%257Ccms-image-000000051.jpg",
+                    "details": {
+                        "width": 1170,
+                        "height": 450,
+                        "caption": "",
+                        "photographer": "moldova.org",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 677,
+                            "src": "deschide.md/images/cache/1200x677%2Ffit%2Fimages%257Ccms-image-000000051.jpg"
+                        }
+                    }
+                }
+            ],
+            "webcode": "1wxmg",
+            "reads": "20"
+        },
+        {
+            "url": "http://deschide.md/ro/stiri/politic/60/nicolae-timofti-v-d-viitorul-r-moldova-numai-n-familia-rilor-ue.htm",
+            "languageData": {
+                "id": 2,
+                "name": "Romanian",
+                "code": "ro",
+                "RFC3066bis": "ro-RO"
+            },
+            "status": "Y",
+            "isLocked": false,
+            "language": "ro",
+            "publication": {
+                "id": 1,
+                "name": "Deschide Știrea"
+            },
+            "issue": {
+                "number": 1,
+                "language": "ro",
+                "title": "Stiri",
+                "workflowStatus": "Y",
+                "shortName": "stiri"
+            },
+            "section": {
+                "language": "ro",
+                "number": 1,
+                "title": "politic"
+            },
+            "fields": {
+                "Titlu": null,
+                "social_Titlu": "Nicolae Timofti: Văd viitorul R. Moldova numai în familia țărilor UE",
+                "subtitlu": null,
+                "lead": "Președintele Republicii Moldova, Nicolae Timofti, susține că viitorul țării trebuie să fie în Uniunea Europeană. Șeful statului a declarat în cadrul unui interviu pentru Moldpres că dacă moldovenii ar fi tot atât de înțelepți și consecvenți ca balticii, astăzi ar avea securitatea și libertatea dorită.",
+                "Continut": "<p><strong>Președintele Republicii Moldova, Nicolae Timofti, susține că viitorul țării trebuie să fie în Uniunea Europeană. Șeful statului a declarat în cadrul unui interviu pentru <a href=\"http://moldpres.md/news/2016/08/26/16006835\" target=\"_blank\">Moldpres</a> că dacă moldovenii ar fi tot atât de înțelepți și consecvenți ca balticii, astăzi ar avea securitatea și libertatea dorită.</strong></p>\r\n<blockquote>\r\n<p>„<em>Personal văd viitorul R. Moldova numai în familia țărilor Uniunii Europene, noi am fost și în alte uniuni și știți cu ce ne-am ales. Acum sîntem în stare să ne organizăm viața la nivelul altor societăți și state. Țările care s-au dezvoltat în aceleași condiții (mă refer la Țările Baltice) astăzi sînt membre ale UE, NATO, care le asigură securitatea și libertatea pe care ni-o dorim și noi. Apare întrebarea: De ce nu am procedat așa? De ce nu am fost și noi ca balticii: înțelepți și consecvenți? Atunci cînd ne vom maturiza la nivelul acestor țări, vom avea aceleași succese și vom deveni membri ai Uniunii Europene. Constat faptul că exportul în UE reprezintă, în prezent, 70%, aceasta fiind o cifră impunătoare, chiar dacă avem foarte multe piedici venite, știm cu toții din partea cui, deoarece nu se dorește să ieșim de sub influența Rusiei. Sigur, este necesar ca R. Moldova să aibă relații bune și prietenești cu Rusia, însă trebuie să fim independenți așa cum noi dorim, nu cum ne dictează cineva</em>”, a declarat el.</p>\r\n</blockquote>\r\n<p>Nicolae Timofti și-a amintit și de primii ani de la proclamarea Independenței. Potrivit lui, aceasta a fost un act major de curaj din partea deputaților Parlamentului.</p>\r\n<blockquote>\r\n<p>„<em>Am purces la formarea unei justiții independente, ne-am debarasat de acele principii nocive, care aveau o altă semnificație decît cele de drept, iar acest lucru ne-a dat posibilitate să readucem încrederea cetățenilor în faptul că își pot apăra drepturile. Cu regret, există și în acest domeniu greșeli. Totuși, în ultimul timp se depun eforturi pentru a porni pe calea corectă. Viitorul țării este în mîinile noastre, și dacă împreună vom găsi acea cale care ne va permite într-adevăr să fim liberi, atunci așa și vom trăi – liber</em>”, a spus șeful statului.</p>\r\n</blockquote>",
+                "BREAKING_NEWS": "0",
+                "NEWS_ALERT": "0",
+                "FLASH": "0",
+                "FOTO": "0",
+                "VIDEO": "0",
+                "DOC": "0",
+                "live_text": null,
+                "alegeri": "0",
+                "video_embed": null,
+                "show_on_front_page": 0,
+                "show_on_section_page": 0
+            },
+            "authors": [
+                {
+                    "name": "Igor Liubec",
+                    "link": "https://deschide.md/api/author/10"
+                }
+            ],
+            "number": "60",
+            "title": "Nicolae Timofti: Văd viitorul R. Moldova numai în familia țărilor UE",
+            "updated": "2017-03-07T09:31:28+0200",
+            "comments_enabled": "1",
+            "comments_count": 0,
+            "recommended_comments_count": 0,
+            "comments": "https://deschide.md/api/articles/60/ro/comments",
+            "type": "stiri",
+            "published": "2016-08-27T01:42:52+0300",
+            "created": "2016-08-27T01:41:42+0300",
+            "comments_locked": 0,
+            "renditions": [
+                {
+                    "caption": "articlebig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/758x426%2Fcrop%2Fimages%257Ccms-image-000000061.jpg",
+                    "details": {
+                        "width": 758,
+                        "height": 426,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 675,
+                            "src": "deschide.md/images/cache/1200x675%2Ffit%2Fimages%257Ccms-image-000000061.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionbig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/847x476%2Fcrop%2Fimages%257Ccms-image-000000061.jpg",
+                    "details": {
+                        "width": 847,
+                        "height": 476,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 675,
+                            "src": "deschide.md/images/cache/1200x675%2Ffit%2Fimages%257Ccms-image-000000061.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionsthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/160x90%2Fcrop%2Fimages%257Ccms-image-000000061.jpg",
+                    "details": {
+                        "width": 160,
+                        "height": 90,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 675,
+                            "src": "deschide.md/images/cache/1200x675%2Ffit%2Fimages%257Ccms-image-000000061.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/320x180%2Fcrop%2Fimages%257Ccms-image-000000061.jpg",
+                    "details": {
+                        "width": 320,
+                        "height": 180,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 675,
+                            "src": "deschide.md/images/cache/1200x675%2Ffit%2Fimages%257Ccms-image-000000061.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "square",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/150x150%2Fcrop%2Fimages%257Ccms-image-000000061.jpg",
+                    "details": {
+                        "width": 150,
+                        "height": 150,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 675,
+                            "src": "deschide.md/images/cache/1200x675%2Ffit%2Fimages%257Ccms-image-000000061.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "squaremenu",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/200x113%2Fcrop%2Fimages%257Ccms-image-000000061.jpg",
+                    "details": {
+                        "width": 200,
+                        "height": 113,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 675,
+                            "src": "deschide.md/images/cache/1200x675%2Ffit%2Fimages%257Ccms-image-000000061.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "topfront",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/1170x450%2Fcrop%2Fimages%257Ccms-image-000000061.jpg",
+                    "details": {
+                        "width": 1170,
+                        "height": 450,
+                        "caption": "",
+                        "photographer": "agora.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1200,
+                            "height": 675,
+                            "src": "deschide.md/images/cache/1200x675%2Ffit%2Fimages%257Ccms-image-000000061.jpg"
+                        }
+                    }
+                }
+            ],
+            "webcode": "a03gk",
+            "reads": "14"
+        },
+        {
+            "url": "http://deschide.md/ro/stiri/politic/61/psrm-a-contestat-la-cc-decretul-privind-cet-enia-moldoveneasc-acordat-lui-b-sescu.htm",
+            "languageData": {
+                "id": 2,
+                "name": "Romanian",
+                "code": "ro",
+                "RFC3066bis": "ro-RO"
+            },
+            "status": "Y",
+            "isLocked": false,
+            "language": "ro",
+            "publication": {
+                "id": 1,
+                "name": "Deschide Știrea"
+            },
+            "issue": {
+                "number": 1,
+                "language": "ro",
+                "title": "Stiri",
+                "workflowStatus": "Y",
+                "shortName": "stiri"
+            },
+            "section": {
+                "language": "ro",
+                "number": 1,
+                "title": "politic"
+            },
+            "fields": {
+                "Titlu": null,
+                "social_Titlu": "PSRM a contestat la CC decretul privind cetăţenia moldovenească acordată lui Băsescu",
+                "subtitlu": null,
+                "lead": "Deputaţii PSRM au depus la Curtea Constituţională o sesizare prin care contestă decretul preşedintelui ţării, Nicolae Timofti cu privire la acordarea cetăţeniei moldoveneşti ex-preşedintelui României, Traian Băsescu.",
+                "Continut": "<p><strong>Deputaţii PSRM au depus la Curtea Constituţională o sesizare prin care contestă decretul preşedintelui ţării, Nicolae Timofti cu privire la acordarea cetăţeniei moldoveneşti ex-preşedintelui României, Traian Băsescu.</strong></p>\r\n<blockquote>\r\n<p><em>„Astăzi am depus o sesizare la Curtea Constituţională, în care am contestat decretul preşedintelui Republicii Moldova, Nicolae Timofti cu privire la acordarea cetăţeniei moldoveneşti lui Traian Băsescu. Motivele sînt clare pentru întreaga populaţie a ţării, care doreşte să trăiască într-un stat suveran şi independent, în timp ce persoana în cauză a declarat în repetate rînduri că nu recunoaşte nici independenţa, nici suveranitatea Republicii Moldova. În ciuda acestui fapt, preşedintele RM, Nicolae Timofti, a acordat fostului preşedinte al României cetăţenia Moldovei „în interesele\" ţării noastre. Calificăm acest gest drept o umilinţă adusă statului şi poporului nostru, de aceea am contestat acest decret, solicitînd recunoaşterea ca fiind neconstituţional acest act şi anularea lui,</em>\" a explicat deputatul din partea Partidului Socialiştilor, Vladimir Ţurcan.</p>\r\n</blockquote>\r\n<p>Deputatul PSRM, Vlad Batrîncea, a menţionat că sesizarea depusă la Curtea Constituţională a fost semnată de patru deputaţi socialişti, iar prima semnătură sub textul sesizării este a preşedintelui formaţiunii, Igor Dodon, care este şi autorul ideii de anulare a respectivului decret al lui Timofti.</p>\r\n<blockquote>\r\n<p><em>„Băsescu şi-a permis mai multe declaraţii împotriva statalităţii Republicii Moldova. Cetăţenia moldovenească i-a fost acordată într-un mod anticonstituţional, anume de aceea cerem recunoaşterea caracterului anticonstituţional al acestui decret. Băsescu nu are ce căuta în RM,\"</em> a subliniat el.</p>\r\n</blockquote>\r\n<p>Amintim că, preşedintele Moldovei, Nicolae Timofti, a semnat decretul cu privire la acordarea cetăţeniei ţării noastre ex-preşedintelui României, Traian Băsescu, precum şi soţiei acestuia, Maria. Soţii Băsescu au solicitat cetăţenia Moldovei la 8 martie, 2016.</p>",
+                "BREAKING_NEWS": "0",
+                "NEWS_ALERT": "0",
+                "FLASH": "0",
+                "FOTO": "0",
+                "VIDEO": "0",
+                "DOC": "0",
+                "live_text": null,
+                "alegeri": "0",
+                "video_embed": null,
+                "show_on_front_page": 0,
+                "show_on_section_page": 0
+            },
+            "authors": [
+                {
+                    "name": "Svetlana Maftei",
+                    "link": "https://deschide.md/api/author/2"
+                }
+            ],
+            "number": "61",
+            "title": "PSRM a contestat la CC decretul privind cetăţenia moldovenească acordată lui Băsescu",
+            "updated": "2017-03-07T09:31:28+0200",
+            "comments_enabled": "1",
+            "comments_count": 0,
+            "recommended_comments_count": 0,
+            "comments": "https://deschide.md/api/articles/61/ro/comments",
+            "type": "stiri",
+            "published": "2016-08-27T01:44:30+0300",
+            "created": "2016-08-27T01:43:17+0300",
+            "comments_locked": 0,
+            "renditions": [
+                {
+                    "caption": "articlebig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/758x426%2Fcrop%2Fimages%257Ccms-image-000000062.jpg",
+                    "details": {
+                        "width": 758,
+                        "height": 426,
+                        "caption": "",
+                        "photographer": "moldova.org",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1888,
+                            "height": 1265,
+                            "src": "deschide.md/images/cache/1888x1265%2Ffit%2Fimages%257Ccms-image-000000062.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionbig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/847x476%2Fcrop%2Fimages%257Ccms-image-000000062.jpg",
+                    "details": {
+                        "width": 847,
+                        "height": 476,
+                        "caption": "",
+                        "photographer": "moldova.org",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1888,
+                            "height": 1265,
+                            "src": "deschide.md/images/cache/1888x1265%2Ffit%2Fimages%257Ccms-image-000000062.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionsthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/160x90%2Fcrop%2Fimages%257Ccms-image-000000062.jpg",
+                    "details": {
+                        "width": 160,
+                        "height": 90,
+                        "caption": "",
+                        "photographer": "moldova.org",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1888,
+                            "height": 1265,
+                            "src": "deschide.md/images/cache/1888x1265%2Ffit%2Fimages%257Ccms-image-000000062.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/320x180%2Fcrop%2Fimages%257Ccms-image-000000062.jpg",
+                    "details": {
+                        "width": 320,
+                        "height": 180,
+                        "caption": "",
+                        "photographer": "moldova.org",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1888,
+                            "height": 1265,
+                            "src": "deschide.md/images/cache/1888x1265%2Ffit%2Fimages%257Ccms-image-000000062.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "square",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/150x150%2Fcrop%2Fimages%257Ccms-image-000000062.jpg",
+                    "details": {
+                        "width": 150,
+                        "height": 150,
+                        "caption": "",
+                        "photographer": "moldova.org",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1888,
+                            "height": 1265,
+                            "src": "deschide.md/images/cache/1888x1265%2Ffit%2Fimages%257Ccms-image-000000062.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "squaremenu",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/200x113%2Fcrop%2Fimages%257Ccms-image-000000062.jpg",
+                    "details": {
+                        "width": 200,
+                        "height": 113,
+                        "caption": "",
+                        "photographer": "moldova.org",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1888,
+                            "height": 1265,
+                            "src": "deschide.md/images/cache/1888x1265%2Ffit%2Fimages%257Ccms-image-000000062.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "topfront",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/1170x450%2Fcrop%2Fimages%257Ccms-image-000000062.jpg",
+                    "details": {
+                        "width": 1170,
+                        "height": 450,
+                        "caption": "",
+                        "photographer": "moldova.org",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1888,
+                            "height": 1265,
+                            "src": "deschide.md/images/cache/1888x1265%2Ffit%2Fimages%257Ccms-image-000000062.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "fullscreen_medium",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/1024x768%2Fcrop%2Fimages%257Ccms-image-000000062.jpg",
+                    "details": {
+                        "width": 1024,
+                        "height": 768,
+                        "caption": "",
+                        "photographer": "moldova.org",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1888,
+                            "height": 1265,
+                            "src": "deschide.md/images/cache/1888x1265%2Ffit%2Fimages%257Ccms-image-000000062.jpg"
+                        }
+                    }
+                }
+            ],
+            "translations": {
+                "en": "https://deschide.md/api/articles/61",
+                "ru": "https://deschide.md/api/articles/61"
+            },
+            "webcode": "ifkpc",
+            "reads": "10"
+        },
+        {
+            "url": "http://deschide.md/ro/stiri/politic/62/cec-plafon-de-576-mii-la-colectarea-semn-turilor-pentru-candida-i.htm",
+            "languageData": {
+                "id": 2,
+                "name": "Romanian",
+                "code": "ro",
+                "RFC3066bis": "ro-RO"
+            },
+            "status": "Y",
+            "isLocked": false,
+            "language": "ro",
+            "publication": {
+                "id": 1,
+                "name": "Deschide Știrea"
+            },
+            "issue": {
+                "number": 1,
+                "language": "ro",
+                "title": "Stiri",
+                "workflowStatus": "Y",
+                "shortName": "stiri"
+            },
+            "section": {
+                "language": "ro",
+                "number": 1,
+                "title": "politic"
+            },
+            "fields": {
+                "Titlu": null,
+                "social_Titlu": "CEC // Plafon de 576 mii la colectarea semnăturilor pentru candidați",
+                "subtitlu": null,
+                "lead": null,
+                "Continut": "<p><strong>Comisia Electorală Centrală a adoptat plafonul general al mijloacelor ce pot fi virate în contul „Destinat grupului de inițiativă”. Astfel, persoanele responsabile de colectarea semnăturilor pot folosi 576250 lei.</strong></p>\r\n<p>Amintim că anterior CEC a decis că grupurile de iniţiativă ale candidaţilor la funcţia de preşedinte al Republicii Moldova pot depune actele trebuitoare înregistrării în perioada 31 august - 9 septembrie.</p>\r\n<p>Detalii: <a href=\"/ro/news/politic/30725/CEC-Cine-se-vrea-Pre%C8%99edinte-RM-depune-actele-p%C3%A2n%C4%83-pe-9-septembrie.htm\">CEC: Cine se vrea Președinte RM, depune actele până pe 9 septembrie</a></p>",
+                "BREAKING_NEWS": "0",
+                "NEWS_ALERT": "0",
+                "FLASH": "0",
+                "FOTO": "0",
+                "VIDEO": "0",
+                "DOC": "0",
+                "live_text": null,
+                "alegeri": "0",
+                "video_embed": null,
+                "show_on_front_page": 0,
+                "show_on_section_page": 0
+            },
+            "authors": [
+                {
+                    "name": "Igor Liubec",
+                    "link": "https://deschide.md/api/author/10"
+                }
+            ],
+            "number": "62",
+            "title": "CEC // Plafon de 576 mii la colectarea semnăturilor pentru candidați",
+            "updated": "2017-03-07T09:31:28+0200",
+            "comments_enabled": "1",
+            "comments_count": 0,
+            "recommended_comments_count": 0,
+            "comments": "https://deschide.md/api/articles/62/ro/comments",
+            "type": "stiri",
+            "published": "2016-08-27T01:46:26+0300",
+            "created": "2016-08-27T01:44:57+0300",
+            "comments_locked": 0,
+            "renditions": [
+                {
+                    "caption": "articlebig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/758x426%2Fcrop%2Fimages%257Ccms-image-000000063.jpg",
+                    "details": {
+                        "width": 758,
+                        "height": 426,
+                        "caption": "Денежный порог для сбора подписей за кандидата - 576 тысяч леев",
+                        "photographer": "privesc.eu",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1280,
+                            "height": 720,
+                            "src": "deschide.md/images/cache/1280x720%2Ffit%2Fimages%257Ccms-image-000000063.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionbig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/847x476%2Fcrop%2Fimages%257Ccms-image-000000063.jpg",
+                    "details": {
+                        "width": 847,
+                        "height": 476,
+                        "caption": "Денежный порог для сбора подписей за кандидата - 576 тысяч леев",
+                        "photographer": "privesc.eu",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1280,
+                            "height": 720,
+                            "src": "deschide.md/images/cache/1280x720%2Ffit%2Fimages%257Ccms-image-000000063.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionsthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/160x90%2Fcrop%2Fimages%257Ccms-image-000000063.jpg",
+                    "details": {
+                        "width": 160,
+                        "height": 90,
+                        "caption": "Денежный порог для сбора подписей за кандидата - 576 тысяч леев",
+                        "photographer": "privesc.eu",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1280,
+                            "height": 720,
+                            "src": "deschide.md/images/cache/1280x720%2Ffit%2Fimages%257Ccms-image-000000063.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/320x180%2Fcrop%2Fimages%257Ccms-image-000000063.jpg",
+                    "details": {
+                        "width": 320,
+                        "height": 180,
+                        "caption": "Денежный порог для сбора подписей за кандидата - 576 тысяч леев",
+                        "photographer": "privesc.eu",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1280,
+                            "height": 720,
+                            "src": "deschide.md/images/cache/1280x720%2Ffit%2Fimages%257Ccms-image-000000063.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "square",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/150x150%2Fcrop%2Fimages%257Ccms-image-000000063.jpg",
+                    "details": {
+                        "width": 150,
+                        "height": 150,
+                        "caption": "Денежный порог для сбора подписей за кандидата - 576 тысяч леев",
+                        "photographer": "privesc.eu",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1280,
+                            "height": 720,
+                            "src": "deschide.md/images/cache/1280x720%2Ffit%2Fimages%257Ccms-image-000000063.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "squaremenu",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/200x113%2Fcrop%2Fimages%257Ccms-image-000000063.jpg",
+                    "details": {
+                        "width": 200,
+                        "height": 113,
+                        "caption": "Денежный порог для сбора подписей за кандидата - 576 тысяч леев",
+                        "photographer": "privesc.eu",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1280,
+                            "height": 720,
+                            "src": "deschide.md/images/cache/1280x720%2Ffit%2Fimages%257Ccms-image-000000063.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "topfront",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/1170x450%2Fcrop%2Fimages%257Ccms-image-000000063.jpg",
+                    "details": {
+                        "width": 1170,
+                        "height": 450,
+                        "caption": "Денежный порог для сбора подписей за кандидата - 576 тысяч леев",
+                        "photographer": "privesc.eu",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 1280,
+                            "height": 720,
+                            "src": "deschide.md/images/cache/1280x720%2Ffit%2Fimages%257Ccms-image-000000063.jpg"
+                        }
+                    }
+                }
+            ],
+            "translations": {
+                "ru": "https://deschide.md/api/articles/62"
+            },
+            "webcode": "k8p8o",
+            "reads": "15"
+        },
+        {
+            "url": "http://deschide.md/ro/stiri/politic/63/doc-lista-partidelor-care-pot-avea-candida-i-la-preziden-iale.htm",
+            "languageData": {
+                "id": 2,
+                "name": "Romanian",
+                "code": "ro",
+                "RFC3066bis": "ro-RO"
+            },
+            "status": "Y",
+            "isLocked": false,
+            "language": "ro",
+            "publication": {
+                "id": 1,
+                "name": "Deschide Știrea"
+            },
+            "issue": {
+                "number": 1,
+                "language": "ro",
+                "title": "Stiri",
+                "workflowStatus": "Y",
+                "shortName": "stiri"
+            },
+            "section": {
+                "language": "ro",
+                "number": 1,
+                "title": "politic"
+            },
+            "fields": {
+                "Titlu": null,
+                "social_Titlu": "DOC // Lista partidelor care pot avea candidați la Prezidențiale",
+                "subtitlu": null,
+                "lead": null,
+                "Continut": "<p><strong>Comisia Electorală Centrală a publicat lista partidelor și altor organizații social-politice care au dreptul de a susține candidați la alegerile pentru funcția de Președinte al Republicii Moldova din 30 octombrie curent.</strong></p>\r\n<p>Astfel, în listă se regăsesc 45 de partide și organizații social-politice care au fost înregistrate la ministerul Justiției până pe data de 23 august.</p>\r\n<p><iframe src=\"https://www.scribd.com/embeds/322231263/content?start_page=1&amp;view_mode=scroll&amp;access_key=key-SQXLi6cGBfUAIK7R9O0C&amp;show_recommendations=true\" width=\"100%\" height=\"600\" frameborder=\"0\" scrolling=\"no\" data-auto-height=\"false\" data-aspect-ratio=\"0.7000777000777001\"></iframe></p>",
+                "BREAKING_NEWS": "0",
+                "NEWS_ALERT": "0",
+                "FLASH": "0",
+                "FOTO": "0",
+                "VIDEO": "0",
+                "DOC": "0",
+                "live_text": null,
+                "alegeri": "0",
+                "video_embed": null,
+                "show_on_front_page": 0,
+                "show_on_section_page": 0
+            },
+            "number": "63",
+            "title": "DOC // Lista partidelor care pot avea candidați la Prezidențiale",
+            "updated": "2017-03-07T09:31:28+0200",
+            "comments_enabled": "1",
+            "comments_count": 0,
+            "recommended_comments_count": 0,
+            "comments": "https://deschide.md/api/articles/63/ro/comments",
+            "type": "stiri",
+            "published": "2016-08-27T01:48:04+0300",
+            "created": "2016-08-27T01:46:51+0300",
+            "comments_locked": 0,
+            "renditions": [
+                {
+                    "caption": "articlebig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/758x426%2Fcrop%2Fimages%257Ccms-image-000000064.jpg",
+                    "details": {
+                        "width": 758,
+                        "height": 426,
+                        "caption": "",
+                        "photographer": "sfm.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 5184,
+                            "height": 3456,
+                            "src": "deschide.md/images/cache/5184x3456%2Ffit%2Fimages%257Ccms-image-000000064.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionbig",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/847x476%2Fcrop%2Fimages%257Ccms-image-000000064.jpg",
+                    "details": {
+                        "width": 847,
+                        "height": 476,
+                        "caption": "",
+                        "photographer": "sfm.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 5184,
+                            "height": 3456,
+                            "src": "deschide.md/images/cache/5184x3456%2Ffit%2Fimages%257Ccms-image-000000064.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionsthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/160x90%2Fcrop%2Fimages%257Ccms-image-000000064.jpg",
+                    "details": {
+                        "width": 160,
+                        "height": 90,
+                        "caption": "",
+                        "photographer": "sfm.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 5184,
+                            "height": 3456,
+                            "src": "deschide.md/images/cache/5184x3456%2Ffit%2Fimages%257Ccms-image-000000064.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "sectionthumb",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/320x180%2Fcrop%2Fimages%257Ccms-image-000000064.jpg",
+                    "details": {
+                        "width": 320,
+                        "height": 180,
+                        "caption": "",
+                        "photographer": "sfm.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 5184,
+                            "height": 3456,
+                            "src": "deschide.md/images/cache/5184x3456%2Ffit%2Fimages%257Ccms-image-000000064.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "square",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/150x150%2Fcrop%2Fimages%257Ccms-image-000000064.jpg",
+                    "details": {
+                        "width": 150,
+                        "height": 150,
+                        "caption": "",
+                        "photographer": "sfm.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 5184,
+                            "height": 3456,
+                            "src": "deschide.md/images/cache/5184x3456%2Ffit%2Fimages%257Ccms-image-000000064.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "squaremenu",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/200x113%2Fcrop%2Fimages%257Ccms-image-000000064.jpg",
+                    "details": {
+                        "width": 200,
+                        "height": 113,
+                        "caption": "",
+                        "photographer": "sfm.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 5184,
+                            "height": 3456,
+                            "src": "deschide.md/images/cache/5184x3456%2Ffit%2Fimages%257Ccms-image-000000064.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "topfront",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/1170x450%2Fcrop%2Fimages%257Ccms-image-000000064.jpg",
+                    "details": {
+                        "width": 1170,
+                        "height": 450,
+                        "caption": "",
+                        "photographer": "sfm.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 5184,
+                            "height": 3456,
+                            "src": "deschide.md/images/cache/5184x3456%2Ffit%2Fimages%257Ccms-image-000000064.jpg"
+                        }
+                    }
+                },
+                {
+                    "caption": "fullscreen_medium",
+                    "type": "image",
+                    "link": "deschide.md/images/cache/1024x768%2Fcrop%2Fimages%257Ccms-image-000000064.jpg",
+                    "details": {
+                        "width": 1024,
+                        "height": 768,
+                        "caption": "",
+                        "photographer": "sfm.md",
+                        "photographer_url": null,
+                        "original": {
+                            "width": 5184,
+                            "height": 3456,
+                            "src": "deschide.md/images/cache/5184x3456%2Ffit%2Fimages%257Ccms-image-000000064.jpg"
+                        }
+                    }
+                }
+            ],
+            "webcode": "qu3dt",
+            "reads": "24"
+        }
+    ],
+    "pagination": {
+        "itemsPerPage": 10,
+        "currentPage": "2",
+        "itemsCount": 25875,
+        "nextPageLink": "https://deschide.md/api/articles?page=3&items_per_page=10&type=stiri&language=ro&section=1",
+        "previousPageLink": "https://deschide.md/api/articles?page=1&items_per_page=10&type=stiri&language=ro&section=1"
+    }
+}
