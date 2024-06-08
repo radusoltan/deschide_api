@@ -17,7 +17,6 @@ use App\Services\ImageService;
 use Carbon\Carbon;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class ArticleController extends Controller
@@ -104,6 +103,7 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $article->update([
+            "category_id" => $request->category_id,
             'title' => $request->title,
             'slug' => Str::slug($request->title),
             'lead' => $request->lead,
