@@ -26,13 +26,15 @@ class ArticleResource extends JsonResource
             'is_alert' => $this->is_alert,
             'is_breaking' => $this->is_breaking,
             'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
             'publish_at' => $this->publish_at,
             'is_locked' => $this->is_locked,
             'authors' => AuthorResource::collection($this->authors),
             'images' => ImageResource::collection($this->images),
             'translations' => $this->translations()->get(),
             'is_live' => $this->is_live,
-            'embed' => $this->embed
+            'embed' => $this->embed,
+            'visits' => $this->vzt()->count()
         ];
     }
 }

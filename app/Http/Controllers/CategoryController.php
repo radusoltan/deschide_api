@@ -16,7 +16,14 @@ class CategoryController extends Controller
     public function index()
     {
         $locale = app()->getLocale();
-        return new CategoryCollection(Category::translatedIn($locale)->paginate(10));
+
+        if ((bool)request()->get('all')){
+            return new CategoryCollection(Category::all());
+        } else {
+            return new CategoryCollection(Category::translatedIn($locale)->paginate(10));
+        }
+
+
     }
 
     /**
