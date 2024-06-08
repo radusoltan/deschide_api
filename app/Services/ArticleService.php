@@ -51,6 +51,20 @@ class ArticleService {
         ]);
     }
 
+    public function updateDocVisits(Article $article) {
+
+        $this->elasticsearch->update([
+            'index' => 'articles',
+            'id' => $article->index_id,
+            "body" => [
+                "doc" => [
+                    "visits" => $article->vzt()->count()
+                ]
+            ]
+        ]);
+
+    }
+
     public function deleteArticleDoc(Article $article) {
         $this->elasticsearch->delete([
             'index' => $article->getTable(),

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Article;
 use App\Models\Author;
 use App\Models\Category;
+use App\Services\ArticleService;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
@@ -14,6 +15,12 @@ use Faker\Factory as Faker;
 
 class ArticlesTableSeeder extends Seeder
 {
+    private $service;
+
+    public function __construct(ArticleService $service){
+        $this->service = $service;
+    }
+
     /**
      * Run the database seeds.
      */
@@ -29,19 +36,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -57,7 +61,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -70,6 +74,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -79,8 +86,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -91,19 +96,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -119,7 +121,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -132,6 +134,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -142,9 +147,8 @@ class ArticlesTableSeeder extends Seeder
                 }
             }
 
-            visits($article)->increment(intval($old_article->reads));
-
         }
+
 
         $data = json_decode(file_get_contents(base_path('data/articles_language_ro_section_3.json')));
 
@@ -153,19 +157,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -181,7 +182,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -194,6 +195,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -204,9 +208,8 @@ class ArticlesTableSeeder extends Seeder
                 }
             }
 
-            visits($article)->increment(intval($old_article->reads));
-
         }
+
 
         $data = json_decode(file_get_contents(base_path('data/articles_language_ro_section_4.json')));
 
@@ -215,19 +218,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -243,7 +243,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -256,6 +256,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -266,30 +269,27 @@ class ArticlesTableSeeder extends Seeder
                 }
             }
 
-            visits($article)->increment(intval($old_article->reads));
-
         }
 
+
         $data = json_decode(file_get_contents(base_path('data/articles_language_ro_section_5.json')));
+
 
         foreach ($data->items as $old_article) {
 
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -305,7 +305,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -318,6 +318,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -327,31 +330,27 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
         $data = json_decode(file_get_contents(base_path('data/articles_language_ro_section_6.json')));
 
+
         foreach ($data->items as $old_article) {
 
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -367,7 +366,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -380,6 +379,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -389,8 +391,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -401,19 +401,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -429,7 +426,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -442,6 +439,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -452,9 +452,8 @@ class ArticlesTableSeeder extends Seeder
                 }
             }
 
-            visits($article)->increment(intval($old_article->reads));
-
         }
+
 
         $data = json_decode(file_get_contents(base_path('data/articles_language_ro_section_8.json')));
 
@@ -463,19 +462,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -491,7 +487,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -504,6 +500,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -513,8 +512,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -525,19 +522,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -553,7 +547,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -566,6 +560,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -576,9 +573,8 @@ class ArticlesTableSeeder extends Seeder
                 }
             }
 
-            visits($article)->increment(intval($old_article->reads));
-
         }
+
 
         $data = json_decode(file_get_contents(base_path('data/articles_language_ro_section_15.json')));
 
@@ -587,19 +583,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -615,7 +608,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -628,6 +621,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -637,8 +633,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -649,19 +643,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -677,7 +668,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -690,6 +681,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -699,8 +693,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -711,19 +703,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -739,7 +728,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -752,6 +741,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -761,8 +753,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -773,19 +763,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -801,7 +788,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -814,6 +801,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -823,8 +813,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -835,19 +823,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -863,7 +848,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -876,6 +861,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -886,9 +874,8 @@ class ArticlesTableSeeder extends Seeder
                 }
             }
 
-            visits($article)->increment(intval($old_article->reads));
-
         }
+
 
         $data = json_decode(file_get_contents(base_path('data/articles_language_ro_section_24.json')));
 
@@ -897,19 +884,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -925,7 +909,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -938,6 +922,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -947,8 +934,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -959,19 +944,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -987,7 +969,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1000,6 +982,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -1009,8 +994,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -1021,19 +1004,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1049,7 +1029,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1062,6 +1042,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -1071,8 +1054,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -1086,19 +1067,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1114,7 +1092,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1127,6 +1105,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -1136,8 +1117,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -1148,19 +1127,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1176,7 +1152,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1189,6 +1165,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -1198,8 +1177,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -1210,19 +1187,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1238,7 +1212,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1251,6 +1225,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -1260,8 +1237,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -1272,19 +1247,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1300,7 +1272,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1313,6 +1285,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -1322,8 +1297,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -1334,19 +1307,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1362,7 +1332,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1375,6 +1345,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -1384,8 +1357,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -1396,19 +1367,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1424,7 +1392,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1437,6 +1405,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -1446,8 +1417,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -1458,19 +1427,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1486,7 +1452,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1499,6 +1465,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -1508,8 +1477,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -1520,19 +1487,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1548,7 +1512,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1561,6 +1525,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -1570,8 +1537,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -1582,19 +1547,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1610,7 +1572,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1623,6 +1585,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -1632,8 +1597,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -1644,19 +1607,16 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1672,7 +1632,7 @@ class ArticlesTableSeeder extends Seeder
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => $slug[0],
+                    'slug' => Str::slug($old_article->title),
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -1685,6 +1645,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -1694,8 +1657,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -1708,14 +1669,11 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
@@ -1749,6 +1707,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -1758,8 +1719,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -1770,14 +1729,11 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
@@ -1811,6 +1767,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -1820,8 +1779,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -1832,14 +1789,11 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
@@ -1873,6 +1827,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -1882,8 +1839,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -1894,14 +1849,11 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
@@ -1935,6 +1887,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -1944,8 +1899,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -1956,14 +1909,11 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
@@ -1997,6 +1947,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -2006,8 +1959,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -2018,14 +1969,11 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
@@ -2059,6 +2007,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -2068,8 +2019,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -2080,14 +2029,11 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
@@ -2121,6 +2067,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -2130,8 +2079,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -2142,14 +2089,11 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
@@ -2183,6 +2127,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -2192,8 +2139,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -2204,14 +2149,11 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
@@ -2245,6 +2187,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -2254,8 +2199,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -2266,14 +2209,11 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
@@ -2307,6 +2247,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -2316,8 +2259,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -2328,14 +2269,11 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
@@ -2369,6 +2307,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -2378,8 +2319,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -2390,14 +2329,11 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
@@ -2431,6 +2367,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -2440,8 +2379,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -2452,14 +2389,11 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
@@ -2493,6 +2427,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -2502,8 +2439,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 
@@ -2514,14 +2449,11 @@ class ArticlesTableSeeder extends Seeder
 
             $article = Article::where('old_number', $old_article->number)->first();
             $category = Category::where('old_number', $old_article->section->number)->first();
-            // Verificăm dacă proprietatea 'authors' există și nu este null
+            //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
-            $path = parse_url($old_article->url, PHP_URL_PATH);
-            $segments = explode('/', $path);
-            $slug = explode('.', $segments[5]);
+            $reads = intval($old_article->reads);
 
             if (!$article) {
-
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
@@ -2555,6 +2487,9 @@ class ArticlesTableSeeder extends Seeder
                 ]);
             }
 
+            visits($article)->increment($reads);
+            $this->service->updateDocVisits($article);
+
             foreach($authors as $old_author) {
                 $path = parse_url($old_author->link, PHP_URL_PATH);
                 // Explode the path into segments
@@ -2564,8 +2499,6 @@ class ArticlesTableSeeder extends Seeder
                     $article->authors()->attach($author);
                 }
             }
-
-            visits($article)->increment(intval($old_article->reads));
 
         }
 

@@ -25,6 +25,10 @@ class Category extends Model implements TranslatableContract
         return new CategoryResource($this);
     }
 
+    public function getId() {
+        return $this->id;
+    }
+
     public function vzt()
     {
         return visits($this);
