@@ -17,15 +17,16 @@ class ArticleController extends Controller {
 
     public function show(Article $article) {
 
-        return visits($article)->increment();
+        return visits($article)->increment(20);
     }
 
     public function showArticle(Article $article) {
+
         visits($article)->increment();
-        $article->refresh();
 
         $this->articleService->updateDoc($article);
-        
+        $this->articleService->updateDocVisits($article);
+
         return response()->json($article->index_id);
 
     }
