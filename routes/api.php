@@ -38,7 +38,7 @@ Route::group([
 
     Route::group(['prefix'=>'homepage'], function (){
         Route::get('featuredListArticle', [HomePageController::class, 'featuredListArticles']);
-        Route::get('categories', function (Request $request){
+        Route::get('categories', function (){
             return new CategoryCollection(
                 Category::whereTranslation('in_menu', true)
                     ->translatedIn(app()->getLocale())
