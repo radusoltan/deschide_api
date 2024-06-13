@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             CategoriesTableSeeder::class,
             FeaturedArticlesListAtbleSeeder::class,
             AuthorsTableSeeder::class,
-//            ArticlesTableSeeder::class
+            ArticlesTableSeeder::class
         ]);
     }
 }
