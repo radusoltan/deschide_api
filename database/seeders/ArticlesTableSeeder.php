@@ -646,13 +646,15 @@ class ArticlesTableSeeder extends Seeder
             //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
             $reads = intval($old_article->reads);
+            $path = parse_url($old_article->url, PHP_URL_PATH);
 
+            $segments = explode('/', trim($path, '/'));
             if (!$article) {
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => Str::slug($old_article->title),
+                    'slug' => $old_article->number.'-'.$segments[4],
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
@@ -947,13 +949,16 @@ class ArticlesTableSeeder extends Seeder
             //          // Verificăm dacă proprietatea 'authors' există și nu este null
             $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
             $reads = intval($old_article->reads);
+            $path = parse_url($old_article->url, PHP_URL_PATH);
+
+            $segments = explode('/', trim($path, '/'));
 
             if (!$article) {
                 $article = Article::create([
                     'old_number' => $old_article->number,
                     'category_id' => $category->id,
                     'title' => $old_article->title,
-                    'slug' => Str::slug($old_article->title),
+                    'slug' => $old_article->number.'-'.$segments[4],
                     'lead' => $old_article->fields->lead ?? null,
                     'body' => $old_article->fields->Continut ?? null,
                     'published_at' => $old_article->published,
