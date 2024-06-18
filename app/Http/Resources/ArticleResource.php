@@ -34,6 +34,7 @@ class ArticleResource extends JsonResource
             'translations' => $this->translations()->get(),
             'is_live' => $this->is_live,
             'embed' => $this->embed,
+            'keywords' => $this->keywords,
             'visits' => $this->vzt()->count()
         ];
     }

@@ -114,6 +114,9 @@ class ArticleController extends Controller
             'is_breaking' => $request->is_breaking,
             'is_live' => $request->is_live,
             'embed' => $request->embed,
+            'telegram_post' => $request->telegram_post,
+            'telegram_embed' => $request->telegram_embed,
+            'keywords' => $request->keywords,
         ]);
 
         if ($article->status === "P" && !$article->published_at){

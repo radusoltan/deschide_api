@@ -11,6 +11,7 @@ use App\Observers\CategoryTranslationObserver;
 use App\Search\ElasticSearchRepository;
 use App\Search\EloquentRepository;
 use App\Services\ArticleService;
+use App\Services\FaceBookService;
 use App\Services\ImageService;
 use Elastic\Elasticsearch\Client;
 use Elastic\Elasticsearch\ClientBuilder;
@@ -58,6 +59,12 @@ class AppServiceProvider extends ServiceProvider
                 ->setApiKey(env("ELASTICSEARCH_API_KEY"))
                 ->setSSLVerification(false)
                 ->build();
+        });
+    }
+
+    private function bindFacebook(){
+        $this->app->singleton(FaceBookService::class, function ($app){
+            return new FaceBookService();
         });
     }
 

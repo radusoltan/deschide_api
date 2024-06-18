@@ -26,7 +26,10 @@ class ArticleTranslationResource extends JsonResource
             'published_at' => $this->published_at,
             'status' => $this->status,
             'is_live' => $this->is_live,
-            'embed' => $this->embed
+            'embed' => $this->embed,
+            'telegram_embed' => $this->telegram_embed,
+            'telegram_post' => $this->telegram_post,
+            'keywords' => $this->keywords
         ];
     }
 }
