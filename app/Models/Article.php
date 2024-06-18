@@ -35,7 +35,10 @@ class Article extends Model implements TranslatableContract
         'is_breaking',
         'publish_at',
         'is_live',
-        'embed'
+        'embed',
+        'telegram_post',
+        'telegram_embed',
+        'keywords'
     ];
 
     protected $fillable = ['category_id','old_number'];

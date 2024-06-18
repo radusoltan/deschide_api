@@ -29,7 +29,11 @@ class ArticleTranslation extends Model
         'is_alert',
         'is_breaking',
         'is_live',
-        'embed'
+        'embed',
+        'telegram_post',
+        'telegram_embed',
+        'keywords',
+        'facebook_post_id'
 
     ];
 
@@ -45,6 +49,8 @@ class ArticleTranslation extends Model
         'is_breaking' => 'boolean',
         'is_live' => 'boolean',
         'published_at' => 'datetime',
+        'keywords' => 'json',
+        'facebook_post_id' => 'string'
     ];
 
     public function vzt()

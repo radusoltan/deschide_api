@@ -30,9 +30,13 @@ return new class extends Migration
             $table->boolean('is_breaking')->default(false);
             $table->boolean('is_live')->default(false);
             $table->text('embed')->nullable(true);
+            $table->text('telegram_embed')->nullable(true);
+            $table->text('telegram_post')->nullable(true);
+            $table->json('keywords')->nullable(true);
             $table->timestamp('publish_at')->nullable(true);
             $table->timestamp('published_at')->nullable(true);
             $table->boolean('is_locked')->default(false);
+            $table->string('facebook_post_id')->nullable();
             $table->integer('locked_by_user')->nullable()->default(null);
         });
     }
