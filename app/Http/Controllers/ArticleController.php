@@ -144,6 +144,19 @@ class ArticleController extends Controller
         return ImageResource::collection($article->images);
     }
 
+    public function articleImagesAttach(Article $article, Request $request) {
+        $images = Image::findMany($request->selectedImages);
+        foreach ($images as $image) {
+            if (!$article->images->contains($image)){
+                $article->images()->attach($image);
+            }
+        }
+        $this->articleService->updateDoc($article);
+
+        return ImageResource::collection($article->images);
+
+    }
+
     public function addArticleImages(Request $request, Article $article) {
         foreach ($request->images as $image) {
             $image = $this->imageService->uploadImage($image);

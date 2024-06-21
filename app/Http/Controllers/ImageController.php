@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ImageCollection;
+use App\Http\Resources\ImageResource;
 use App\Http\Resources\ThumbnailResource;
 use App\Models\Image;
 use App\Models\Rendition;
@@ -22,6 +24,16 @@ class ImageController extends Controller
         $rendition = Rendition::find($request->get('rendition'));
         $thumbnail = Thumbnail::find($request->get('thumbnail'));
         $crop = $request->get('crop');
+        if (!$thumbnail){
+            $thumbnail = Thumbnail::create([
+                'image_id' => $image->id,
+                'rendition_id' => $rendition->id,
+                'width' => 1200,
+                'height' => 630,
+                'path' => 'storage/images/thumbnails/'.$rendition->name.'_'.$image->name,
+                'coords' => json_encode($crop)
+            ]);
+        }
         return $this->imageService->crop($image, $rendition, $crop, $thumbnail);
     }
     /**
@@ -29,7 +41,7 @@ class ImageController extends Controller
      */
     public function index()
     {
-        //
+        return new ImageCollection(Image::paginate());
     }
 
     /**
@@ -53,7 +65,7 @@ class ImageController extends Controller
      */
     public function show(Image $image)
     {
-        //
+        return new ImageResource($image);
     }
 
     /**

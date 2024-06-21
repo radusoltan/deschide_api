@@ -21,7 +21,7 @@ class Thumbnail extends Model
     ];
 
     protected $casts = [
-        'coords' => 'array',
+        'coords' => 'json',
     ];
 
     public function image() {
