@@ -113,6 +113,7 @@ class ArticleController extends Controller
             'is_alert' => $request->is_alert,
             'is_breaking' => $request->is_breaking,
             'is_live' => $request->is_live,
+            'is_video' => $request->is_video,
             'embed' => $request->embed,
             'telegram_post' => $request->telegram_post,
             'telegram_embed' => $request->telegram_embed,
@@ -151,6 +152,14 @@ class ArticleController extends Controller
                 $article->images()->attach($image);
             }
         }
+        if ($article->images()->count() >= 1) {
+            $image = $article->images()->first();
+            $mainImage = ArticleImage::where('article_id',$article->id)
+                ->where('image_id',$image->id)->first();
+            $mainImage->setMain();
+            $this->imageService->saveImageThumbnails($image);
+        }
+        $article->refresh();
         $this->articleService->updateDoc($article);
 
         return ImageResource::collection($article->images);

@@ -33,6 +33,7 @@ class ArticleResource extends JsonResource
             'images' => ImageResource::collection($this->images),
             'translations' => $this->translations()->get(),
             'is_live' => $this->is_live,
+            'is_video' => $this->is_video,
             'embed' => $this->embed,
             'keywords' => $this->keywords,
             'visits' => $this->vzt()->count()

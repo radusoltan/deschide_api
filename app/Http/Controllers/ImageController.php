@@ -57,7 +57,7 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return new ImageResource($this->imageService->uploadImage($request->image));
     }
 
     /**
