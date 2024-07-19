@@ -17,11 +17,12 @@ class FaceBookService {
         $this->fb = new Facebook([
             'app_id' => env('FACEBOOK_APP_ID'),
             'app_secret' => env('FACEBOOK_APP_SECRET'),
-            'default_graph_version' => 'v11.0',
+            'default_graph_version' => 'v20.0',
         ]);
 
         $this->pageId = env('FACEBOOK_PAGE_ID');
-        $this->accessToken = env('FACEBOOK_PAGE_ACCESS_TOKEN');
+        $this->accessToken = "EAAFOZAm5DHSYBOyrMJPB8JyKhK2HfETqhDAN8DoDB03k0XOTMniLxBrC7U741wG5UBJNkKnDmGZATzZAlBxwUdZCn2M2lLYxLMtMSJnuR4kXz9feHS1xdVHGoBSu6Hw3DGnZAfnEzSWBFxbF8WVJIR07sNmIqf3E4ZB5ZAQsJcu2s6kRbvVHHAsNg8tlAzBfx2F7XOGfBn9FMQsMXTw5Da35wMZD";
+//        $this->accessToken = env('FACEBOOK_PAGE_ACCESS_TOKEN');
     }
 
     public function postArticle(Article $article)

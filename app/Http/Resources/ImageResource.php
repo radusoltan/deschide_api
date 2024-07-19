@@ -27,6 +27,7 @@ class ImageResource extends JsonResource
             'author' => $this->author,
             'description' => $this->description,
             'thumbnails' => ThumbnailResource::collection($this->thumbnails),
+            'articles_count' => $this->articles->count()
         ];
     }
 }

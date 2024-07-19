@@ -21,6 +21,7 @@ class ArticleResource extends JsonResource {
             'translations' => ArticleTranslationResource::collection($this->translations),
             'visits' => $this->vzt()->count(),
             'images' => ImageResource::collection($this->images),
+            'is_video' => $this->is_video,
             'authors' => $this->authors()->get(),
         ];
     }

@@ -21,7 +21,8 @@ class ThumbnailResource extends JsonResource
             'image_id' => $this->image_id,
             'width' => $this->width,
             'height' => $this->height,
-            'coords' => json_encode($this->coords)
+            'coords' => $this->coords
+//            'coords' => json_encode($this->coords)
         ];
     }
 }

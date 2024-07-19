@@ -47,6 +47,7 @@ class Article extends Model implements TranslatableContract
         'is_flash' => 'boolean',
         'is_alert' => 'boolean',
         'is_breaking' => 'boolean',
+        "is_video" => 'boolean'
 //        'related' => 'array'
     ];
 

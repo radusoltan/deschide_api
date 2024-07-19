@@ -60,6 +60,7 @@ Route::group(['middleware' => ['auth:sanctum', 'set_locale']], function (){
 
     Route::get('/article/{article}/images',[ArticleController::class,'getArticleImages']);
     Route::post('/article/{article}/images',[ArticleController::class,'addArticleImages']);
+    Route::post('/article/{article}/images-attach',[ArticleController::class,'articleImagesAttach']);
     Route::patch('/article/{article}/images',[ArticleController::class,'detachArticleImage']);
     Route::post('/article/{article}/image-set-main',[ArticleController::class,'setMainArticleImage']);
     Route::post('/article/{article}/publish-time',[ArticleController::class,'setPublishTime']);
