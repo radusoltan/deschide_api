@@ -3,7 +3,6 @@
 namespace App\Http\Resources\Public;
 
 use App\Http\Resources\ArticleTranslationResource;
-use App\Http\Resources\Public\ImageResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
