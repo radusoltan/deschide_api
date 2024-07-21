@@ -8,6 +8,7 @@ use App\Http\Resources\ThumbnailResource;
 use App\Models\Image;
 use App\Models\Rendition;
 use App\Models\Thumbnail;
+use App\Services\ArticleService;
 use App\Services\ImageService;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,10 @@ class ImageController extends Controller
 {
 
     private $imageService;
-    public function __construct(ImageService $imageService){
+    private $articleService;
+    public function __construct(ImageService $imageService, ArticleService $articleService){
         $this->imageService = $imageService;
+        $this->articleService = $articleService;
     }
 
     public function crop(Request $request, Image $image) {
@@ -81,11 +84,21 @@ class ImageController extends Controller
      */
     public function update(Request $request, Image $image)
     {
-        return $image->update([
+
+        $image->update([
             'source' => $request->get('source'),
             'author' => $request->get('author'),
             'description' => $request->get('description'),
         ]);
+
+        foreach ($image->articles()->get() as $article){
+            $this->articleService->updateDoc($article);
+        }
+
+        return $image;
+
+
+
     }
 
     /**
