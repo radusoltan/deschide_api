@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
 class CategoriesTableSeeder extends Seeder
@@ -17,17 +18,18 @@ class CategoriesTableSeeder extends Seeder
 
         $data = json_decode(file_get_contents(__DIR__ . '/categories.json'));
 
-        foreach ($data as $locale => $categories){
+        foreach ($data as $locale => $categories) {
             app()->setLocale($locale);
             $locale = app()->getLocale();
-            foreach ($categories as $old_category){
-                $category = Category::where('old_number', $old_category->number)->first();
-                if(!$category) {
+            foreach ($categories as $old_category) {
+                $category = Category::where('old_number', $old_category->number)
+                    ->first();
+                if (!$category) {
                     $category = Category::create([
                         'old_number' => $old_category->number,
                         'title' => ucfirst($old_category->title),
                         'slug' => Str::slug($old_category->title),
-                        'in_menu' => true,
+                        'in_menu' => TRUE,
                     ]);
                 }
 
@@ -35,166 +37,41 @@ class CategoriesTableSeeder extends Seeder
                     'old_number' => $old_category->number,
                     'title' => ucfirst($old_category->title),
                     'slug' => Str::slug($old_category->title),
-                    'in_menu' => true,
+                    'in_menu' => TRUE,
                 ]);
 
             }
         }
-//        $categories = [
-//            [
-//                'ro' => [
-//                    'title' => 'Politic',
-//                    'slug' => Str::slug('Politic'),
-//                    'old_number' => 1
-//                ],
-//                'ru' => [
-//                    'title' => 'Политика',
-//                    'slug' => Str::slug('Политика')
-//                ],
-//                'en' => [
-//                    'title' => 'Political',
-//                    'slug' => Str::slug('Political')
-//                ]
-//            ],
-//            [
-//                'ro' => [
-//                    'title' => 'Social',
-//                    'slug' => Str::slug('Social'),
-//                    'old_number' => 2
-//                ],
-//                'ru' => [
-//                    'title' => 'Общество',
-//                    'slug' => Str::slug('Общество')
-//                ],
-//                'en' => [
-//                    'title' => 'Social',
-//                    'slug' => Str::slug('Social')
-//                ]
-//            ],
-//            [
-//                'ro' => [
-//                    'title' => 'Economic',
-//                    'slug' => Str::slug('Economic'),
-//                    'old_number' => 3
+
+//        foreach (config('translatable.locales') as $locale){
+//            app()->setLocale($locale);
+//            $sectionsUrl = "https://deschide.md/api/sections.json?items_per_page=100&language={$locale}";
 //
-//                ],
-//                'ru' => [
-//                    'title' => 'Экономика',
-//                    'slug' => Str::slug('Экономика')
-//                ],
-//                'en' => [
-//                    'title' => 'Financial',
-//                    'slug' => Str::slug('Financial')
-//                ]
-//            ],
-//            [
-//                'ro' => [
-//                    'title' => 'Cultura',
-//                    'slug' => Str::slug('Cultura'),
-//                    'old_number' => 7
-//                ],
-//                'ru' => [
-//                    'title' => 'Культура',
-//                    'slug' => Str::slug('Культура')
-//                ],
-//                'en' => [
-//                    'title' => 'Cultural',
-//                    'slug' => Str::slug('Cultural')
-//                ]
-//            ],
-//            [
-//                'ro' => [
-//                    'title' => 'Sport',
-//                    'slug' => Str::slug('Sport'),
-//                    'old_number' => 8
+//            $sections = Http::withOptions(['verify' => false])->get($sectionsUrl);
 //
-//                ],
-//                'ru' => [
-//                    'title' => 'Спорт',
-//                    'slug' => Str::slug('Спорт')
-//                ],
-//                'en' => [
-//                    'title' => 'Sport',
-//                    'slug' => Str::slug('Sport')
-//                ]
-//            ],
-//            [
-//                'ro' => [
-//                    'title' => 'Externe',
-//                    'slug' => Str::slug('Externe'),
-//                    'old_number' => 4
-//                ],
-//                'ru' => [
-//                    'title' => 'B мире',
-//                    'slug' => Str::slug('B мире')
-//                ],
-//                'en' => [
-//                    'title' => 'International',
-//                    'slug' => Str::slug('International')
-//                ]
-//            ],
-//            [
-//                'ro' => [
-//                    'title' => 'Editorial',
-//                    'slug' => Str::slug('Editorial'),
-//                    'old_number' => 5
-//                ],
-//                'ru' => [
-//                    'title' => 'мнения',
-//                    'slug' => Str::slug('мнения')
-//                ],
-//                'en' => [
-//                    'title' => 'Editorials',
-//                    'slug' => Str::slug('Editorials'),
-//                ]
-//            ],
-//            [
-//                'ro' => [
-//                    'title' => 'Investigații',
-//                    'slug' => Str::slug('Investigații'),
-//                    'old_number' => 6
-//                ],
-//                'ru' => [
-//                    'title' => 'Pасследования',
-//                    'slug' => Str::slug('Pасследования')
-//                ],
-//                'en' => [
-//                    'title' => 'Investigations',
-//                    'slug' => Str::slug('Investigations')
-//                ]
-//            ],
-//            [
-//                'ro' => [
-//                    'title' => 'Anti-Fake',
-//                    'slug' => Str::slug('Anti-Fake'),
-//                    'old_number' => 26
-//                ],
-//                'ru' => [
-//                    'title' => 'Anti-Fake',
-//                    'slug' => Str::slug('Anti-Fake')
-//                ],
-//                'en' => [
-//                    'title' => 'Anti-Fake',
-//                    'slug' => Str::slug('Anti-Fake')
-//                ]
-//            ],
+//            foreach($sections->object()->items as $old_category){
 //
-//        ];
 //
-//        foreach ($categories as $cat){
-//            app()->setLocale('ro');
-//            $category = Category::create([
-//                'in_menu' => true,
-//                'title' => $cat[app()->getLocale()]['title'],
-//                'slug' => $cat[app()->getLocale()]['slug'],
-//                'old_number' => $cat[app()->getLocale()]['old_number']
-//            ]);
 //
-//            app()->setLocale('en');
-//            $category->update($cat[app()->getLocale()]);
+//                $category = Category::where('old_number', $old_category->number)->first();
+//                if(!$category){
+//                    $category = Category::create([
+//                        'old_number' => $old_category->number,
+//                        'title' => ucfirst($old_category->title),
+//                        'slug' => Str::slug($old_category->title),
+//                        'in_menu' => true,
+//                    ]);
+//                }
 //
-//            app()->setLocale('ru');
-//            $category->update($cat[app()->getLocale()]);
+//                $category->update([
+//                    'old_number' => $old_category->number,
+//                    'title' => ucfirst($old_category->title),
+//                    'slug' => Str::slug($old_category->title),
+//                    'in_menu' => true,
+//                ]);
+//
+//            }
+//
 //        }
     }
 }

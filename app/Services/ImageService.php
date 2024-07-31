@@ -15,7 +15,7 @@ class ImageService {
         $name = $file->getClientOriginalName();
         $imageFile = ImageManager::read($file->getRealPath());
         $destinationPath = storage_path('app/public/images/'.$name);
-        $imageFile->save($destinationPath);
+        $imageFile->save($destinationPath,quality: 10, progressive: true);
 
         $image = Image::where('name', $name)->first();
         if (!$image){
@@ -30,6 +30,36 @@ class ImageService {
         return $image;
     }
 
+    public function uploadFromUrl($url, $name) {
+        $arrContextOptions=array(
+            "ssl"=>array(
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ),
+        );
+
+        $response = file_get_contents($url, false, stream_context_create($arrContextOptions));
+
+        $img = ImageManager::read($response);
+
+        $destinationPath = storage_path('app/public/images/'.$name);
+        $img->save($destinationPath,quality: 10, progressive: true);
+
+        $image = Image::where('name', $name)->first();
+        if (!$image){
+            $image = Image::create([
+                'name' => $name,
+                'path' => 'storage/images/',
+                'width' => $img->width(),
+                'height' => $img->height(),
+            ]);
+        }
+
+        $this->saveImageThumbnails($image);
+        return $image;
+
+    }
+
     public function saveImageThumbnails(Image $image){
         $file = file_get_contents(public_path($image->path.'/'.$image->name));
         foreach (Rendition::all() as $rendition){
@@ -38,17 +68,17 @@ class ImageService {
 
             $thumb = Thumbnail::where([
                 ['rendition_id', $rendition->id],
-                ['image_id', $image->id]
+                ['image_id', $image->id],
             ])->first();
             $cropped = $img->crop($img->width(), $img->height())
-                ->save($destinationPath.$rendition->name.'_'.$image->name, 100,'jpg');
+                ->save($destinationPath.$rendition->name.'_'.$image->name, 80,'jpg');
             if (!$thumb){
                 Thumbnail::create([
                     'image_id' => $image->id,
                     'rendition_id' => $rendition->id,
                     'width' => $cropped->width(),
                     'height' => $cropped->height(),
-                    'path' => '/storage/images/thumbnails/'.$rendition->name.'_'.$image->name
+                    'path' => '/storage/images/thumbnails/'.$rendition->name.'_'.$image->name,
                 ]);
             }
             if (!$image->thumbnails->contains($thumb)){
@@ -76,7 +106,7 @@ class ImageService {
 
         $cropped = $img->crop($width, $height, $x, $y)
             ->resize($rendition->width, $rendition->height)
-            ->save($destinationPath.$rendition->name.'_'.$name, 100,'jpg');
+            ->save($destinationPath.$rendition->name.'_'.$name, 80,'jpg');
 
 
         if (!$thumbnail){
@@ -86,7 +116,7 @@ class ImageService {
                 'width' => $cropped->width(),
                 'height' => $cropped->height(),
                 'path' => 'storage/images/thumbnails/'.$rendition->name.'_'.$name,
-                'coords' => json_encode($crop)
+                'coords' => json_encode($crop),
             ]);
         } else {
             $thumbnail->update([
@@ -95,7 +125,7 @@ class ImageService {
                 'width' => $cropped->width(),
                 'height' => $cropped->height(),
                 'path' => 'storage/images/thumbnails/'.$rendition->name.'_'.$name,
-                'coords' => json_encode($crop)
+                'coords' => json_encode($crop),
             ]);
         }
         if (!$image->thumbnails->contains($thumbnail)){

@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.2",
         "ext-curl": "*",
+        "5balloons/laravel-smart-ads": "^1.2",
         "astrotomic/laravel-translatable": "^11.13",
         "awssat/laravel-visits": "dev-l11-compatibility",
         "elasticsearch/elasticsearch": "^8.13",
@@ -16,6 +17,7 @@
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
+        "spatie/laravel-image-optimizer": "^1.8",
         "spatie/laravel-permission": "^6.4"
     },
     "require-dev": {
