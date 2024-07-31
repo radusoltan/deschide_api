@@ -32,12 +32,12 @@ class RenditionsTableSeeder extends Seeder
                 'height' => 630,
                 'aspect' => 1.9047619047619
             ],
-            [
-                'name' => 'video',
-                'width' => 425,
-                'height' => 500,
-                'aspect' => .85
-            ]
+//            [
+//                'name' => 'video',
+//                'width' => 425,
+//                'height' => 500,
+//                'aspect' => .85
+//            ]
         ];
 
         foreach ($renditions as $rendition){

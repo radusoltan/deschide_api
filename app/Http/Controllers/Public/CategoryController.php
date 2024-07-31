@@ -16,7 +16,7 @@ class CategoryController extends Controller {
     }
 
     public function getCategory($category){
-        $category = Category::whereTranslation('title', $category)->firstOrFail();
+        $category = Category::whereTranslation('slug', $category)->firstOrFail();
 
         return new CategoryResource($category);
     }

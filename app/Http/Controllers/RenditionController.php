@@ -101,6 +101,9 @@ class RenditionController extends Controller
      */
     public function destroy(Rendition $rendition)
     {
+        foreach ($rendition->thumbnails() as $thumbnail){
+            $thumbnail->delete();
+        }
         return $rendition->delete();
     }
 }

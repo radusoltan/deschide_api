@@ -24,6 +24,14 @@ Route::get('/user', function (Request $request) {
 
 Route::post('login',[AuthController::class, 'login']);
 
+Route::get('public-categories', function(){
+    return new CategoryCollection(
+        Category::whereTranslation('in_menu', true)
+//            ->translatedIn(app()->getLocale())
+            ->get()
+    );
+});
+
 Route::group([
     'middleware' => ['set_locale'],
     'prefix'     => 'public',
@@ -39,6 +47,7 @@ Route::group([
     Route::group(['prefix'=>'homepage'], function (){
         Route::get('featuredListArticle', [HomePageController::class, 'featuredListArticles']);
         Route::get('categories', function (){
+//            dd('here');
             return new CategoryCollection(
                 Category::whereTranslation('in_menu', true)
                     ->translatedIn(app()->getLocale())
