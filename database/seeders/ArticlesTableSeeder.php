@@ -15,11 +15,12 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use Faker\Factory as Faker;
-
+//set_time_limit(360);
 class ArticlesTableSeeder extends Seeder
 {
     private $service;
     private $imageService;
+
 
     public function __construct(ArticleService $service, ImageService $imageService){
         $this->service = $service;
@@ -44,7 +45,7 @@ class ArticlesTableSeeder extends Seeder
                         'section' => $category->old_number,
                         'items_per_page' => 50,
                         'sort[published]' => 'desc'
-                    ])
+                    ])->timeout(360)
                         ->withOptions(['verify' => false])->accept('application/json')->get($articlesUrl);
                     if (!empty($resp->object()->items)){
                         foreach ($resp->object()->items as $item){
