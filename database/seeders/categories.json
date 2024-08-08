@@ -47,16 +47,6 @@
         },
         {
             "language": "ro",
-            "number": 15,
-            "title": "Special"
-        },
-        {
-            "language": "ro",
-            "number": 17,
-            "title": "Video"
-        },
-        {
-            "language": "ro",
             "number": 20,
             "title": "Interviu"
         },
@@ -129,28 +119,13 @@
         },
         {
             "language": "ru",
-            "number": 10,
-            "title": "Видео"
-        },
-        {
-            "language": "ru",
-            "number": 15,
-            "title": "Special"
-        },
-        {
-            "language": "ru",
-            "number": 21,
-            "title": "Интервью"
-        },
-        {
-            "language": "ru",
             "number": 22,
             "title": "Выборы"
         },
         {
             "language": "ru",
             "number": 20,
-            "title": "Interviu"
+            "title": "Интервью"
         },
         {
             "language": "ru",
@@ -208,16 +183,6 @@
             "language": "en",
             "number": 5,
             "title": "Editorials"
-        },
-        {
-            "language": "en",
-            "number": 10,
-            "title": "Video"
-        },
-        {
-            "language": "en",
-            "number": 15,
-            "title": "Special"
         }
     ]
 }
