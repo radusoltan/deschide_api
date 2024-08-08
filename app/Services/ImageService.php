@@ -43,7 +43,7 @@ class ImageService {
         $img = ImageManager::read($response);
 
         $destinationPath = storage_path('app/public/images/'.$name);
-        $img->save($destinationPath,quality: 10, progressive: true);
+        $img->save($destinationPath,quality: 80, progressive: true);
 
         $image = Image::where('name', $name)->first();
         if (!$image){
