@@ -42,7 +42,7 @@ class ArticlesTableSeeder extends Seeder
                     $resp = Http::withQueryParameters([
                         'language' => $locale,
                         'section' => $category->old_number,
-                        'items_per_page' => 10,
+                        'items_per_page' => 50,
                         'sort[published]' => 'desc'
                     ])
                         ->withOptions(['verify' => false])->accept('application/json')->get($articlesUrl);
