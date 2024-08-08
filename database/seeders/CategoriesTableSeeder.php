@@ -20,7 +20,7 @@ class CategoriesTableSeeder extends Seeder
 
         foreach ($data as $locale => $categories) {
             app()->setLocale($locale);
-            $locale = app()->getLocale();
+
             foreach ($categories as $old_category) {
                 $category = Category::where('old_number', $old_category->number)
                     ->first();

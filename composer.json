@@ -75,10 +75,6 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/Oleksandr-Moik/laravel-translatable.git"
-    },
         {
             "type": "vcs",
             "url": "https://github.com/laravel-shift/laravel-visits.git"
