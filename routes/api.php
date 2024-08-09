@@ -16,6 +16,7 @@ use App\Http\Resources\Public\CategoryCollection;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/user', function (Request $request) {
@@ -39,6 +40,16 @@ Route::group([
 ], function(){
 
     Route::group(['prefix' => 'categories'], function (){
+        Route::get('/', function(){
+
+            $categories = Category::join('category_translations', 'category_translations.category_id', '=', 'categories.id')
+            ->where('category_translations.locale', '=', App::getLocale())
+                ->where('category_translations.in_menu', '=', 1)
+                ->get()
+            ;
+            return new CategoryCollection($categories);
+
+        });
         Route::get('/{category}/popular', [CategoryPublicController::class, 'getMostPopular']);
         Route::get('/{category}', [CategoryPublicController::class, 'getCategory']);
     });
@@ -49,7 +60,7 @@ Route::group([
         Route::get('categories', function (){
 
             return new CategoryCollection(
-                Category::whereTranslation('in_menu', true)
+                Category::whereTranslation('in_menu', 1)
                     ->translatedIn(app()->getLocale())
                     ->get()
             );
