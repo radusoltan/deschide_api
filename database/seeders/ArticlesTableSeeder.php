@@ -106,7 +106,7 @@ class ArticlesTableSeeder extends Seeder
                                         $article->authors()->attach($author);
                                     }
                                 }
-                                $this->getArticleImagesByNumber($old_article->number);
+                                $this->getArticleImagesByNumber($old_article->number, app()->getLocale());
                             }
                         }
                     }
@@ -134,8 +134,8 @@ class ArticlesTableSeeder extends Seeder
 
     }
 
-    private function getArticleImagesByNumber($number) {
-        $url = "https://deschide.md/api/articles/{$number}/ro/images.json";
+    private function getArticleImagesByNumber($number, $locale) {
+        $url = "https://deschide.md/api/articles/{$number}/{$locale}/images.json";
         $articleImages = Http::withOptions(['verify' => false])
             ->withQueryParameters([
                 'items_per_page' => 100
