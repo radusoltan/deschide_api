@@ -15,6 +15,7 @@ class ImageService {
         $name = $file->getClientOriginalName();
         $imageFile = ImageManager::read($file->getRealPath());
         $destinationPath = storage_path('app/public/images/'.$name);
+//        $imageFile->interlace(false);
         $imageFile->save($destinationPath,quality: 10, progressive: true);
 
         $image = Image::where('name', $name)->first();

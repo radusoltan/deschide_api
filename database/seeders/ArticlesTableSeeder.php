@@ -126,7 +126,7 @@ class ArticlesTableSeeder extends Seeder
 
         $articleUrl = "https://deschide.md/api/articles/{$number}.json";
         $article = Http::withOptions(['verify' => false])->get($articleUrl);
-        if(!property_exists($article->object(),'errors')){
+        if($article && !property_exists($article->object(),'errors')){
             return $article->object();
         } else {
             return new \stdClass();
@@ -149,6 +149,11 @@ class ArticlesTableSeeder extends Seeder
                 $imageUrl = "https://deschide.md/images/{$remoteImage->basename}";
 
                 $image = $this->imageService->uploadFromUrl($imageUrl, $remoteImage->basename);
+                $image->update([
+                    'description' => $remoteImage->description,
+                    'source' => $remoteImage->photographer,
+                    'author' => $remoteImage->photographer,
+                ]);
 
                 $article = Article::where('old_number', $number)->first();
                 if (!$article->images->contains($image)) {
