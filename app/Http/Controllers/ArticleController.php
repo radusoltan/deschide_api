@@ -34,7 +34,7 @@ class ArticleController extends Controller
     public function index()
     {
         $locale = app()->getLocale();
-        return new ArticleCollection(Article::translatedIn($locale)->paginate(10));
+        return new ArticleCollection(Article::translatedIn($locale)->orderBy('published_at', "DESC")->paginate(10));
     }
 
     public function getArticlesByCategory(Category $category) {
