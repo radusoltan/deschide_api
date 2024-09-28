@@ -95,7 +95,7 @@ class ArticlesTableSeeder extends Seeder
                                 }
 
                                 visits($article)->increment($reads);
-                                $this->service->updateDocVisits($article);
+//                                $this->service->updateDocVisits($article);
 
                                 foreach($authors as $old_author) {
                                     $path = parse_url($old_author->link, PHP_URL_PATH);
