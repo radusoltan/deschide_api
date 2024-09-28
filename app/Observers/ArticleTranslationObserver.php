@@ -17,13 +17,13 @@ class ArticleTranslationObserver
      */
     public function created(ArticleTranslation $articleTranslation): void
     {
-        $elasticArticle = $this->elasticsearch->update([
-            'index' => $articleTranslation->article->getSearchIndex(),
-            'id' => $articleTranslation->article->index_id,
-            'body' => [
-                'doc' => $articleTranslation->article->toSearchArray()
-            ]
-        ]);
+//        $elasticArticle = $this->elasticsearch->update([
+//            'index' => $articleTranslation->article->getSearchIndex(),
+//            'id' => $articleTranslation->article->index_id,
+//            'body' => [
+//                'doc' => $articleTranslation->article->toSearchArray()
+//            ]
+//        ]);
     }
 
     /**
@@ -32,14 +32,14 @@ class ArticleTranslationObserver
     public function updated(ArticleTranslation $articleTranslation): void
     {
 //        $article = ;
-        $articleTranslation->article->refresh();
-        $this->elasticsearch->update([
-            'index' => $articleTranslation->article->getSearchIndex(),
-            'id' => $articleTranslation->article->index_id,
-            'body' => [
-                'doc' => $articleTranslation->article->toSearchArray()
-            ]
-        ]);
+//        $articleTranslation->article->refresh();
+//        $this->elasticsearch->update([
+//            'index' => $articleTranslation->article->getSearchIndex(),
+//            'id' => $articleTranslation->article->index_id,
+//            'body' => [
+//                'doc' => $articleTranslation->article->toSearchArray()
+//            ]
+//        ]);
     }
 
     /**
