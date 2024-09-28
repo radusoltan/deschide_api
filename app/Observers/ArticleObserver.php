@@ -18,13 +18,13 @@ class ArticleObserver
     public function created(Article $article): void
     {
 //        dd('here');
-        $elasticArticle = $this->elasticsearch->index([
-            'index' => $article->getSearchIndex(),
-            'type' => $article->getSearchType(),
-            'body' => $article->toSearchArray(),
-        ]);
-        $article->index_id = $elasticArticle->asObject()->_id;
-        $article->save();
+//        $elasticArticle = $this->elasticsearch->index([
+//            'index' => $article->getSearchIndex(),
+//            'type' => $article->getSearchType(),
+//            'body' => $article->toSearchArray(),
+//        ]);
+//        $article->index_id = $elasticArticle->asObject()->_id;
+//        $article->save();
     }
 
     /**
@@ -32,13 +32,13 @@ class ArticleObserver
      */
     public function updated(Article $article): void
     {
-        $this->elasticsearch->update([
-            'index' => $article->getSearchIndex(),
-            'id' => $article->index_id,
-            'body' => [
-                'doc' => $article->toSearchArray()
-            ]
-        ]);
+//        $this->elasticsearch->update([
+//            'index' => $article->getSearchIndex(),
+//            'id' => $article->index_id,
+//            'body' => [
+//                'doc' => $article->toSearchArray()
+//            ]
+//        ]);
     }
 
     /**
@@ -46,11 +46,11 @@ class ArticleObserver
      */
     public function deleted(Article $article): void
     {
-        $this->elasticsearch->delete([
-            'index' => $article->getTable(),
-            'type' => '_doc',
-            'id' => $this->getKey(),
-        ]);
+//        $this->elasticsearch->delete([
+//            'index' => $article->getTable(),
+//            'type' => '_doc',
+//            'id' => $this->getKey(),
+//        ]);
     }
 
     /**
@@ -58,11 +58,11 @@ class ArticleObserver
      */
     public function restored(Article $article): void
     {
-        $this->elasticsearch->index([
-            'index' => 'articles',
-            'type' => '_doc',
-            'body' => $article->toSearchArray(),
-        ]);
+//        $this->elasticsearch->index([
+//            'index' => 'articles',
+//            'type' => '_doc',
+//            'body' => $article->toSearchArray(),
+//        ]);
     }
 
     /**
@@ -70,10 +70,10 @@ class ArticleObserver
      */
     public function forceDeleted(Article $article): void
     {
-        $this->elasticsearch->delete([
-            'index' => $article->getTable(),
-            'type' => '_doc',
-            'id' => $this->getKey(),
-        ]);
+//        $this->elasticsearch->delete([
+//            'index' => $article->getTable(),
+//            'type' => '_doc',
+//            'id' => $this->getKey(),
+//        ]);
     }
 }
