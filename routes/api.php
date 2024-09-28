@@ -33,11 +33,7 @@ Route::get('public-categories', function(){
     );
 });
 
-Route::group([
-    'middleware' => ['set_locale'],
-    'prefix'     => 'public',
-
-], function(){
+Route::group(['middleware' => ['set_locale'],'prefix'=> 'public'], function(){
 
     Route::group(['prefix' => 'categories'], function (){
         Route::get('/', function(){
