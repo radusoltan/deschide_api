@@ -382,12 +382,12 @@ class ImportController extends Controller {
   public function exportCSV(){
 
       $articlesUrl = "https://deschide.md/api/articles.json";
-      $data = Http::withQueryParameters([
-          'language' => app()->getLocale(),
-          'items_per_page' => 300,
-          'type' => 'stiri',
-          'sort[published]' => 'desc',
-      ])->timeout(360)->withOptions(['verify' => false])->accept('application/json')->get($articlesUrl);
+//      $data = Http::withQueryParameters([
+//          'language' => app()->getLocale(),
+//          'items_per_page' => 300,
+//          'type' => 'stiri',
+//          'sort[published]' => 'desc',
+//      ])->timeout(360)->withOptions(['verify' => false])->accept('application/json')->get($articlesUrl);
 
       $csv = Writer::createFromFileObject(new \SplTempFileObject());
 
@@ -413,7 +413,8 @@ class ImportController extends Controller {
               Carbon::parse($article->published_at)->format('m/d/Y h:i A'),
               Carbon::parse($article->updated_at)->format('m/d/Y h:i A'),
               strtoupper($article->category->title),
-              $article->authors()->get()->pluck('name')->implode(' ,'),
+//              $article->authors()->get()->pluck('name')->implode(' ,'),
+              "Deschide.md",
               is_null($article->images()->where('is_main',true)->first()) ? '' : env('APP_URL').'storage/images/'.$article->images()->where('is_main',true)->first()->name,
           ]);
       }
