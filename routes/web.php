@@ -1,5 +1,6 @@
 <?php
 
+use App\Exports\ArticlesExport;
 use App\Http\Controllers\Public\ArticleController;
 use App\Http\Controllers\Public\HomePageController;
 use App\Http\Resources\Public\ArticleResource;
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use Intervention\Image\Laravel\Facades\Image as ImageManager;
+use Maatwebsite\Excel\Facades\Excel;
 
 //Route::get('/', function () {
 //    return view('welcome');
@@ -45,24 +47,47 @@ Route::group(['middleware' => 'set_locale'],function (){
     });
 });
 
-Route::get('/import',[\App\Http\Controllers\ImportController::class,'index']);
+Route::get('export-csv', [\App\Http\Controllers\ImportController::class, 'exportCSV']);
 
-Route::get('radu', function (){
+Route::get('/import',[\App\Http\Controllers\ImportController::class,'import']);
+
+Route::get('radu', function (\App\Services\FaceBookService $service){
 
 
-    $category = Category::find(1);
-    $articles = Article::where('category_id',$category->id)
-        ->whereTranslation('status', "P")
-        ->get()
-        ->load('vzt')
-        ->sortByDesc(function ($article){
-            return visits($article)->count();
-        })
-        ->take(10)
-        ->pluck('index_id');
-    ;
+// "id": "10210098744881597"
+    $response = Http::get("https://graph.facebook.com/v20.0/10210098744881597/accounts?access_token=EAAFOZAm5DHSYBO6buevs28ETyZB3WZBsSwhD5zbUFd6KbLZC8qmx6iCDsWUatZB4A7yMFkCbAuzb2EYUSIncjVWKmupfVTnONicy1bqMIojBN0qRZBs5yQOXH0gxxsmW04cmSylpRAtgtVrwyg7jSCuYnnhMyMgEUCSJ0WeyPpQmObZA0oJlTh6CIAU4V1oTPAwDgGidsdI7izJTxMZD");
+    $data = json_decode($response->body());
+    app()->setLocale('ro');
 
-    return $articles;
+    $article = Article::find(100);
+
+
+
+    $service->postArticle($article);
+
+//
+//    $vzt = visits(Article::class)->top(10);
+//
+//    dump($vzt);
+
+//    foreach ($vzt as $article){
+////        $service->updateDoc($article);
+////        dump($article->vzt()->count());
+//        dump(visits($article)->count());
+//    }
+//    $category = Category::find(1);
+//    $articles = Article::where('category_id',$category->id)
+//        ->whereTranslation('status', "P")
+//        ->get()
+//        ->load('vzt')
+//        ->sortByDesc(function ($article){
+//            return visits($article)->count();
+//        })
+//        ->take(10)
+//        ->pluck('index_id');
+//    ;
+//
+//    return $articles;
 
 
 });

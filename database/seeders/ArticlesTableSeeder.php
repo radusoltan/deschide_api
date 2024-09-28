@@ -33,18 +33,18 @@ class ArticlesTableSeeder extends Seeder
     public function run(): void
     {
 
-        foreach (config('translatable.locales') as $locale){
-            app()->setLocale($locale);
+//        foreach (config('translatable.locales') as $locale){
+//            app()->setLocale($locale);
 
             foreach (Category::all() as $category){
                 $articlesUrl = "https://deschide.md/api/articles.json";
 
                 try {
                     $resp = Http::withQueryParameters([
-                        'language' => $locale,
-                        'section' => $category->old_number,
-                        'items_per_page' => 50,
-                        'sort[published]' => 'desc'
+                        'language' => 'ro',
+//                        'section' => $category->old_number,
+                        'items_per_page' => 1000,
+                        'sort[number]' => 'desc'
                     ])->timeout(360)
                         ->withOptions(['verify' => false])->accept('application/json')->get($articlesUrl);
                     if (!empty($resp->object()->items)){
@@ -114,7 +114,7 @@ class ArticlesTableSeeder extends Seeder
                     dump($exception->getMessage());
                 }
             }
-        }
+//        }
 
 
 
@@ -151,9 +151,9 @@ class ArticlesTableSeeder extends Seeder
                 $image = $this->imageService->uploadFromUrl($imageUrl, $remoteImage->basename);
 
                 $image->update([
-                    'description' => property_exists($remoteImage, 'description') ? $remoteImage->description : "",
-                    'source' => property_exists($remoteImage, 'photographer') ? $remoteImage->photographer : "",
-                    'author' => property_exists($remoteImage, 'photographer') ? $remoteImage->photographer : "",
+                    'description' => property_exists($remoteImage, 'description') ? $remoteImage->description : "Poza simbol",
+                    'source' => property_exists($remoteImage, 'photographer') ? $remoteImage->photographer : "deschide.md",
+                    'author' => property_exists($remoteImage, 'photographer') ? $remoteImage->photographer : "deschide.md",
                 ]);
 
                 $article = Article::where('old_number', $number)->first();
