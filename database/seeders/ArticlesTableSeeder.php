@@ -170,7 +170,7 @@ class ArticlesTableSeeder extends Seeder
                 }
 
                 $article->refresh();
-                $this->service->updateDoc($article);
+//                $this->service->updateDoc($article);
 
             }
         } else {
