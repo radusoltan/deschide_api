@@ -32,91 +32,107 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run(): void
     {
+        foreach (config('translatable.locales') as $locale){
 
+            app()->setLocale($locale);
 
             foreach (Category::all() as $category){
                 $articlesUrl = "https://deschide.md/api/articles.json";
 
-                try {
-                    $resp = Http::withQueryParameters([
-                        'language' => 'ro',
-                        'section' => $category->old_number,
-                        'items_per_page' => 10,
-                        'sort[number]' => 'desc'
-                    ])->timeout(360)
-                        ->withOptions(['verify' => false])->accept('application/json')->get($articlesUrl);
-                    if (!empty($resp->object()->items)){
-                        foreach ($resp->object()->items as $item){
-                            $old_article = $this->getArticleByNumber($item->number);
-                            if (property_exists($old_article, 'number')){
-                                $article = Article::where('old_number', $old_article->number)->first();
-                                $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
+                $resp = Http::withQueryParameters([
+                    'language' => $locale,
+                    'section' => $category->old_number,
+                    'items_per_page' => 500,
+                    'sort[number]' => 'desc',
+                    'type' => 'stiri',
+                    'page' => 1,
+                ])->timeout(360)
+                    ->withOptions(['verify' => false])->accept('application/json')->get($articlesUrl);
 
-                                $reads = intval($old_article->reads);
+                if (property_exists($resp->object(), 'items')){
+                    foreach($resp->object()->items as $item) {
+                        $old_article = $this->getArticleByNumber($item->number);
+                        if (property_exists($old_article, 'number')){
+                            $article = Article::where('old_number', $old_article->number)->first();
+                            $path = parse_url($old_article->url, PHP_URL_PATH);
 
-                                $path = parse_url($old_article->url, PHP_URL_PATH);
-
-                                $segments = explode('/', trim($path, '/'));
-
-                                if (!$article) {
-                                    $article = Article::create([
-                                        'old_number' => $old_article->number,
-                                        'category_id' => $category->id,
-                                        'title' => $old_article->title,
-                                        'slug' => Str::slug($old_article->title),
-                                        'lead' => $old_article->fields->lead ?? null,
-                                        'body' => $old_article->fields->Continut ?? null,
-                                        'published_at' => $old_article->published,
-                                        'status' => $old_article->status === 'Y'? "P": "S",
-                                        'is_flash' => false,
-                                        'is_breaking' => false,
-                                        'is_alert' => false,
-                                        'is_live' => false,
-                                        'embed' => $old_article->fields->Embed ?? null,
-                                    ]);
-                                } else {
-                                    $article->update([
-                                        'old_number' => $old_article->number,
-                                        'category_id' => $category->id,
-                                        'title' => $old_article->title,
-                                        'slug' => $category->id != 11 ? Str::slug($old_article->title) : Str::slug($old_article->number.'-'.$segments[4].'-'.Str::random()),
-                                        'lead' => $old_article->fields->lead ?? null,
-                                        'body' => $old_article->fields->Continut ?? null,
-                                        'published_at' => $old_article->published,
-                                        'status' => $old_article->status === 'Y'? "P": "S",
-                                        'is_flash' => false,
-                                        'is_breaking' => false,
-                                        'is_alert' => false,
-                                        'is_live' => false,
-                                        'embed' => $old_article->fields->Embed ?? null,
-                                    ]);
-                                }
-
-                                dump($article);
-
-                                foreach($authors as $old_author) {
-                                    $path = parse_url($old_author->link, PHP_URL_PATH);
-                                    // Explode the path into segments
-                                    $segments = explode('/', trim($path, '/'));
-                                    $author = Author::where('old_number', $segments[2])->first();
-                                    if (!$article->authors->contains($author)) {
-                                        $article->authors()->attach($author);
-                                    }
-                                }
-                                $this->getArticleImagesByNumber($old_article->number, app()->getLocale());
+                            $segments = explode('/', trim($path, '/'));
+                            if (!$article) {
+                                $article = Article::create([
+                                    'old_number' => $old_article->number,
+                                    'category_id' => $category->id,
+                                    'title' => $old_article->title,
+                                    'slug' => Str::slug($old_article->title),
+                                    'lead' => $old_article->fields->lead ?? null,
+                                    'body' => $old_article->fields->Continut ?? null,
+                                    'published_at' => $old_article->published,
+                                    'status' => $old_article->status === 'Y'? "P": "S",
+                                    'is_flash' => false,
+                                    'is_breaking' => false,
+                                    'is_alert' => false,
+                                    'is_live' => false,
+                                    'embed' => $old_article->fields->Embed ?? null,
+                                ]);
+                            } else {
+                                $article->update([
+                                    'old_number' => $old_article->number,
+                                    'category_id' => $category->id,
+                                    'title' => $old_article->title,
+                                    'slug' => $category->id != 11 ? Str::slug($old_article->title) : Str::slug($old_article->number.'-'.$segments[4].'-'.Str::random()),
+                                    'lead' => $old_article->fields->lead ?? null,
+                                    'body' => $old_article->fields->Continut ?? null,
+                                    'published_at' => $old_article->published,
+                                    'status' => $old_article->status === 'Y'? "P": "S",
+                                    'is_flash' => false,
+                                    'is_breaking' => false,
+                                    'is_alert' => false,
+                                    'is_live' => false,
+                                    'embed' => $old_article->fields->Embed ?? null,
+                                ]);
                             }
+                            $this->getArticleAuthors($article->old_number);
+                            $this->getArticleImagesByNumber($old_article->number, app()->getLocale());
                         }
                     }
-                } catch (Exception $exception){
-                    dump($exception->getMessage());
                 }
             }
-//        }
+        }
+    }
 
+    public function getArticleAuthors($article){
+        $locale = app()->getLocale();
+        $url = "https://deschide.md/api/authors/article/{$article}/{$locale}.json";
 
+        $resp = Http::get($url)->json();
 
+        foreach($resp as $field) {
+            if (array_key_exists('author', $field[0])){
+                $author = $this->getAuthorByNumber($field[0]['author']['id']);
+            } else {
+                $author = Author::find(221);
+            }
 
+            $article = Article::where("old_number", $article)->first();
+            if (!$article->authors->contains($author)) {
+                $article->authors()->attach($author);
+            }
+        }
+    }
 
+    private function getAuthorByNumber($number){
+        $url = "https://deschide.md/api/authors/{$number}.json";
+        $author = Http::withOptions(['verify' => false])->get($url);
+        $localAuthor = Author::where('old_number', $author->object()->id)->first();
+        if(!$localAuthor) {
+            $localAuthor = Author::create([
+                'first_name' => $author->object()->firstName,
+                "last_name" => $author->object()->lastName,
+                "full_name" => $author->object()->firstName . ' ' . $author->object()->lastName,
+                'slug' => Str::slug($author->object()->firstName . ' ' . $author->object()->lastName),
+                'old_number' => $author->object()->id,
+            ]);
+        }
+        return $localAuthor;
     }
 
     private function getArticleByNumber($number) {
@@ -165,9 +181,6 @@ class ArticlesTableSeeder extends Seeder
                     $mainImage->setMain();
                     $this->imageService->saveImageThumbnails($image);
                 }
-
-                $article->refresh();
-//                $this->service->updateDoc($article);
 
             }
         } else {

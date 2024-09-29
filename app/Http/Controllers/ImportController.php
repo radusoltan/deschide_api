@@ -25,7 +25,7 @@ class ImportController extends Controller {
 
     private $service;
     public function __construct(ArticleService $service){
-        $this->service = $service;
+            $this->service = $service;
     }
 
     public function import() {
@@ -75,7 +75,7 @@ class ImportController extends Controller {
             $segments = explode('/', rtrim($path, '/'));
             $slug = pathinfo(end($segments), PATHINFO_FILENAME);
 
-            //            dump($item->renditions);
+//            dump($item->renditions);
 
             $collection = collect($item->renditions);
             $i++;
@@ -88,14 +88,14 @@ class ImportController extends Controller {
                 $imageUrl = $mainImage->link;
             }
 
-            //
-            //
-            //            $decoded_url = urldecode(urldecode($imageUrl));
-            //            $image_parts = explode('|', $decoded_url);
-            //
-            //            // Extragem numele fișierului din ultima parte
-            //            $image_name = basename(end($image_parts));
-            //
+//
+//
+//            $decoded_url = urldecode(urldecode($imageUrl));
+//            $image_parts = explode('|', $decoded_url);
+//
+//            // Extragem numele fișierului din ultima parte
+//            $image_name = basename(end($image_parts));
+//
             $authorsCollection = collect($item->authors);
             $names = $authorsCollection->pluck('name')->implode(', ');
 
@@ -118,17 +118,17 @@ class ImportController extends Controller {
             //Is featured?,
             //Manual Data
 
-            //            $csv->insertOne([
-            //                'Title',
-            //                'Slug',
-            //                'Body',
-            //                'Created On',
-            //                'Published On',
-            //                'Updated On',
-            //                'Category',
-            //                'Author',
-            //                'Main Image'
-            //            ]);
+//            $csv->insertOne([
+//                'Title',
+//                'Slug',
+//                'Body',
+//                'Created On',
+//                'Published On',
+//                'Updated On',
+//                'Category',
+//                'Author',
+//                'Main Image'
+//            ]);
 
             $row['Title'] = $title;
             $row['Slug'] = $slug;
@@ -138,19 +138,19 @@ class ImportController extends Controller {
             $row['Updated On'] = $updated;
             $row['Category'] = $section;
             $row['Author'] = $names;
-            //            $row['Main Image'] = "https://deschide.md/images/".$image_name;
+//            $row['Main Image'] = "https://deschide.md/images/".$image_name;
 
 
 
 
-            //            $csv->insertOne($row);
-            //            $i++;
-            //
-            //            Log::info('Exported article '.$item->number.' #'.$i);
+//            $csv->insertOne($row);
+//            $i++;
+//
+//            Log::info('Exported article '.$item->number.' #'.$i);
 
         }
 
-        //        $csv->output('articles.csv');
+//        $csv->output('articles.csv');
 
     }
 
@@ -180,108 +180,108 @@ class ImportController extends Controller {
 
     }
 
-    public function index() {
+  public function index() {
 
-        app()->setLocale('ro');
-        $client = new Client(env('DROPBOX_AUTH_TOKEN'));
+      app()->setLocale('ro');
+      $client = new Client(env('DROPBOX_AUTH_TOKEN'));
 
-        $adapter = new DropboxAdapter($client);
+      $adapter = new DropboxAdapter($client);
 
-        $filesystem = new Filesystem($adapter, ['case_sensitive' => false]);
-        $articlesUrl = "https://deschide.md/api/articles.json";
-
-
-        $data = Http::withQueryParameters([
-            'language' => app()->getLocale(),
-            'items_per_page' => 900,
-            'sort[published]' => 'desc',
-        ])->timeout(360)->withOptions(['verify' => false])->accept('application/json')->get($articlesUrl);
+      $filesystem = new Filesystem($adapter, ['case_sensitive' => false]);
+      $articlesUrl = "https://deschide.md/api/articles.json";
 
 
-        $csv = Writer::createFromFileObject(new \SplTempFileObject());
+      $data = Http::withQueryParameters([
+          'language' => app()->getLocale(),
+          'items_per_page' => 900,
+          'sort[published]' => 'desc',
+      ])->timeout(360)->withOptions(['verify' => false])->accept('application/json')->get($articlesUrl);
 
-        foreach ($data->object()->items as $row) {
-            $old_article = $this->getArticleByNumber($row->number);
-            $remoteImage = $this->getImageByNumber($item->id);
-            //          $this->getArticleImagesByNumber($old_article->number, app()->getLocale());
-            dump($old_article);
-        }
 
-        //      if (!empty($arr)) {
-        //          // Alege doar cheile pe care dorești să le exporti
-        //          $selectedKeys = ['section.title', 'fields.Titlu', 'fields.lead', 'fields.Continut', 'updated', 'published', 'created', 'renditions.captions.original', 'reads', 'authors'];
-        //
-        //          // Crează antetul CSV pe baza cheilor selectate
-        //          $headers = array_map(function($key) {
-        //              return last(explode('.', $key)); // obține partea finală a cheii (în caz de chei complexe)
-        //          }, $selectedKeys);
-        //          $csv->insertOne($headers);
-        //      }
-        //
-        //      foreach ($arr as $item) {
-        //          dump($item);
-        //          $row = [];
+      $csv = Writer::createFromFileObject(new \SplTempFileObject());
 
-        //          // Extragem secțiunea
-        //          $row['section'] = $item['section']['title'] ?? '';
-        //
-        //          // Extragem titlul, lead și body din "fields"
-        //          $row['Titlu'] = $item['fields']['Titlu'] ?? '';
-        //          $row['lead'] = $item['fields']['lead'] ?? '';
-        //          $row['body'] = $item['fields']['Continut'] ?? '';
-        //
-        //          // Extragem numele autorilor
-        //          if (!empty($item['authors']) && is_array($item['authors'])) {
-        //              $authorNames = array_column($item['authors'], 'name');
-        //              $row['authors'] = implode(', ', $authorNames);
-        //          } else {
-        //              $row['authors'] = '';
-        //          }
-        //
-        //          // Formatarea datelor (updated, published, created) în format MM/DD/YYYY hh:mm AM/PM
-        //          $row['updated'] = !empty($item['updated']) ? Carbon::parse($item['updated'])->format('m/d/Y h:i A') : '';
-        //          $row['published'] = !empty($item['published']) ? Carbon::parse($item['published'])->format('m/d/Y h:i A') : '';
-        //          $row['created'] = !empty($item['created']) ? Carbon::parse($item['created'])->format('m/d/Y h:i A') : '';
-        //
-        //          // Extragem link-ul din "renditions" și îl încărcăm pe Dropbox
-        //          if (!empty($item['renditions']) && isset($item['renditions'][0]['link'])) {
-        //              $originalLink = $item['renditions'][0]['link'];
-        //
-        //              // Descărcăm imaginea
-        //              $imageContents = Http::get($originalLink)->body();
-        //
-        //
-        //              $fileName = uniqid() . '.jpg';
-        //              $filesystem->write($fileName, $imageContents);
-        //
-        //              $response = Http::withHeaders([
-        //                  'Authorization' => 'Bearer ' . env('DROPBOX_AUTH_TOKEN'),
-        //                  'Content-Type' => 'application/json',
-        //              ])->timeout(360)->post('https://api.dropboxapi.com/2/sharing/create_shared_link_with_settings', [
-        //                  'path' => "/$fileName",
-        //                  'settings' => [
-        //                      'access' => 'viewer',
-        //                      'allow_download' => true,
-        //                      'audience' => 'public',
-        //                      'requested_visibility' => 'public',
-        //                  ]
-        //              ]);
-        //
-        //              $json = $response->json();
-        //
-        //              // Transformăm link-ul pentru a fi accesibil public
-        //              $row['rendition_link'] = $json['url'];
-        //          } else {
-        //              $row['rendition_link'] = '';
-        //          }
-        //
-        //          // Inserăm rândul în CSV
-        //          $csv->insertOne($row);
-        //      }
+      foreach ($data->object()->items as $row) {
+          $old_article = $this->getArticleByNumber($row->number);
+          $remoteImage = $this->getImageByNumber($item->id);
+//          $this->getArticleImagesByNumber($old_article->number, app()->getLocale());
+          dump($old_article);
+      }
 
-        //      $csv->output('articles.csv');
+//      if (!empty($arr)) {
+//          // Alege doar cheile pe care dorești să le exporti
+//          $selectedKeys = ['section.title', 'fields.Titlu', 'fields.lead', 'fields.Continut', 'updated', 'published', 'created', 'renditions.captions.original', 'reads', 'authors'];
+//
+//          // Crează antetul CSV pe baza cheilor selectate
+//          $headers = array_map(function($key) {
+//              return last(explode('.', $key)); // obține partea finală a cheii (în caz de chei complexe)
+//          }, $selectedKeys);
+//          $csv->insertOne($headers);
+//      }
+//
+//      foreach ($arr as $item) {
+//          dump($item);
+//          $row = [];
 
-    }
+//          // Extragem secțiunea
+//          $row['section'] = $item['section']['title'] ?? '';
+//
+//          // Extragem titlul, lead și body din "fields"
+//          $row['Titlu'] = $item['fields']['Titlu'] ?? '';
+//          $row['lead'] = $item['fields']['lead'] ?? '';
+//          $row['body'] = $item['fields']['Continut'] ?? '';
+//
+//          // Extragem numele autorilor
+//          if (!empty($item['authors']) && is_array($item['authors'])) {
+//              $authorNames = array_column($item['authors'], 'name');
+//              $row['authors'] = implode(', ', $authorNames);
+//          } else {
+//              $row['authors'] = '';
+//          }
+//
+//          // Formatarea datelor (updated, published, created) în format MM/DD/YYYY hh:mm AM/PM
+//          $row['updated'] = !empty($item['updated']) ? Carbon::parse($item['updated'])->format('m/d/Y h:i A') : '';
+//          $row['published'] = !empty($item['published']) ? Carbon::parse($item['published'])->format('m/d/Y h:i A') : '';
+//          $row['created'] = !empty($item['created']) ? Carbon::parse($item['created'])->format('m/d/Y h:i A') : '';
+//
+//          // Extragem link-ul din "renditions" și îl încărcăm pe Dropbox
+//          if (!empty($item['renditions']) && isset($item['renditions'][0]['link'])) {
+//              $originalLink = $item['renditions'][0]['link'];
+//
+//              // Descărcăm imaginea
+//              $imageContents = Http::get($originalLink)->body();
+//
+//
+//              $fileName = uniqid() . '.jpg';
+//              $filesystem->write($fileName, $imageContents);
+//
+//              $response = Http::withHeaders([
+//                  'Authorization' => 'Bearer ' . env('DROPBOX_AUTH_TOKEN'),
+//                  'Content-Type' => 'application/json',
+//              ])->timeout(360)->post('https://api.dropboxapi.com/2/sharing/create_shared_link_with_settings', [
+//                  'path' => "/$fileName",
+//                  'settings' => [
+//                      'access' => 'viewer',
+//                      'allow_download' => true,
+//                      'audience' => 'public',
+//                      'requested_visibility' => 'public',
+//                  ]
+//              ]);
+//
+//              $json = $response->json();
+//
+//              // Transformăm link-ul pentru a fi accesibil public
+//              $row['rendition_link'] = $json['url'];
+//          } else {
+//              $row['rendition_link'] = '';
+//          }
+//
+//          // Inserăm rândul în CSV
+//          $csv->insertOne($row);
+//      }
+
+//      $csv->output('articles.csv');
+
+  }
 
     private function getArticleByNumber($number) {
 
@@ -372,44 +372,44 @@ class ImportController extends Controller {
         }
     }
 
-    private function getFields($obj) {
-        dump($obj);
-        return [
-            'title' => $obj->titlu,
-        ];
-    }
+  private function getFields($obj) {
+      dump($obj);
+      return [
+          'title' => $obj->titlu,
+      ];
+  }
 
-    public function exportCSV(){
+  public function exportCSV(){
 
 
-        $csv = Writer::createFromFileObject(new \SplTempFileObject());
+      $csv = Writer::createFromFileObject(new \SplTempFileObject());
 
-        $csv->insertOne([
-            'Title',
-            'Slug',
-            'Body',
-            'Created On',
-            'Published On',
-            'Updated On',
-            'Category',
-            'Author',
-            'Main Image'
-        ]);
+      $csv->insertOne([
+          'Title',
+          'Slug',
+          'Body',
+          'Created On',
+          'Published On',
+          'Updated On',
+          'Category',
+          'Author',
+          'Main Image'
+      ]);
 
-        foreach (Article::all() as $article){
-            $csv->insertOne([
-                $article->title,
-                $article->slug,
-                $article->body,
-                Carbon::parse($article->created_at)->format('m/d/Y h:i A'),
-                Carbon::parse($article->published_at)->format('m/d/Y h:i A'),
-                Carbon::parse($article->updated_at)->format('m/d/Y h:i A'),
-                strtoupper($article->category->title),
-                empty($article->authors()->get()->pluck('full_name')->implode(' ,')) ? "Deschide.md" : $article->authors()->get()->pluck('full_name')->implode(' ,'),
-                is_null($article->images()->where('is_main',true)->first()) ? '' : env('APP_URL').'storage/images/'.$article->images()->where('is_main',true)->first()->name,
-            ]);
-        }
-        $csv->output('articles.csv');
-    }
+      foreach (Article::all() as $article){
+          $csv->insertOne([
+              $article->title,
+              $article->slug,
+              $article->body,
+              Carbon::parse($article->created_at)->format('m/d/Y h:i A'),
+              Carbon::parse($article->published_at)->format('m/d/Y h:i A'),
+              Carbon::parse($article->updated_at)->format('m/d/Y h:i A'),
+              strtoupper($article->category->title),
+              empty($article->authors()->get()->pluck('full_name')->implode(' ,')) ? "Deschide.md" : $article->authors()->get()->pluck('full_name')->implode(' ,'),
+              is_null($article->images()->where('is_main',true)->first()) ? '' : env('APP_URL').'storage/images/'.$article->images()->where('is_main',true)->first()->name,
+          ]);
+      }
+      $csv->output('articles.csv');
+  }
 
 }

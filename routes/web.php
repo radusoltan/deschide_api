@@ -49,6 +49,8 @@ Route::group(['middleware' => 'set_locale'],function (){
 
 Route::get('export-csv', [\App\Http\Controllers\ImportController::class, 'exportCSV']);
 
+Route::get('radu-test', [\App\Http\Controllers\RaduTestController::class, 'index']);
+
 Route::get('/import',[\App\Http\Controllers\ImportController::class,'import']);
 
 Route::get('radu', function (\App\Services\FaceBookService $service){
