@@ -33,8 +33,8 @@ class ArticlesTableSeeder extends Seeder
     public function run(): void
     {
 
-        //        foreach (config('translatable.locales') as $locale){
-        //            app()->setLocale($locale);
+//        foreach (config('translatable.locales') as $locale){
+//            app()->setLocale($locale);
 
         foreach (Category::all() as $category){
             $articlesUrl = "https://deschide.md/api/articles.json";
@@ -170,7 +170,7 @@ class ArticlesTableSeeder extends Seeder
                 }
 
                 $article->refresh();
-                //                $this->service->updateDoc($article);
+//                $this->service->updateDoc($article);
 
             }
         } else {
