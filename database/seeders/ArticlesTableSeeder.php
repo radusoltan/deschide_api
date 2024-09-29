@@ -36,85 +36,85 @@ class ArticlesTableSeeder extends Seeder
 //        foreach (config('translatable.locales') as $locale){
 //            app()->setLocale($locale);
 
-            foreach (Category::all() as $category){
-                $articlesUrl = "https://deschide.md/api/articles.json";
+        foreach (Category::all() as $category){
+            $articlesUrl = "https://deschide.md/api/articles.json";
 
-                try {
-                    $resp = Http::withQueryParameters([
-                        'language' => 'ro',
-                        'section' => $category->old_number,
-                        'items_per_page' => 1000,
-                        'sort[number]' => 'desc'
-                    ])->timeout(360)
-                        ->withOptions(['verify' => false])->accept('application/json')->get($articlesUrl);
-                    if (!empty($resp->object()->items)){
-                        foreach ($resp->object()->items as $item){
-                            $old_article = $this->getArticleByNumber($item->number);
-                            if (property_exists($old_article, 'number')){
-                                $article = Article::where('old_number', $old_article->number)->first();
-                                $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
+            try {
+                $resp = Http::withQueryParameters([
+                    'language' => 'ro',
+                    'section' => $category->old_number,
+                    'items_per_page' => 1000,
+                    'sort[number]' => 'desc'
+                ])->timeout(360)
+                    ->withOptions(['verify' => false])->accept('application/json')->get($articlesUrl);
+                if (!empty($resp->object()->items)){
+                    foreach ($resp->object()->items as $item){
+                        $old_article = $this->getArticleByNumber($item->number);
+                        if (property_exists($old_article, 'number')){
+                            $article = Article::where('old_number', $old_article->number)->first();
+                            $authors = property_exists($old_article, 'authors') ? $old_article->authors : [];
 
-                                $reads = intval($old_article->reads);
+                            $reads = intval($old_article->reads);
 
-                                $path = parse_url($old_article->url, PHP_URL_PATH);
+                            $path = parse_url($old_article->url, PHP_URL_PATH);
 
-                                $segments = explode('/', trim($path, '/'));
+                            $segments = explode('/', trim($path, '/'));
 
-                                if (!$article) {
-                                    $article = Article::create([
-                                        'old_number' => $old_article->number,
-                                        'category_id' => $category->id,
-                                        'title' => $old_article->title,
-                                        'slug' => Str::slug($old_article->title),
-                                        'lead' => $old_article->fields->lead ?? null,
-                                        'body' => $old_article->fields->Continut ?? null,
-                                        'published_at' => $old_article->published,
-                                        'status' => $old_article->status === 'Y'? "P": "S",
-                                        'is_flash' => false,
-                                        'is_breaking' => false,
-                                        'is_alert' => false,
-                                        'is_live' => false,
-                                        'embed' => $old_article->fields->Embed ?? null,
-                                    ]);
-                                } else {
-                                    $article->update([
-                                        'old_number' => $old_article->number,
-                                        'category_id' => $category->id,
-                                        'title' => $old_article->title,
-                                        'slug' => $category->id != 11 ? Str::slug($old_article->title) : Str::slug($old_article->number.'-'.$segments[4].'-'.Str::random()),
-                                        'lead' => $old_article->fields->lead ?? null,
-                                        'body' => $old_article->fields->Continut ?? null,
-                                        'published_at' => $old_article->published,
-                                        'status' => $old_article->status === 'Y'? "P": "S",
-                                        'is_flash' => false,
-                                        'is_breaking' => false,
-                                        'is_alert' => false,
-                                        'is_live' => false,
-                                        'embed' => $old_article->fields->Embed ?? null,
-                                    ]);
-                                }
-
-                                visits($article)->increment($reads);
-//                                $this->service->updateDocVisits($article);
-
-                                foreach($authors as $old_author) {
-                                    $path = parse_url($old_author->link, PHP_URL_PATH);
-                                    // Explode the path into segments
-                                    $segments = explode('/', trim($path, '/'));
-                                    $author = Author::where('old_number', $segments[2])->first();
-                                    if (!$article->authors->contains($author)) {
-                                        $article->authors()->attach($author);
-                                    }
-                                }
-                                $this->getArticleImagesByNumber($old_article->number, app()->getLocale());
+                            if (!$article) {
+                                $article = Article::create([
+                                    'old_number' => $old_article->number,
+                                    'category_id' => $category->id,
+                                    'title' => $old_article->title,
+                                    'slug' => Str::slug($old_article->title),
+                                    'lead' => $old_article->fields->lead ?? null,
+                                    'body' => $old_article->fields->Continut ?? null,
+                                    'published_at' => $old_article->published,
+                                    'status' => $old_article->status === 'Y'? "P": "S",
+                                    'is_flash' => false,
+                                    'is_breaking' => false,
+                                    'is_alert' => false,
+                                    'is_live' => false,
+                                    'embed' => $old_article->fields->Embed ?? null,
+                                ]);
+                            } else {
+                                $article->update([
+                                    'old_number' => $old_article->number,
+                                    'category_id' => $category->id,
+                                    'title' => $old_article->title,
+                                    'slug' => $category->id != 11 ? Str::slug($old_article->title) : Str::slug($old_article->number.'-'.$segments[4].'-'.Str::random()),
+                                    'lead' => $old_article->fields->lead ?? null,
+                                    'body' => $old_article->fields->Continut ?? null,
+                                    'published_at' => $old_article->published,
+                                    'status' => $old_article->status === 'Y'? "P": "S",
+                                    'is_flash' => false,
+                                    'is_breaking' => false,
+                                    'is_alert' => false,
+                                    'is_live' => false,
+                                    'embed' => $old_article->fields->Embed ?? null,
+                                ]);
                             }
+
+                            visits($article)->increment($reads);
+                            //                                $this->service->updateDocVisits($article);
+
+                            foreach($authors as $old_author) {
+                                $path = parse_url($old_author->link, PHP_URL_PATH);
+                                // Explode the path into segments
+                                $segments = explode('/', trim($path, '/'));
+                                $author = Author::where('old_number', $segments[2])->first();
+                                if (!$article->authors->contains($author)) {
+                                    $article->authors()->attach($author);
+                                }
+                            }
+                            $this->getArticleImagesByNumber($old_article->number, app()->getLocale());
                         }
                     }
-                } catch (Exception $exception){
-                    dump($exception->getMessage());
                 }
+            } catch (Exception $exception){
+                dump($exception->getMessage());
             }
-//        }
+        }
+        //        }
 
 
 
