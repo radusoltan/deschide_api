@@ -43,7 +43,7 @@ class ArticlesTableSeeder extends Seeder
                     $resp = Http::withQueryParameters([
                         'language' => 'ro',
                         'section' => $category->old_number,
-                        'items_per_page' => 10,
+                        'items_per_page' => 1000,
                         'sort[number]' => 'desc'
                     ])->timeout(360)
                         ->withOptions(['verify' => false])->accept('application/json')->get($articlesUrl);
@@ -170,7 +170,7 @@ class ArticlesTableSeeder extends Seeder
                 }
 
                 $article->refresh();
-                $this->service->updateDoc($article);
+//                $this->service->updateDoc($article);
 
             }
         } else {

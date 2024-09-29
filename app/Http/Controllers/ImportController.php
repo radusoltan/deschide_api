@@ -413,8 +413,8 @@ class ImportController extends Controller {
               Carbon::parse($article->published_at)->format('m/d/Y h:i A'),
               Carbon::parse($article->updated_at)->format('m/d/Y h:i A'),
               strtoupper($article->category->title),
-              $article->authors()->get()->pluck('name')->implode(' ,'),
-              is_null($article->images()->where('is_main',true)->first()) ? '' : env('APP_URL').'storage/images/'.$article->images()->where('is_main',true)->first()->name,
+              empty($article->authors()->get()->pluck('full_name')->implode(' ,')) ? "Deschide.md" : $article->authors()->get()->pluck('full_name')->implode(' ,'),
+              is_null($article->images()->where('is_main',true)->first()) ? 'Deschide.MD' : env('APP_URL').'storage/images/'.$article->images()->where('is_main',true)->first()->name,
           ]);
       }
 
