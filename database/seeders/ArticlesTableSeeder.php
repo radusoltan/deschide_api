@@ -32,6 +32,8 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run(): void
     {
+        $test_auth = Http::get('https://deschide.md/oauth/v2/auth?client_id=2_1fps5eyseu00ckgsog40sk884wwg8s0s0gww0wwks0cs8g48wg&redirect_uri=https%3A%2F%2Fdeschide.md%2Foauth%2Fauthentication%2Fresult&response_type=token');
+//dd($test_auth->body());
         foreach (config('translatable.locales') as $locale){
 
             app()->setLocale($locale);
@@ -42,11 +44,15 @@ class ArticlesTableSeeder extends Seeder
                 $resp = Http::withQueryParameters([
                     'language' => $locale,
                     'section' => $category->old_number,
-                    'items_per_page' => 500,
+                    'items_per_page' => 1000,
                     'sort[number]' => 'desc',
                     'type' => 'stiri',
                     'page' => 1,
+                    "access_token" => "ZTdhMGJjNGRiMTMyN2VmNDJiYzUyYjA4MDZlYjJjNmE2NTUwYzk3YmNjZGQ4MzQ0ZTg1NDgzYjgyMDMwNDRkOA"
                 ])->timeout(360)
+                    ->withHeaders([
+                        'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36',
+                    ])
                     ->withOptions(['verify' => false])->accept('application/json')->get($articlesUrl);
 
                 if (property_exists($resp->object(), 'items')){
