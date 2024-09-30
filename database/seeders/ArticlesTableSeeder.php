@@ -36,13 +36,13 @@ class ArticlesTableSeeder extends Seeder
 
 //            app()->setLocale($locale);
 
-            foreach (Category::all() as $category){
+//            foreach (Category::all() as $category){
                 $articlesUrl = "https://deschide.md/api/articles.json";
 
                 $resp = Http::withQueryParameters([
                     'language' => 'ro',
-                    'section' => $category->old_number,
-                    'items_per_page' => 100,
+//                    'section' => $category->old_number,
+                    'items_per_page' => 1000,
                     'sort[number]' => 'desc',
                     'type' => 'stiri',
                     'page' => 1,
@@ -97,7 +97,7 @@ class ArticlesTableSeeder extends Seeder
                         }
                     }
                 }
-            }
+//            }
 //        }
     }
 
