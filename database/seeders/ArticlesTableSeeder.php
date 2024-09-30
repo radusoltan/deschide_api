@@ -45,7 +45,7 @@ class ArticlesTableSeeder extends Seeder
                     'items_per_page' => 1000,
                     'sort[number]' => 'desc',
                     'type' => 'stiri',
-                    'page' => 1,
+                    'page' => 2,
                     "access_token" => "NTRjZDZjNDI3OWFjMTQwNjZiZjIxZjFkMTFhMjkyZjc0YTdmOGFmNTA4ZDVlMWRmNTc1NzFjNjI4ZTQyYmY4MQ"
                 ])->timeout(360)
                     ->withOptions(['verify' => FALSE])->accept('application/json')->get($articlesUrl);
