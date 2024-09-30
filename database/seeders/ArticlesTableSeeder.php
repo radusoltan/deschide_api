@@ -74,23 +74,24 @@ class ArticlesTableSeeder extends Seeder
                                     'is_live' => false,
                                     'embed' => $old_article->fields->Embed ?? null,
                                 ]);
-                            } else {
-                                $article->update([
-                                    'old_number' => $old_article->number,
-                                    'category_id' => $category->id,
-                                    'title' => $old_article->title,
-                                    'slug' => $category->id != 11 ? Str::slug($old_article->title) : Str::slug($old_article->number.'-'.$segments[4].'-'.Str::random()),
-                                    'lead' => $old_article->fields->lead ?? null,
-                                    'body' => $old_article->fields->Continut ?? null,
-                                    'published_at' => $old_article->published,
-                                    'status' => $old_article->status === 'Y'? "P": "S",
-                                    'is_flash' => false,
-                                    'is_breaking' => false,
-                                    'is_alert' => false,
-                                    'is_live' => false,
-                                    'embed' => $old_article->fields->Embed ?? null,
-                                ]);
                             }
+//                            else {
+//                                $article->update([
+//                                    'old_number' => $old_article->number,
+//                                    'category_id' => $category->id,
+//                                    'title' => $old_article->title,
+//                                    'slug' => $category->id != 11 ? Str::slug($old_article->title) : Str::slug($old_article->number.'-'.$segments[4].'-'.Str::random()),
+//                                    'lead' => $old_article->fields->lead ?? null,
+//                                    'body' => $old_article->fields->Continut ?? null,
+//                                    'published_at' => $old_article->published,
+//                                    'status' => $old_article->status === 'Y'? "P": "S",
+//                                    'is_flash' => false,
+//                                    'is_breaking' => false,
+//                                    'is_alert' => false,
+//                                    'is_live' => false,
+//                                    'embed' => $old_article->fields->Embed ?? null,
+//                                ]);
+//                            }
                             $this->getArticleAuthors($article->old_number);
                             $this->getArticleImagesByNumber($old_article->number, app()->getLocale());
                         }
