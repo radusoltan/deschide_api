@@ -54,7 +54,7 @@ class ArticlesTableSeeder extends Seeder
                         'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36',
                     ])
                     ->withOptions(['verify' => false])->accept('application/json')->get($articlesUrl);
-dump($resp->json());
+
                 if (property_exists($resp->object(), 'items')){
                     foreach($resp->object()->items as $item) {
                         $old_article = $this->getArticleByNumber($item->number);
