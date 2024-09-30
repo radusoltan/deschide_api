@@ -55,7 +55,7 @@ class ArticlesTableSeeder extends Seeder
                     ])
                     ->withOptions(['verify' => false])->accept('application/json')->get($articlesUrl);
 
-                if (property_exists($resp->object(), 'items')){
+                if (!is_null($resp) && property_exists($resp->object(), 'items')){
                     foreach($resp->object()->items as $item) {
                         $old_article = $this->getArticleByNumber($item->number);
                         if (property_exists($old_article, 'number')){
