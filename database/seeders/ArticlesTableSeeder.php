@@ -48,10 +48,7 @@ class ArticlesTableSeeder extends Seeder
                     'page' => 1,
                     "access_token" => "N2Y3ODkwMTM3NmNhZGVlOGQ5NWUwYTRkYzM3YjY3ZGZjODAxNjIzY2JiN2QxMzI4MjU5MjRmYTkzYjRjZmQ1OA"
                 ])->timeout(360)
-                    ->withHeaders([
-                        'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36',
-                    ])
-                    ->withOptions(['verify' => true])->accept('application/json')->get($articlesUrl);
+                    ->withOptions(['verify' => FALSE])->accept('application/json')->get($articlesUrl);
 dump($resp);
                 if (!is_null($resp) && property_exists($resp->object(), 'items')){
                     foreach($resp->object()->items as $item) {
