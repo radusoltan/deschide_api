@@ -32,25 +32,25 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        foreach (config('translatable.locales') as $locale){
+//        foreach (config('translatable.locales') as $locale){
 
-            app()->setLocale($locale);
+//            app()->setLocale($locale);
 
             foreach (Category::all() as $category){
                 $articlesUrl = "https://deschide.md/api/articles.json";
 
                 $resp = Http::withQueryParameters([
-                    'language' => $locale,
+                    'language' => 'ro',
                     'section' => $category->old_number,
                     'items_per_page' => 100,
                     'sort[number]' => 'desc',
                     'type' => 'stiri',
                     'page' => 1,
-                    "access_token" => "N2Y3ODkwMTM3NmNhZGVlOGQ5NWUwYTRkYzM3YjY3ZGZjODAxNjIzY2JiN2QxMzI4MjU5MjRmYTkzYjRjZmQ1OA"
+                    "access_token" => "NTRjZDZjNDI3OWFjMTQwNjZiZjIxZjFkMTFhMjkyZjc0YTdmOGFmNTA4ZDVlMWRmNTc1NzFjNjI4ZTQyYmY4MQ"
                 ])->timeout(360)
                     ->withOptions(['verify' => FALSE])->accept('application/json')->get($articlesUrl);
-dump($resp);
-                if (!is_null($resp) && property_exists($resp->object(), 'items')){
+
+                if (property_exists($resp->object(), 'items')){
                     foreach($resp->object()->items as $item) {
                         $old_article = $this->getArticleByNumber($item->number);
                         if (property_exists($old_article, 'number')){
@@ -97,7 +97,7 @@ dump($resp);
                     }
                 }
             }
-        }
+//        }
     }
 
     public function getArticleAuthors($article){
